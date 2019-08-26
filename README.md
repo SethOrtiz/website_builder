@@ -158,14 +158,14 @@ __#4__
 ```
 As a user
 When I click the "edit" button on one of my websites
-I should be redirected to /worstation/:userId/:websiteId
+I should be redirected to /workstation/:userId/:websiteId
 ```
 ## Workstation
 
 __#1__
 ```
 As a user
-When I visit /worstation/:userId/:websiteId
+When I visit /workstation/:userId/:websiteId
 I should see a Toolbox and a Display
 
 ```
@@ -173,7 +173,7 @@ I should see a Toolbox and a Display
 __#2__
 ```
 As a user
-When I visit /worstation/:userId/:websiteId
+When I visit /workstation/:userId/:websiteId
 I should be able to easily create a new section and edit it with the the tool box.
 
 ```
@@ -181,7 +181,7 @@ I should be able to easily create a new section and edit it with the the tool bo
 __#3__
 ```
 As a user
-When I visit /worstation/:userId/:websiteId
+When I visit /workstation/:userId/:websiteId
 Should see the display update when I make edits using the toolbox
 
 ```
@@ -189,7 +189,7 @@ Should see the display update when I make edits using the toolbox
 __#4__
 ```
 As a user
-When I visit /worstation/:userId/:websiteId
+When I visit /workstation/:userId/:websiteId
 I should see an options to preview and publish my website
 ```
 
@@ -212,7 +212,7 @@ I should be redirected to /dashboard/:userId/ and notified that my site was publ
 __#1__
 ```
 As a user
-When I visit /worstation/:userId/:websiteId
+When I visit /workstation/:userId/:websiteId
 I should see and Toolbox and a Display
 
 ```
@@ -220,7 +220,7 @@ I should see and Toolbox and a Display
 __#2__
 ```
 As a user
-When I visit /worstation/:userId/:websiteId
+When I visit /workstation/:userId/:websiteId
 I should be able to easily create a new section and edit it with the the tool box
 
 ```
