@@ -110,7 +110,7 @@ __#2__
 ```
 As a user
 When I click the "get started" button
-I am promted with a loggin/sign up option
+I am prompted with a login/sign up option
 ```
 __#3__
 ```
