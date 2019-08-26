@@ -37,22 +37,22 @@
 - Musician Website
 
 # Navigation
-<img src="./mvp_funnel.png">
+<img src="./wireframes/mvp_funnel.png">
 
 # The Landing Page
 
 ### This page showcases a few examples of sites made with Hubstereo in the past. It also prompts users to login/signUp and get started.
-<img src="./landing_wireframe.png">
+<img src="./wireframes/landing.png">
 
 # The Dashboard
 
 ### For the MVP, this page will only allow the user to update personal info, add a profile picture, and edit or preview their page.
-<img src="./dashboard_wireframe.png">
+<img src="./wireframes/dashboard.png">
 
 # The Workstation
 
 ### This page features the two most important components: Toolbox & Display. 
-<img src="./workstation_wireframe.png">
+<img src="./wireframes/workstation.png">
 
 ## Components
 ### Builder
@@ -92,7 +92,7 @@
 # The Preview / Musician Website
 
 ### This is the final product. The only difference bewtween the preview and the live site page (componentwise...) is a publish button on the preview page.
-<img src="./musician_website_wireframe.png">
+<img src="./wireframes/product.png">
 
 ###### © Seth Ortiz 2019
 
