@@ -1,68 +1,244 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hubstereo
+### An easy to use website builder for musicians
+#### MVP
+- Create an account
+- Login/Logout
+- Full CRUD notepad on the dashboard
+- Create personalized websites (section by section)
+- Save changes that persist to the backend
+- Preview website in progress
+- Once completed; newly created website can be viewed at https://Hubstereo.herokuapp.com/UserWebsiteName
 
-## Available Scripts
+#### Not Included
+- MVP will not give the user the ability to deploy their website with a personalized domain name
+- MVP will not give the user the ablitity to create an online store
+- MVP will not give the user the ability to create multiple websites
+- MVP will not give the users more than one preset template to start from 
 
-In the project directory, you can run:
+#### Technologies Utilized
 
-### `npm start`
+| Languages     | Frameworks    | Libraries     | Databases     | Other         | 
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Javascript    | Bootstrap     | React.js      | Firebase      | Heroku        |
+| Java          | Springboot    | Redux         | PostgreSQL    | React-Router  |  
+| CSS           |               |               |               | EditorJs      |
+| HTML          |               |               |               | Reactstrap    |
+| SQL           |               |               |               |               |
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Implementation of Java & Springboot
+- The notepad in the dashboard page will run on java and springboot
+- Everything else will be done with React and Firebase
+    
+#### Pages 
+- Landing 
+- Dashboard
+- Workstation
+- Preview
+- Musician Website
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# Navigation
+<img src="./mvp_funnel.png">
 
-### `npm test`
+# The Landing Page
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### This page showcases a few examples of sites made with Hubstereo in the past. It also prompts users to login/signUp and get started.
+<img src="./landing_wireframe.png">
 
-### `npm run build`
+# The Dashboard
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### For the MVP, this page will only allow the user to update personal info, add a profile picture, and edit or preview their page.
+<img src="./dashboard_wireframe.png">
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+# The Workstation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### This page features the two most important components: Toolbox & Display. 
+<img src="./workstation_wireframe.png">
 
-### `npm run eject`
+## Components
+### Builder
+- Holds the two main components: Toolbox & Display
+- Stretch: Incorporate three buttons that adjust the dimentions of the display: Desktop, Tablet, and Mobile. This will give the user an idea of what thier website  will look like on different devices.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Display
+- Contains Sections
+- Contains a button to the left of every section that allows users to edit individual sections
+- Contains a button to add a new seciton after every section
+- Contains a link to the Preview page
+- Stretch: Users can rearrange component by dragging them.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Add Section Button 
+- When clicked, this button opens up a menu that allows the user to select the type of section they want to create.
+- MVP Section Types are as follows : Nav, Hero, SoundCloud, About, and Gallery. (these are subject to change).
+- Stretch: incorporate other section types: Tour Dates, News, Videos, Ect...
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Sections
+- Contain Section Units that match the section type
+- Render dynamically based on user input via the Toolbox
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Section Units
+- Individual textboxes, IMG tags, Embeded data, Ect.
+- This fields will have a default value that is determined by the template. (In the case of the MVP there is only one template)
+- Users will have the avility to edit these values with the Toolbox. Values should render dynamically based on user input.
 
-## Learn More
+### Toolbox
+- Contains tools that match the section type
+- Tools change when the user clicks "edit" on another section or adds a different type of section.
+- Stretch: Add a the capability to search for images via the unsplash API. User should be able to easily use these as background images.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Tools
+- Individual inputs that make live edits to the selected section.
+- Stretch: make inputs more flexible by using Editorjs.io
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# The Preview / Musician Website
 
-### Code Splitting
+### This is the final product. The only difference bewtween the preview and the live site page (componentwise...) is a publish button on the preview page.
+<img src="./musician_website_wireframe.png">
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+###### © Seth Ortiz 2019
 
-### Analyzing the Bundle Size
+# User Stories
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Landing Page
 
-### Making a Progressive Web App
+__#1__
+```
+As a user
+When I visit the route route
+I see a "get started" button and examples of sites created with hubstereo
+```
+__#2__
+```
+As a user
+When I click the "get started" button
+I am promted with a loggin/sign up option
+```
+__#3__
+```
+As a user
+If I sign up with valid credentials
+I am redirected to /dashboard/:userId
+```
+__#4__
+```
+As a user
+If I enter valid credentials into the login form & submit
+I am redirected to /dashboard:userId
+```
+__#5__
+```
+As a user that has already logged in
+When I click on the "get started" button
+I am redirected directly to the dashboard
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Dashboard
 
-### Advanced Configuration
+__#1__
+```
+As a user
+When I visit /dashboard/:userId
+I should see a profile section on the upper left had corner that gives the option to add a picture and bio.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+__#2__
+```
+As a user
+when I visit /dashboard/:userId
+I should see a notepad where I can create new notes, edit existing notes, and delete notes.
+```
 
-### Deployment
+__#3__
+```
+As a user
+When I visit /dashboard/:userId
+I should see a list of all my websites.
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+__#4__
+```
+As a user
+When I click the "edit" button on one of my websites
+I should be redirected to /worstation/:userId/:websiteId
+```
+## Workstation
 
-### `npm run build` fails to minify
+__#1__
+```
+As a user
+When I visit /worstation/:userId/:websiteId
+I should see a Toolbox and a Display
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+
+__#2__
+```
+As a user
+When I visit /worstation/:userId/:websiteId
+I should be able to easily create a new section and edit it with the the tool box.
+
+```
+
+__#3__
+```
+As a user
+When I visit /worstation/:userId/:websiteId
+Should see the display update when I make edits using the toolbox
+
+```
+
+__#4__
+```
+As a user
+When I visit /worstation/:userId/:websiteId
+I should see an options to preview and publish my website
+```
+
+__#5__
+```
+As a user
+When I click the "preview" button
+I should be redirected to /preview/:userId/:websiteId
+```
+
+__#6__
+```
+As a user
+When I click the "publish" button
+I should be redirected to /dashboard/:userId/ and notified that my site was published
+```
+
+## Preview
+
+__#1__
+```
+As a user
+When I visit /worstation/:userId/:websiteId
+I should see and Toolbox and a Display
+
+```
+
+__#2__
+```
+As a user
+When I visit /worstation/:userId/:websiteId
+I should be able to easily create a new section and edit it with the the tool box
+
+```
+
+## Musician Website
+
+__#1__
+```
+As a user
+When I visit /userWebsiteName
+I should see the site that I created 
+
+```
+
+__#2__
+```
+As a user
+When I visit /userWebsiteName
+I should be able to listen to my music, read my about section, view my pictures, and click links that redirect me to my social media
+
+```
