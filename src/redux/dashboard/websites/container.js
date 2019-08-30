@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { getWebsites } from "./thunks";
+import { getAllWebsites, getWebsite, addWebsite } from "./thunks";
 import MyWebsites from "../../../views/dashboard/components/MyWebites";
 
 const mapStateToProps = function({ websites }) {
@@ -10,8 +10,14 @@ const mapStateToProps = function({ websites }) {
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    getWebsites: function() {
-      dispatch(getWebsites());
+    getAllWebsites: function() {
+      dispatch(getAllWebsites());
+    },
+    getWebsite: function(){
+      dispatch(getWebsite());
+    },
+    addWebsite: function(){
+      dispatch(addWebsite());
     }
   };
 };

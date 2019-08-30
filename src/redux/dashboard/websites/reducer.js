@@ -1,39 +1,39 @@
 import {
-  LOADING_SITES,
-  SITES_FETCH_ERROR,
-  RECEIVED_SITES
+  LOADING_WEBSITES,
+  WEBSITES_FETCH_ERROR,
+  RECEIVED_WEBSITES
 } from "./actions";
 
 const initialState = {
-  sites: [],
+  websites: [],
   loading: false,
   error: false
 };
 
-function reducer(state = initialState, action) {
+function websitesReducer(state = initialState, action) {
   switch (action.type) {
-    case LOADING_SITES:
+    case LOADING_WEBSITES:
       return {
         ...state,
         loading: true,
         error: false
       };
-    case SITES_FETCH_ERROR:
+    case WEBSITES_FETCH_ERROR:
       return {
         ...state,
         loading: false,
         error: true
       };
-    case RECEIVED_SITES:
+    case RECEIVED_WEBSITES:
       return {
         ...state,
         loading: false,
         error: false,
-        sites: action.payload
+        websites: action.payload
       };
     default:
       return state;
   }
 }
 
-export default reducer;
+export default websitesReducer;
