@@ -7,11 +7,11 @@ import {
   sectionPostSuccess,
 } from "../actions/sectionActions";
 
-export function getSections() {
+export function getSections(websiteId) {
   return async function(dispatch) {
     dispatch(loadingSections());
     try {
-      const res = await fetch(`./sections`);
+      const res = await fetch(`https://us-central1-hubstereo-5f9be.cloudfunctions.net/api/websites/${websiteId}`);
       if (!res.ok) {
         throw new Error();
       }
@@ -23,17 +23,13 @@ export function getSections() {
   };
 }
 
-export function addSection(unit1, unit2, unit3, unit4) {
+export function addSection(websiteId) {
   return async function(dispatch) {
     dispatch(postingSection());
     try {
-      const res = await fetch(`./sections`, {
+      const res = await fetch(`https://us-central1-hubstereo-5f9be.cloudfunctions.net/api/websites/${websiteId}/section`, {
         method: "POST",
         body: JSON.stringify({
-          unit1,
-          unit2,
-          unit3,
-          unit4
         }),
         headers: {
           "Content-Type": "application/json"

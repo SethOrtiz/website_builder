@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import sectionsReducer from './sections/reducer'
-import sitesReducer from './sites/reducer'
-import unitsReducer  from './units/reducer'
-import toolsReducer  from './tools/reducer'
+import sitesReducer from './dashboard/sites/reducer'
+import sectionsReducer from './workstation/sections/reducer'
+import unitsReducer  from './workstation/units/reducer'
+import toolsReducer  from './workstation/tools/reducer'
 
 // import reducers...
 const rootReducer = combineReducers({
