@@ -24,7 +24,7 @@ const rightColumnStyles = {
 
 export default function ShowcaseA() {
   return (
-    <div style={showcaseAStyles}>
+    <section id="A" style={showcaseAStyles}>
       <div>1</div>
       <div>2</div>
       <div>3</div>
@@ -37,6 +37,6 @@ export default function ShowcaseA() {
       <div>10</div>
       <div>11</div>
       <div>12</div>
-    </div>
+    </section>
   );
 }

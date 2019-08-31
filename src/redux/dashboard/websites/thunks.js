@@ -1,3 +1,4 @@
+import { API } from "../../constants/api";
 import {
   loadingWebsites,
   fetchWebsites,
@@ -10,12 +11,11 @@ import {
   websitePostSuccess,
 } from "./actions";
 
-
 export function getAllWebsites() {
   return async function(dispatch) {
     dispatch(loadingWebsites());
     try {
-      const res = await fetch("https://us-central1-hubstereo-5f9be.cloudfunctions.net/api/websites");
+      const res = await fetch(API + "/websites");
       if (!res.ok) {
         throw new Error();
       }
@@ -31,7 +31,7 @@ export function getWebsite(websiteId) {
   return async function(dispatch) {
     dispatch(loadingWebsite());
     try {
-      const res = await fetch(`https://us-central1-hubstereo-5f9be.cloudfunctions.net/api/websites/${websiteId}`);
+      const res = await fetch(`${API}/websites/${websiteId}`);
       if (!res.ok) {
         throw new Error();
       }
@@ -48,7 +48,7 @@ export function addWebsite(websiteId) {
   return async function(dispatch) {
     dispatch(postingWebsite());
     try {
-      const res = await fetch(`https://us-central1-hubstereo-5f9be.cloudfunctions.net/api/websites/${websiteId}/website`, {
+      const res = await fetch(`${api}/websites/${websiteId}/website`, {
         method: "POST",
         body: JSON.stringify({
         }),

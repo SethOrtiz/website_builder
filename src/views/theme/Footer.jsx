@@ -20,7 +20,7 @@ const headerStyles = {
 
 export default function Footer() {
   return (
-    <div style={footerStyles}>
+    <section style={footerStyles}>
       <div></div>
       <div style={wrapperStyles}>
         <h1>Hubstereo</h1>
@@ -30,13 +30,13 @@ export default function Footer() {
           <h3 style={headerStyles}>Community</h3>
           <ul>
             <li>
-              <a href="#1">Bands</a>
+              <a href="#hero">Bands</a>
             </li>
             <li>
-              <a href="#1">Solo Artists</a>
+              <a href="#A">Solo Artists</a>
             </li>
             <li>
-              <a href="#1">Managers</a>
+              <a href="#B">Managers</a>
             </li>
           </ul>
         </div>
@@ -56,6 +56,6 @@ export default function Footer() {
         </div>
       </div>
       <div></div>
-    </div>
+    </section>
   );
 }

@@ -34,13 +34,13 @@ const Navbar = () => (
   <div></div>
     <div style={brandStyles}>Hubstereo</div>
     <div style={routesStyles}>
-      <Link className="link left" to={ROUTES.DASHBOARD}>
+      <Link to={ROUTES.DASHBOARD}>
         Dashboard
       </Link>
-      <Link className="link center" to={ROUTES.WORKSTATION}>
+      <Link  to={ROUTES.WORKSTATION}>
         Workstation
       </Link>
-      <Link className="link rigth" to={ROUTES.SIGN_IN}>
+      <Link  to={ROUTES.SIGN_IN}>
         Log In
       </Link>
     </div>

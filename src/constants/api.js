@@ -1,0 +1,1 @@
+export const API = 'https://us-central1-hubstereo-5f9be.cloudfunctions.net/api';
