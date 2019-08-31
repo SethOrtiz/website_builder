@@ -1,8 +1,7 @@
 import React from "react";
 
-const heroStyles = {
-  backgroundColor: "black",
-  color: "#555",
+const showcaseAStyles = {
+  backgroundColor: "#e3f0ff",
   height: "100vh",
   display: "grid",
   gridTemplateColumns: "1fr 5fr 5fr 1fr",
@@ -13,40 +12,26 @@ const leftColumnStyles = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#3da4ab"
+  backgroundColor: "#fffef9"
 };
-
 
 const rightColumnStyles = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#f6cd61"
+  backgroundColor: "#ffefd7"
 };
 
-const getStartedStyles = {
-  height: "4rem",
-  width: "20rem",
-  fontSize: "2rem",
-  backgroundColor: "#fff",
-  color: "black",
-  borderRadius: "2rem",
-  border: "none",
-  outline: "none"
-};
-
-export default function Hero() {
+export default function ShowcaseA() {
   return (
-    <div style={heroStyles}>
+    <div style={showcaseAStyles}>
       <div>1</div>
       <div>2</div>
       <div>3</div>
       <div>4</div>
       <div>5</div>
       <div style={leftColumnStyles}>6</div>
-      <div style={rightColumnStyles}>
-        <button style={getStartedStyles}>Get Started</button>
-      </div>
+      <div style={rightColumnStyles}>7</div>
       <div>8</div>
       <div>9</div>
       <div>10</div>
@@ -55,5 +40,3 @@ export default function Hero() {
     </div>
   );
 }
-
-

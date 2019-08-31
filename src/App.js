@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Navbar from './views/theme/Navbar'
 import Landing from './views/landing/Landing'
 import Dashboard from './views/dashboard/Dashboard'
 import Workstation from './views/workstation/Workstation'
@@ -11,7 +10,6 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar />
         <Switch>
           <Route exact path={ROUTES.LANDING} component={Landing} />
           <Route path={ROUTES.DASHBOARD} component={Dashboard} />

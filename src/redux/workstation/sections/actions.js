@@ -39,7 +39,7 @@ export function sectionFailedToPost() {
   };
 }
 
-export const SECTION_POST_SUCCESS = "SECTION_POST_SUCCES";
+export const SECTION_POST_SUCCESS = "SECTION_POST_SUCCESS";
 export function sectionPostSuccess(newSectionJson) {
     return {
     type: SECTION_POST_SUCCESS,
