@@ -36,6 +36,15 @@ const styles = {
     fontSize: "1rem",
     textAlign: "center"
   },
+  signIn: {
+    backgroundColor: "inherit",
+    border: "none",
+    outline: "none",
+    padding: "1rem 0.5rem",
+    fontSize: "1rem",
+    color: "#3da4ab",
+    fontWeight: "700"
+  },
   btnContainer: {
     display: "flex",
     justifyContent: "center"
@@ -252,6 +261,10 @@ const SignUp = props => {
       });
     }
   }
+////// Already have an acount ////
+const handleSignIn = () => {
+   props.setSignInState({open: true})
+ }
 
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>
@@ -262,14 +275,14 @@ const SignUp = props => {
       <div id="five">
         <h1 style={styles.header}>Sign Up</h1>
         <div style={styles.subtitle}>
-          Already have an account? <button>sign in</button>
+          Already have an account?<button onClick={handleSignIn}  style={styles.signIn}>Sign In</button>
         </div>
         <div>
           <input
             type="text"
             name="handle"
             onChange={handleChange}
-            placeholder="User Name"
+            placeholder="UserName"
             value={validation.handle}
             id="handle-field"
             className="control"
@@ -284,7 +297,7 @@ const SignUp = props => {
             type="email"
             name="email"
             onChange={handleChange}
-            placeholder="email"
+            placeholder="Email"
             value={validation.email}
             id="email-field"
             className="control"
@@ -299,7 +312,7 @@ const SignUp = props => {
             type="password"
             name="password"
             onChange={handleChange}
-            placeholder="password"
+            placeholder="Password"
             value={validation.password}
             id="body-field"
             className="control"
@@ -320,7 +333,7 @@ const SignUp = props => {
             noValidate
             valid={validation.passwordConfirmValid}
             invalid={validation.passwordConfirmInvalid}
-            placeholder="confirm password"
+            placeholder="Confirm Password"
           />
           <div className="feedback">
             {validation.formErrors.passwordConfirm}

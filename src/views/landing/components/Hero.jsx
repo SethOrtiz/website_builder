@@ -1,9 +1,8 @@
-import React from "react";
-import SignUp from "./SignUp"
-
+import React, { useState } from "react";
+import SignUp from "./SignUp";
+import SignIn  from "./SignIn";
 const heroStyles = {
   backgroundColor: "#777",
-  color: "#555",
   height: "100vh",
   display: "grid",
   gridTemplateColumns: "1fr 5fr 5fr 1fr",
@@ -17,26 +16,37 @@ const leftColumnStyles = {
   backgroundColor: "#3da4ab"
 };
 
-// const rightColumnStyles = {
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   backgroundColor: "#f6cd61"
-// };
+const rightColumnStyles = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "#fe8a71"
+};
 
-// const getStartedStyles = {
-//     padding: "0.8rem 2rem",
-//   fontSize: "2rem",
-//   backgroundColor: "#fff",
-//   color: "black",
-//   borderRadius: "2rem",
-//   border: "none",
-//   outline: "none",
-//   textAlign: "center"
-// };
-
+const getStartedStyles = {
+  padding: "0.8rem 2rem",
+  fontSize: "2rem",
+  backgroundColor: "#fff",
+  color: "black",
+  borderRadius: "2rem",
+  border: "none",
+  outline: "none",
+  textAlign: "center"
+};
 
 export default function Hero() {
+  const [signUpState, setSignUpState] = useState({
+    open: false
+  });
+
+  const [signInState, setSignInState] = useState({
+    open: false
+  });
+
+  const handleGetStarted = () => {
+    setSignUpState({ open: true });
+  };
+
   return (
     <section id="hero" style={heroStyles}>
       <div>1</div>
@@ -45,7 +55,19 @@ export default function Hero() {
       <div>4</div>
       <div>5</div>
       <div style={leftColumnStyles}>6</div>
-      <SignUp/>
+      {(!signInState.open && !signUpState.open) ? (
+        <div style={rightColumnStyles}>
+          <button
+            onClick={handleGetStarted}
+            style={getStartedStyles}
+            className="link"
+          >
+            Get Started
+          </button>
+        </div>
+      ) : !signInState.open ? (
+        <SignUp setSignInState={setSignInState} signInState={signInState} />
+      ) : ( <SignIn/>)}
       <div>8</div>
       <div>9</div>
       <div>10</div>
@@ -54,8 +76,3 @@ export default function Hero() {
     </section>
   );
 }
-      // <div style={rightColumnStyles}>
-      //   <button style={getStartedStyles} className="link">
-      //     Get Started
-      //   </button>
-      // </div>

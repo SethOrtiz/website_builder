@@ -135,21 +135,18 @@ a:hover {
   line-height: 1.5;
   background-clip: padding-box;
   border: 0 solid;
-  border-bottom: 3px solid black;
+  border-bottom: 1px solid black;
   border-radius: 0;
-  -webkit-transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.3s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.3s ease-in-out, box-shadow 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
+  transition: border 0.2s;
 }
 
 .control:focus {
   color: #fff;
-  background-color: #c29d41;
+  border-bottom: 3px solid black;
+  background-color: inherit;
+  backdrop-filter: brightness(98%);
   outline: 0;
+ 
 }
 .control::placeholder {
   color: #fff;
