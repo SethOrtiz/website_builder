@@ -4,7 +4,6 @@ import * as ROUTES from "../../constants/routes";
 
 const brandStyles = {
   fontSize: "1.5rem",
-  color: "#fff",
   paddingLeft: "2rem",
 };
 
@@ -18,7 +17,6 @@ const navbarStyles = {
   fontSize: "1rem",
   textTransform: "uppercase",
   fontWeight: "600",
-  color: "#fff",
   position: "fixed",
   // backgroundColor: "rgba(255, 255, 255, 0.08)"
 };

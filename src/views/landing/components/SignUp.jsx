@@ -9,10 +9,6 @@ const styles = {
     gridTemplateColumns: "1fr 6fr 1fr",
     gridTemplateRows: "1fr 10fr 1fr"
   },
-  row: {
-    display: "grid",
-    gridColumn: "1 / span 3"
-  },
   signUp: {
     borderRadius: "2rem",
     padding: "0.8rem 2rem",
@@ -268,10 +264,9 @@ const handleSignIn = () => {
 
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>
-      <div id="one-two-three" style={styles.row}>
-        1 - 2 - 3
+      <div id="one-two-three" className="row">
       </div>
-      <div id="four">4</div>
+      <div id="four"></div>
       <div id="five">
         <h1 style={styles.header}>Sign Up</h1>
         <div style={styles.subtitle}>
@@ -346,9 +341,8 @@ const handleSignIn = () => {
           </button>
         </div>
       </div>
-      <div id="six">6</div>
-      <div id="7-8-9" style={styles.row}>
-        7 - 8 - 9
+      <div id="six"></div>
+      <div id="seven-eight-nine" className="row">
       </div>
     </form>
   );

@@ -4,17 +4,16 @@ import { withRouter } from "react-router-dom";
 const styles = {
   form: {
     width: "100%",
-    backgroundColor: "#0e9aa7",
+    backgroundColor: "#4a4e4d ",
     display: "grid",
     gridTemplateColumns: "1fr 6fr 1fr",
-    gridTemplateRows: "1fr 10fr 1fr",
-    alignItems: "center"
+    gridTemplateRows: "1fr 10fr 1fr"
   },
   row: {
     display: "grid",
     gridColumn: "1 / span 3"
   },
-  signIn: {
+  send: {
     borderRadius: "2rem",
     padding: "0.8rem 2rem",
     fontSize: "1rem",
@@ -31,15 +30,11 @@ const styles = {
     textAlign: "center",
     color: "#fff"
   },
-  forgotPassword: {
+  subtitle: {
     width: "100%",
     padding: "1rem 0",
     fontSize: "1rem",
-    textAlign: "center",
-    backgroundColor: "inherit",
-    color: "#fff",
-    border: "none",
-    outline: "none"
+    textAlign: "center"
   },
 
   btnContainer: {
@@ -48,25 +43,22 @@ const styles = {
   }
 };
 
-const SignIn = props => {
+const ForgotPassword = props => {
   const [validation, setValidation] = useState({
     formIncomplete: false,
     formValid: false,
     email: "",
     emailValid: false,
     emailInvalid: false,
-    password: "",
-    passwordValid: false,
     formErrors: {
-      email: "",
-      password: ""
+      email: ""
     }
   });
 
   const validateForm = () => {
-    const { emailValid, passwordValid } = validation;
+    const { emailValid } = validation;
     let formValid = false;
-    if (emailValid && passwordValid) {
+    if (emailValid) {
       formValid = true;
     } else {
       setValidation({ ...validation, formIncomplete: true });
@@ -100,20 +92,6 @@ const SignIn = props => {
               emailInvalid: false
             });
         break;
-      case "password":
-        formErrors.password = value.length === 0 ? "field required" : "";
-        value.length === 0
-          ? setValidation({
-              ...validation,
-              passwordInvalid: true,
-              passwordValid: false
-            })
-          : setValidation({
-              ...validation,
-              passwordValid: true,
-              passwordInvalid: false
-            });
-        break;
       default:
         break;
     }
@@ -128,16 +106,12 @@ const SignIn = props => {
   const resetState = () => {
     setValidation({
       formIncomplete: false,
-      passwordInvalid: false,
       formValid: false,
       email: "",
       emailValid: false,
       emailInvalid: false,
-      password: "",
-      passwordValid: false,
       formErrors: {
-        email: "",
-        password: ""
+        email: ""
       }
     });
   };
@@ -145,8 +119,8 @@ const SignIn = props => {
   function handleSubmit(e) {
     e.preventDefault();
     if (validateForm()) {
-      const { email, password } = validation;
-      props.signIn(email, password);
+      const { email } = validation;
+      props.recoverAccount(email);
       resetState();
     } else {
       setValidation({
@@ -156,11 +130,6 @@ const SignIn = props => {
     }
   }
 
-  ////// Already have an acount ////
-  const handleForgotPassword = () => {
-    props.setForgotPasswordState({ open: true });
-  };
-  
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>
       <div id="one-two-three" style={styles.row}></div>
@@ -182,30 +151,12 @@ const SignIn = props => {
           />
           <div className="feedback">{validation.formErrors.email}</div>
         </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            placeholder="Password"
-            value={validation.password}
-            id="body-field"
-            className="control"
-            noValidate
-            valid={validation.passwordValid}
-            invalid={validation.passwordInvalid}
-          />
-          <div className="feedback">{validation.formErrors.password}</div>
-        </div>
         {validation.formIncomplete && <p> Form Incomplete </p>}
         <div style={styles.btnContainer}>
-          <button style={styles.signIn} type="submit">
-            Sign In
+          <button style={styles.send} type="submit">
+            Send
           </button>
         </div>
-        <button onClick={handleForgotPassword} style={styles.forgotPassword}>
-          Forgot Password?
-        </button>
       </div>
       <div id="six"></div>
       <div id="seven-eight-nine" style={styles.row}></div>
@@ -213,4 +164,4 @@ const SignIn = props => {
   );
 };
 
-export default withRouter(SignIn);
+export default withRouter(ForgotPassword);

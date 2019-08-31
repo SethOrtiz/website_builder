@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import SignUp from "./SignUp";
 import SignIn  from "./SignIn";
+import ForgotPassword  from "./ForgotPassword";
 const heroStyles = {
-  backgroundColor: "#777",
+  backgroundColor: "#fff",
   height: "100vh",
   display: "grid",
   gridTemplateColumns: "1fr 5fr 5fr 1fr",
@@ -43,19 +44,20 @@ export default function Hero() {
     open: false
   });
 
+    const [forgotPasswordState, setForgotPasswordState] = useState({
+    open: false
+  });
+
   const handleGetStarted = () => {
     setSignUpState({ open: true });
   };
 
   return (
     <section id="hero" style={heroStyles}>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div style={leftColumnStyles}>6</div>
-      {(!signInState.open && !signUpState.open) ? (
+      <div className="navRow"></div>
+      <div></div>
+      <div style={leftColumnStyles}></div>
+      {(!signInState.open && !signUpState.open && !forgotPasswordState.open) ? (
         <div style={rightColumnStyles}>
           <button
             onClick={handleGetStarted}
@@ -65,14 +67,17 @@ export default function Hero() {
             Get Started
           </button>
         </div>
-      ) : !signInState.open ? (
-        <SignUp setSignInState={setSignInState} signInState={signInState} />
-      ) : ( <SignIn/>)}
-      <div>8</div>
-      <div>9</div>
-      <div>10</div>
-      <div>11</div>
-      <div>12</div>
+      ) : (!signInState.open && !forgotPasswordState.open) ? (
+        <SignUp setSignInState={setSignInState} signInState={signInState}/>
+      ) : (!forgotPasswordState.open) ? (
+        <SignIn forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState}/>
+      ) : (<ForgotPassword/>)
+      }
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </section>
   );
 }
