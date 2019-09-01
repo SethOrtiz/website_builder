@@ -1,56 +1,95 @@
 import React from "react";
 
-const footerStyles = {
-  height: "17vh",
-  display: "grid",
-  gridTemplateColumns: "1fr 5fr 5fr 1fr",
-  backgroundColor: "black",
-  color: "#fff"
-};
-
-const wrapperStyles = {
-  display: "flex",
-  justifyContent: "space-around",
-  paddingTop: "0.6rem"
-};
-
-const headerStyles = {
+const styles = {
+  footer: {
+    height: "17vh",
+    display: "grid",
+    gridTemplateColumns: "1fr 5fr 5fr 1fr",
+    backgroundColor: "#222",
+    color: "#fff"
+  },
+  wrapper: {
+    display: "flex",
+    justifyContent: "space-around",
+    paddingTop: "5%"
+  },
+  brand: {
+    display: "flex",
+    justifyContent: "space-around",
+    paddingTop: "10%",
+    color: "#cecbcb",
+    fontSize: "1.5rem"
+  },
+  header: {
     marginBottom: "0.3rem"
-}
-
+  },
+  link: {
+    color: "#eedbdb"
+  }
+};
 export default function Footer() {
   return (
-    <section style={footerStyles}>
+    <section style={styles.footer}>
       <div></div>
-      <div style={wrapperStyles}>
-        <h1>Hubstereo</h1>
+      <div style={styles.brand}>
+        <h1>H</h1>
+        <h1>U</h1>
+        <h1>B</h1>
+        <h1>S</h1>
+        <h1>T</h1>
+        <h1>E</h1>
+        <h1>R</h1>
+        <h1>E</h1>
+        <h1>O</h1>
       </div>
-      <div style={wrapperStyles}>
+      <div style={styles.wrapper}>
         <div>
-          <h3 style={headerStyles}>Community</h3>
+          <h3 style={styles.header}>Community</h3>
           <ul>
             <li>
-              <a href="#hero">Bands</a>
+              <a style={styles.link} href="#H">
+                Get Started
+              </a>
             </li>
             <li>
-              <a href="#A">Solo Artists</a>
+              <a style={styles.link} href="#A">
+                Solo Artists
+              </a>
             </li>
             <li>
-              <a href="#B">Managers</a>
+              <a style={styles.link} href="#B">
+                Bands
+              </a>
             </li>
           </ul>
         </div>
         <div>
-          <h3 style={headerStyles}>Company</h3>
+          <h3 style={styles.header}>Company</h3>
           <ul>
             <li>
-              <a href="#1">About Us</a>
+              <a style={styles.link} href="#1">
+                About Us
+              </a>
             </li>
             <li>
-              <a href="#1">Get in Touch</a>
+              <a style={styles.link} href="#1">
+                Get in Touch
+              </a>
             </li>
             <li>
-              <a href="#1">Support</a>
+              <a style={styles.link} href="#1">
+                Developers
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 style={styles.header}>Support</h3>
+          <ul>
+            <li>
+              <a style={styles.link} href="#1">
+                Help Desk
+              </a>
             </li>
           </ul>
         </div>

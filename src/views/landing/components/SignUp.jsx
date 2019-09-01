@@ -4,10 +4,11 @@ import { withRouter } from "react-router-dom";
 const styles = {
   form: {
     width: "100%",
-    backgroundColor: "#f6cd61",
+    backgroundColor: "#eedbdb",
     display: "grid",
     gridTemplateColumns: "1fr 6fr 1fr",
-    gridTemplateRows: "1fr 10fr 1fr"
+    gridTemplateRows: "1fr 10fr 1fr",
+    alignItems: "center"
   },
   signUp: {
     borderRadius: "2rem",
@@ -21,7 +22,7 @@ const styles = {
   },
   header: {
     width: "100%",
-    padding: "1rem 0",
+    marginBottom: "1rem",
     fontSize: "2rem",
     textAlign: "center",
     color: "#fff"
@@ -38,8 +39,9 @@ const styles = {
     outline: "none",
     padding: "1rem 0.5rem",
     fontSize: "1rem",
-    color: "#3da4ab",
-    fontWeight: "700"
+    color: "#fff",
+    fontWeight: "700",
+    textShadow: "1px 1px 2px #ccc"
   },
   btnContainer: {
     display: "flex",
@@ -273,6 +275,7 @@ const handleSignIn = () => {
           Already have an account?<button onClick={handleSignIn}  style={styles.signIn}>Sign In</button>
         </div>
         <div>
+        <div className="exp-line-center">
           <input
             type="text"
             name="handle"
@@ -284,10 +287,12 @@ const handleSignIn = () => {
             noValidate
             valid={validation.handleValid}
             invalid={validation.handleInvalid}
-          />{" "}
+          />
+          </div>
           <div className="feedback">{validation.formErrors.handle}</div>
         </div>
         <div>
+        <div className="exp-line-center">
           <input
             type="email"
             name="email"
@@ -300,9 +305,11 @@ const handleSignIn = () => {
             valid={validation.emailValid}
             invalid={validation.emailInvalid}
           />
+          </div>
           <div className="feedback">{validation.formErrors.email}</div>
         </div>
         <div>
+        <div className="exp-line-center">
           <input
             type="password"
             name="password"
@@ -310,14 +317,16 @@ const handleSignIn = () => {
             placeholder="Password"
             value={validation.password}
             id="body-field"
-            className="control"
+            className="control "
             noValidate
             valid={validation.passwordValid}
             invalid={validation.passwordInvalid}
           />
+          </div>
           <div className="feedback">{validation.formErrors.password}</div>
         </div>
         <div>
+        <div className="exp-line-center">
           <input
             type="password"
             name="passwordConfirm"
@@ -330,6 +339,7 @@ const handleSignIn = () => {
             invalid={validation.passwordConfirmInvalid}
             placeholder="Confirm Password"
           />
+          </div>
           <div className="feedback">
             {validation.formErrors.passwordConfirm}
           </div>

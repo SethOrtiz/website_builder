@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 const styles = {
   form: {
     width: "100%",
-    backgroundColor: "#0e9aa7",
+    backgroundColor: "#e3c9c9",
     display: "grid",
     gridTemplateColumns: "1fr 6fr 1fr",
     gridTemplateRows: "1fr 10fr 1fr",
@@ -26,7 +26,7 @@ const styles = {
   },
   header: {
     width: "100%",
-    padding: "1rem 0",
+    marginBottom: "2rem",
     fontSize: "2rem",
     textAlign: "center",
     color: "#fff"
@@ -36,15 +36,19 @@ const styles = {
     padding: "1rem 0",
     fontSize: "1rem",
     textAlign: "center",
+    justifySelf: "center",
     backgroundColor: "inherit",
     color: "#fff",
     border: "none",
-    outline: "none"
+    outline: "none",
+    textShadow: "1px 1px 2px #ccc",
+    fontWeight: "700"
   },
 
   btnContainer: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: "1rem 7rem"
   }
 };
 
@@ -160,7 +164,7 @@ const SignIn = props => {
   const handleForgotPassword = () => {
     props.setForgotPasswordState({ open: true });
   };
-  
+
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>
       <div id="one-two-three" style={styles.row}></div>
@@ -168,33 +172,37 @@ const SignIn = props => {
       <div id="five">
         <h1 style={styles.header}>Sign In</h1>
         <div>
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            placeholder="Email"
-            value={validation.email}
-            id="email-field"
-            className="control"
-            noValidate
-            valid={validation.emailValid}
-            invalid={validation.emailInvalid}
-          />
+          <div className="exp-line-center">
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              placeholder="Email"
+              value={validation.email}
+              id="email-field"
+              className="control"
+              noValidate
+              valid={validation.emailValid}
+              invalid={validation.emailInvalid}
+            />
+          </div>
           <div className="feedback">{validation.formErrors.email}</div>
         </div>
         <div>
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            placeholder="Password"
-            value={validation.password}
-            id="body-field"
-            className="control"
-            noValidate
-            valid={validation.passwordValid}
-            invalid={validation.passwordInvalid}
-          />
+          <div className="exp-line-center">
+            <input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              placeholder="Password"
+              value={validation.password}
+              id="body-field"
+              className="control"
+              noValidate
+              valid={validation.passwordValid}
+              invalid={validation.passwordInvalid}
+            />
+          </div>
           <div className="feedback">{validation.formErrors.password}</div>
         </div>
         {validation.formIncomplete && <p> Form Incomplete </p>}
@@ -203,9 +211,11 @@ const SignIn = props => {
             Sign In
           </button>
         </div>
+        <div style={styles.btnContainer}>
         <button onClick={handleForgotPassword} style={styles.forgotPassword}>
           Forgot Password?
         </button>
+        </div>
       </div>
       <div id="six"></div>
       <div id="seven-eight-nine" style={styles.row}></div>

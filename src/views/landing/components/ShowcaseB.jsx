@@ -1,19 +1,14 @@
 import React from "react";
+import Info from "./Info";
 
 const showcaseBStyles = {
   backgroundColor: "#cbdadb",
   height: "100vh",
   display: "grid",
-  gridTemplateColumns: "1fr 5fr 5fr 1fr" ,
+  gridTemplateColumns: "1fr 5fr 5fr 1fr",
   gridTemplateRows: "1fr 10fr 1fr"
 };
 
-const leftColumnStyles = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: "#cecbcb"
-};
 
 const rightColumnStyles = {
   display: "flex",
@@ -25,18 +20,27 @@ const rightColumnStyles = {
 export default function ShowcaseB() {
   return (
     <section id="B" style={showcaseBStyles}>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div style={leftColumnStyles}>6</div>
-    <div style={rightColumnStyles}>7</div>
-    <div>8</div>
-    <div>9</div>
-    <div>10</div>
-    <div>11</div>
-    <div>12</div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <Info
+        background="#cecbcb"
+        fontColor="#fff"
+        title="Share your passion with the world."
+        content="Design and build your own high-quality websites. Whether you’re
+          promoting a band, showcasing your work, selling merch or
+          sharing your music with your fans, Hubstereo is here to help."
+        linkOne={["Get Started", "#H", "#fff"]}
+        linkTwo={["Solo Artists", "#A", "#fff"]}
+      />
+      <div style={rightColumnStyles}></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </section>
   );
 }

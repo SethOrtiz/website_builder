@@ -4,10 +4,11 @@ import { withRouter } from "react-router-dom";
 const styles = {
   form: {
     width: "100%",
-    backgroundColor: "#4a4e4d ",
+    backgroundColor: "#cbdadb",
     display: "grid",
     gridTemplateColumns: "1fr 6fr 1fr",
-    gridTemplateRows: "1fr 10fr 1fr"
+    gridTemplateRows: "1fr 10fr 1fr",
+    alignItems: "center"
   },
   row: {
     display: "grid",
@@ -25,14 +26,14 @@ const styles = {
   },
   header: {
     width: "100%",
-    padding: "1rem 0",
+    marginBottom: "2rem",
     fontSize: "2rem",
     textAlign: "center",
     color: "#fff"
   },
   subtitle: {
     width: "100%",
-    padding: "1rem 0",
+    paddingTop: "2rem",
     fontSize: "1rem",
     textAlign: "center"
   },
@@ -135,8 +136,9 @@ const ForgotPassword = props => {
       <div id="one-two-three" style={styles.row}></div>
       <div id="four"></div>
       <div id="five">
-        <h1 style={styles.header}>Sign In</h1>
+        <h1 style={styles.header}>Recover Password</h1>
         <div>
+        <div className="exp-line-center">
           <input
             type="email"
             name="email"
@@ -149,12 +151,16 @@ const ForgotPassword = props => {
             valid={validation.emailValid}
             invalid={validation.emailInvalid}
           />
+          </div>
           <div className="feedback">{validation.formErrors.email}</div>
         </div>
         {validation.formIncomplete && <p> Form Incomplete </p>}
+        <div style={styles.subtitle}>
+          Enter the email you used to create the account.
+        </div>
         <div style={styles.btnContainer}>
           <button style={styles.send} type="submit">
-            Send
+            Send Email
           </button>
         </div>
       </div>
