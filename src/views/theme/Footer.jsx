@@ -2,7 +2,7 @@ import React from "react";
 
 const styles = {
   footer: {
-    height: "17vh",
+    height: "20vh",
     display: "grid",
     gridTemplateColumns: "1fr 5fr 5fr 1fr",
     backgroundColor: "#222",

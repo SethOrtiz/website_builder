@@ -20,7 +20,7 @@ export default function Landing() {
   return (
     <>
       <Navbar setSignInState={setSignInState} signInState={signInState} forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState} setSignUpState={setSignUpState} signUpState={signUpState}/>
-      <Hero id="H"setSignInState={setSignInState} signInState={signInState} forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState} setSignUpState={setSignUpState} signUpState={signUpState}/>
+      <Hero setSignInState={setSignInState} signInState={signInState} forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState} setSignUpState={setSignUpState} signUpState={signUpState}/>
       <ShowcaseA />
       <ShowcaseB />
       <Footer />

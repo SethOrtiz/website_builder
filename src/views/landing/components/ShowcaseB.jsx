@@ -28,7 +28,7 @@ export default function ShowcaseB() {
       <Info
         background="#cecbcb"
         fontColor="#fff"
-        title="Share your passion with the world."
+        title="Be Heard."
         content="Design and build your own high-quality websites. Whether you’re
           promoting a band, showcasing your work, selling merch or
           sharing your music with your fans, Hubstereo is here to help."

@@ -66,11 +66,13 @@ const Hero = props => {
         <SignUp
           setSignInState={props.setSignInState}
           signInState={props.signInState}
+          signUp={props.signUp}
         />
       ) : !props.forgotPasswordState.open ? (
         <SignIn
           forgotPasswordState={props.forgotPasswordState}
           setForgotPasswordState={props.setForgotPasswordState}
+          signIn={props.signIn}
         />
       ) : (
         <ForgotPassword />

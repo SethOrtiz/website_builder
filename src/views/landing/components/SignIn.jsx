@@ -61,6 +61,7 @@ const SignIn = props => {
     emailInvalid: false,
     password: "",
     passwordValid: false,
+    passwordInvalid: false,
     formErrors: {
       email: "",
       password: ""
@@ -132,13 +133,13 @@ const SignIn = props => {
   const resetState = () => {
     setValidation({
       formIncomplete: false,
-      passwordInvalid: false,
       formValid: false,
       email: "",
       emailValid: false,
       emailInvalid: false,
       password: "",
       passwordValid: false,
+      passwordInvalid: false,
       formErrors: {
         email: "",
         password: ""
@@ -182,8 +183,8 @@ const SignIn = props => {
               id="email-field"
               className="control"
               noValidate
-              valid={validation.emailValid}
-              invalid={validation.emailInvalid}
+              valid={(validation.emailValid).toString()}
+              invalid={(validation.emailInvalid).toString()}
             />
           </div>
           <div className="feedback">{validation.formErrors.email}</div>
@@ -199,8 +200,9 @@ const SignIn = props => {
               id="body-field"
               className="control"
               noValidate
-              valid={validation.passwordValid}
-              invalid={validation.passwordInvalid}
+              autoComplete="on"
+              valid={(validation.passwordValid).toString()}
+              invalid={(validation.passwordInvalid).toString()}
             />
           </div>
           <div className="feedback">{validation.formErrors.password}</div>

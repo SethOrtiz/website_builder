@@ -1,17 +1,24 @@
 import { api } from "../../constants/api";
 import {
-  postingWebsite,
-  websiteFailedToPost,
-  websitePostSuccess,
+  loadingSignIn,
+  loadingSignUp,
+  signInFailed,
+  signUpFailed,
+  signInSuccess,
+  signUpSuccess
 } from "./actions";
 
-export function addWebsite(websiteId) {
+export function signUp(handle, email, password, passwordConfirm) {
   return async function(dispatch) {
-    dispatch(postingWebsite());
+    dispatch(loadingSignUp());
     try {
-      const res = await fetch(`${api}/users/${websiteId}/website`, {
+      const res = await fetch(`${api}/signup`, {
         method: "POST",
         body: JSON.stringify({
+          handle,
+          email,
+          password,
+          passwordConfirm
         }),
         headers: {
           "Content-Type": "application/json"
@@ -20,13 +27,41 @@ export function addWebsite(websiteId) {
       if (!res.ok) {
         throw new Error();
       } else {
-        alert("Website Added")
-        const newWebsiteJson = await res.json();
-        dispatch(websitePostSuccess(newWebsiteJson));
+        alert("Sign Up Successful")
+        const token= await res.json();
+        dispatch(signUpSuccess(token));
       }
     } catch (e) {
-      dispatch(websiteFailedToPost());
-      console.log(e);
+      dispatch(signUpFailed());
+      alert(e);
+    }
+  };
+}
+
+export function signIn(email, password) {
+  return async function(dispatch) {
+    dispatch(loadingSignIn());
+    try {
+      const res = await fetch(`${api}/signin`, {
+        method: "POST",
+        body: JSON.stringify({
+          email,
+          password
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      if (!res.ok) {
+        throw new Error();
+      } else {
+        alert("Sign In Successful")
+        const token= await res.json();
+        dispatch(signInSuccess(token));
+      }
+    } catch (e) {
+      dispatch(signInFailed());
+      alert(e);
     }
   };
 }

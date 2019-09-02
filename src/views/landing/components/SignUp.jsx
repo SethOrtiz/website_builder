@@ -46,6 +46,13 @@ const styles = {
   btnContainer: {
     display: "flex",
     justifyContent: "center"
+  },
+  formIncomplete:{
+    fontSize: "1rem",
+    paddingTop: "1rem",
+    textAlign: "center",
+    color: "#B73239",
+    fontWeight: "600"
   }
 };
 
@@ -72,22 +79,6 @@ const SignUp = props => {
       passwordConfirm: ""
     }
   });
-
-  const validateForm = () => {
-    const {
-      emailValid,
-      passwordValid,
-      passwordConfirmValid,
-      handleValid
-    } = validation;
-    let formValid = false;
-    if (emailValid && passwordValid && passwordConfirmValid && handleValid) {
-      formValid = true;
-    } else {
-      setValidation({ ...validation, formIncomplete: true });
-    }
-    return formValid;
-  };
 
   const isEmail = email => {
     const regEx = /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -127,7 +118,6 @@ const SignUp = props => {
     e.preventDefault();
     const { name, value } = e.target;
     let formErrors = validation.formErrors;
-    console.log(validation);
     switch (name) {
       case "handle":
         formErrors.handle = value.length === 0 ? "field required" : "";
@@ -246,7 +236,23 @@ const SignUp = props => {
     });
   };
 
-  function handleSubmit(e) {
+  const validateForm = () => {
+    const {
+      handleValid,
+      emailValid,
+      passwordValid,
+      passwordConfirmValid
+    } = validation;
+    let formValid = false;
+    if (emailValid && passwordValid && passwordConfirmValid && handleValid) {
+      formValid = true;
+    } else {
+      formValid = false;
+    }
+    return formValid;
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
     if (validateForm()) {
       const { handle, email, password, passwordConfirm } = validation;
@@ -285,8 +291,8 @@ const handleSignIn = () => {
             id="handle-field"
             className="control"
             noValidate
-            valid={validation.handleValid}
-            invalid={validation.handleInvalid}
+            valid={(validation.handleValid).toString()}
+            invalid={(validation.handleInvalid).toString()}
           />
           </div>
           <div className="feedback">{validation.formErrors.handle}</div>
@@ -302,8 +308,8 @@ const handleSignIn = () => {
             id="email-field"
             className="control"
             noValidate
-            valid={validation.emailValid}
-            invalid={validation.emailInvalid}
+            valid={(validation.emailValid).toString()}
+            invalid={(validation.emailInvalid).toString()}
           />
           </div>
           <div className="feedback">{validation.formErrors.email}</div>
@@ -319,8 +325,9 @@ const handleSignIn = () => {
             id="body-field"
             className="control "
             noValidate
-            valid={validation.passwordValid}
-            invalid={validation.passwordInvalid}
+            autoComplete="on"
+            valid={(validation.passwordValid).toString()}
+            invalid={(validation.passwordInvalid).toString()}
           />
           </div>
           <div className="feedback">{validation.formErrors.password}</div>
@@ -335,8 +342,9 @@ const handleSignIn = () => {
             id="password-confirm-field"
             className="control"
             noValidate
-            valid={validation.passwordConfirmValid}
-            invalid={validation.passwordConfirmInvalid}
+            autoComplete="on"
+            valid={(validation.passwordConfirmValid).toString()}
+            invalid={(validation.passwordConfirmInvalid).toString()}
             placeholder="Confirm Password"
           />
           </div>
@@ -344,7 +352,7 @@ const handleSignIn = () => {
             {validation.formErrors.passwordConfirm}
           </div>
         </div>
-        {validation.formIncomplete && <p> Form Incomplete </p>}
+       {validation.formIncomplete && <p style={styles.formErrors}> Form Incomplete </p>}
         <div style={styles.btnContainer}>
           <button style={styles.signUp} type="submit">
             Sign Up
