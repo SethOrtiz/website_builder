@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import { DASHBOARD } from "../../../constants/routes";
 
 /////////////////// STYLES ///////////////////////////
 
@@ -49,16 +50,21 @@ const styles = {
     display: "flex",
     justifyContent: "center"
   },
-  formIncomplete: {
-    fontSize: "1rem",
+  formErrors: {
+    fontSize: "1.2rem",
     paddingTop: "1rem",
     textAlign: "center",
-    color: "#B73239",
+    color: "#777",
     fontWeight: "600"
   }
 };
 /////////////// INITIAL STATE /////////////////////////////
 const SignUp = props => {
+ 
+  useEffect(() => {
+    setForm({ complete: true });
+  },[])
+
   const [form, setForm] = useState({
     complete: false
   });
@@ -89,6 +95,7 @@ const SignUp = props => {
     passwordConfirm: ""
   });
   /////////////// REGEX ///////////////////////////////////////////
+
   const isEmail = email => {
     const regEx = /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (email.match(regEx)) return true;
@@ -134,19 +141,9 @@ const SignUp = props => {
           ? setFormErrors({ ...formErrors, handle: "field required" })
           : setFormErrors({ ...formErrors, handle: "" });
         if (value.length === 0) {
-          // setHandle({
-          //   ...handle,
-          //   invalid: true,
-          //   valid: false
-          // });
           handle.valid = false;
           handle.invalid = true;
         } else {
-          // setHandle({
-          //   ...handle,
-          //   valid: true,
-          //   invalid: false
-          // });
           handle.valid = true;
           handle.invalid = false;
         }
@@ -207,56 +204,26 @@ const SignUp = props => {
         }
         switch (true) {
           case !containsLowerCase(value):
-            // setPassword({
-            //   ...password,
-            //   invalid: true,
-            //   valid: false
-            // });
             password.valid = false;
             password.invalid = true;
             break;
           case !containsUpperCase(value):
-            // setPassword({
-            //   ...password,
-            //   invalid: true,
-            //   valid: false
-            // });
             password.valid = false;
             password.invalid = true;
             break;
           case !containsNumber(value):
-            // setPassword({
-            //   ...password,
-            //   invalid: true,
-            //   valid: false
-            // });
             password.valid = false;
             password.invalid = true;
             break;
           case !containsSpecial(value):
-            // setPassword({
-            //   ...password,
-            //   invalid: true,
-            //   valid: false
-            // });
             password.valid = false;
             password.invalid = true;
             break;
           case !containsEight(value):
-            // setPassword({
-            //   ...password,
-            //   invalid: true,
-            //   valid: false
-            // });
             password.valid = false;
             password.invalid = true;
             break;
           default:
-            // setPassword({
-            //   ...password,
-            //   invalid: false,
-            //   valid: true
-            // });
             password.valid = true;
             password.invalid = false;
             console.log(password);
@@ -272,19 +239,9 @@ const SignUp = props => {
           : setFormErrors({ ...formErrors, passwordConfirm: "" });
 
         if (value !== password.value) {
-          //setPasswordConfirm({
-          //     ...passwordConfirm,
-          //     invalid: true,
-          //     valid: false
-          //   })
           passwordConfirm.valid = false;
           passwordConfirm.invalid = true;
         } else {
-          //   setPasswordConfirm({
-          //     ...passwordConfirm,
-          //     invalid: false,
-          //     valid: true
-          //   });
           passwordConfirm.valid = true;
           passwordConfirm.invalid = false;
         }
@@ -350,13 +307,6 @@ const SignUp = props => {
   ////////////////////// MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION //////////////////////
 
   const validateForm = () => {
-    // to check if valid values are being updated correctly
-
-    alert(handle.valid);
-    alert(password.valid);
-    alert(passwordConfirm.valid);
-    alert(handle.valid);
-
     let formValid = false;
     if (
       email.valid &&
@@ -376,21 +326,23 @@ const SignUp = props => {
   const handleSubmit = e => {
     e.preventDefault();
     if (validateForm()) {
+      props.history.push(DASHBOARD);
+      alert("You're the man");
       props.signUp(
         handle.value,
         email.value,
         password.value,
         passwordConfirm.value
       );
-      alert("You're the man");
       resetState();
+      
     } else {
       setForm({
         complete: false
       });
-      alert("validatForm() returned false");
     }
   };
+
   /////////////////////// REDIRECTS TO SIGN IN ////////////////////////////////////
 
   const handleSignIn = () => {

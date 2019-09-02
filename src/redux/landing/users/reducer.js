@@ -7,7 +7,7 @@ import {
   SIGNIN_SUCCESSFUL
 } from "./actions";
 const initialState = {
-  auth: "",
+  tolken: "",
   signInLoading: false,
   signInError: false,
   signUploading: false,
@@ -33,7 +33,7 @@ function authReducer(state = initialState, action) {
         ...state,
         signInLoading: false,
         signInError: false,
-        auth: action.payload
+        tolken: action.tolken
       };
     case LOADING_SIGNIN:
       return {
@@ -52,7 +52,7 @@ function authReducer(state = initialState, action) {
         ...state,
         signUploading: false,
         signUpError: false,
-        auth: action.payload
+        tolken: action.tolken
       };
     default:
       return state;

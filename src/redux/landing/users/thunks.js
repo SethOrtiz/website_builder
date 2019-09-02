@@ -28,7 +28,7 @@ export function signUp(handle, email, password, passwordConfirm) {
         throw new Error();
       } else {
         alert("Sign Up Successful")
-        const token= await res.json();
+        const token = await res.json();
         dispatch(signUpSuccess(token));
       }
     } catch (e) {

@@ -72,7 +72,7 @@ const Hero = props => {
         <SignIn
           forgotPasswordState={props.forgotPasswordState}
           setForgotPasswordState={props.setForgotPasswordState}
-          signIn={props.signIn}
+          signIn={props.state}
         />
       ) : (
         <ForgotPassword />

@@ -18,7 +18,7 @@ export const SIGNIN_SUCCESSFUL = "SIGNIN_SUCCESSFUL";
 export function signInSuccess(token) {
     return {
     type: SIGNIN_SUCCESSFUL,
-    payload: token
+    token
   };
 }
 
@@ -42,6 +42,6 @@ export const SIGNUP_SUCCESSFUL = "SIGNUP_SUCCESSFUL";
 export function signUpSuccess(token) {
     return {
     type: SIGNUP_SUCCESSFUL,
-    payload: token
+    token
   };
 }
