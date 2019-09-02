@@ -4,6 +4,7 @@ import Hero from "../../views/landing/components/Hero";
 
 const mapStateToProps = function({ state }) {
   return {
+    ...state,
     auth: state.auth,
     loadingSignIn: state.signInLoading,
     error: state.signInError,
