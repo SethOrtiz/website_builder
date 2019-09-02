@@ -7,10 +7,10 @@ export function loadingSignIn() {
   };
 }
 
-export const SIGNIN_ERROR = "SIGNIN_ERROR";
+export const SIGNIN_FAILED = "SIGNIN_FAILED";
 export function signInFailed() {
   return {
-    type: SIGNIN_ERROR
+    type: SIGNIN_FAILED
   };
 }
 
@@ -31,10 +31,10 @@ export function loadingSignUp() {
   };
 }
 
-export const SIGNUP_ERROR = "SIGNUP_ERROR";
-export function SignUpFailed() {
+export const SIGNUP_FAILED = "SIGNUP_FAILED";
+export function signUpFailed() {
   return {
-    type: SIGNUP_ERROR
+    type: SIGNUP_FAILED
   };
 }
 

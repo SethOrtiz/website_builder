@@ -1,6 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
-import SignUp from "./SignUp";
+import SignUpContainer from "../../../redux/landing/users/SignUpContainer";
 import SignIn from "./SignIn";
 import ForgotPassword from "./ForgotPassword";
 import Info from "./Info";
@@ -63,16 +62,15 @@ const Hero = props => {
           </button>
         </div>
       ) : !props.signInState.open && !props.forgotPasswordState.open ? (
-        <SignUp
+        <SignUpContainer
           setSignInState={props.setSignInState}
           signInState={props.signInState}
-          signUp={props.signUp}
         />
       ) : !props.forgotPasswordState.open ? (
         <SignIn
           forgotPasswordState={props.forgotPasswordState}
           setForgotPasswordState={props.setForgotPasswordState}
-          signIn={props.state}
+          token={props.token}
         />
       ) : (
         <ForgotPassword />
@@ -86,4 +84,4 @@ const Hero = props => {
   );
 };
 
-export default withRouter(Hero);
+export default Hero;

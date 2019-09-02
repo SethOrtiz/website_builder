@@ -1,4 +1,4 @@
-import { api } from "../../constants/api";
+import { API } from "../../../constants/api";
 import {
   loadingSignIn,
   loadingSignUp,
@@ -12,7 +12,7 @@ export function signUp(handle, email, password, passwordConfirm) {
   return async function(dispatch) {
     dispatch(loadingSignUp());
     try {
-      const res = await fetch(`${api}/signup`, {
+      const res = await fetch(`${API}/signup`, {
         method: "POST",
         body: JSON.stringify({
           handle,
@@ -42,7 +42,7 @@ export function signIn(email, password) {
   return async function(dispatch) {
     dispatch(loadingSignIn());
     try {
-      const res = await fetch(`${api}/signin`, {
+      const res = await fetch(`${API}/signin`, {
         method: "POST",
         body: JSON.stringify({
           email,

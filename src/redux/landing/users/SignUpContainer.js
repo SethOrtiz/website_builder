@@ -1,23 +1,14 @@
 import { connect } from "react-redux";
-import { signUp, signIn } from "./thunks";
-import Hero from "../../views/landing/components/Hero";
+import { signUp } from "./thunks";
+import SignUp from "../../../views/landing/components/SignUp";
 
 const mapStateToProps = function({ state }) {
   return {
-    ...state,
-    auth: state.auth,
-    loadingSignIn: state.signInLoading,
-    error: state.signInError,
-    loading: state.signUploading,
-    loadingSignUp: state.signUpError
+    ...state
   };
 };
-
 const mapDispatchToProps = function(dispatch) {
   return {
-    signIn: function(email, password) {
-      dispatch(signIn(email, password));
-    },
     signUp: function(handle, email, password, passwordConfirm) {
       dispatch(signUp(handle, email, password, passwordConfirm));
     }
@@ -27,4 +18,4 @@ const mapDispatchToProps = function(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Hero);
+)(SignUp);

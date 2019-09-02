@@ -326,17 +326,18 @@ const SignUp = props => {
   const handleSubmit = e => {
     e.preventDefault();
     if (validateForm()) {
-      props.history.push(DASHBOARD);
-      alert("You're the man");
-      props.signUp(
+      
+       props.signUp(
         handle.value,
         email.value,
         password.value,
         passwordConfirm.value
       );
       resetState();
+      props.history.push(DASHBOARD);
       
     } else {
+      console.log(props)
       setForm({
         complete: false
       });

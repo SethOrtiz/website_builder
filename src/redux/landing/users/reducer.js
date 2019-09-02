@@ -1,17 +1,17 @@
 import {
   LOADING_SIGNUP,
-  SIGNUP_ERROR,
+  SIGNUP_FAILED,
   SIGNUP_SUCCESSFUL,
   LOADING_SIGNIN,
-  SIGNIN_ERROR,
+  SIGNIN_FAILED,
   SIGNIN_SUCCESSFUL
 } from "./actions";
 const initialState = {
-  tolken: "",
+  token: "",
   signInLoading: false,
-  signInError: false,
+  signInFailed: false,
   signUploading: false,
-  signUpError: false
+  signUpFailed: false
 };
 
 function authReducer(state = initialState, action) {
@@ -20,39 +20,39 @@ function authReducer(state = initialState, action) {
       return {
         ...state,
         signInLoading: true,
-        signInError: false
+        signInFailed: false
       };
-    case SIGNUP_ERROR:
+    case SIGNUP_FAILED:
       return {
         ...state,
         signInLoading: false,
-        signInError: true
+        signInFailed: true
       };
     case SIGNUP_SUCCESSFUL:
       return {
         ...state,
         signInLoading: false,
-        signInError: false,
-        tolken: action.tolken
+        signInFailed: false,
+        token: action.token
       };
     case LOADING_SIGNIN:
       return {
         ...state,
         signUploading: true,
-        signUpError: false
+        signUpFailed: false
       };
-    case SIGNIN_ERROR:
+    case SIGNIN_FAILED:
       return {
         ...state,
         signUploading: false,
-        signUpError: true
+        signUpFailed: true
       };
     case SIGNIN_SUCCESSFUL:
       return {
         ...state,
         signUploading: false,
-        signUpError: false,
-        tolken: action.tolken
+        signUpFailed: false,
+        token: action.token
       };
     default:
       return state;

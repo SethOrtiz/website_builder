@@ -13,7 +13,7 @@ function App() {
         <Switch>
           <Route exact path={ROUTES.LANDING} component={Landing} />
           <Route path={ROUTES.DASHBOARD} component={Dashboard} />
-          <Route path={ROUTES.WORKSTATION}component={Workstation} />
+          <Route path={ROUTES.WORKSTATION} component={Workstation} />
           <Route path={ROUTES.NOT_FOUND} render={() => <div>Not found</div>} />
         </Switch>
       </div>
