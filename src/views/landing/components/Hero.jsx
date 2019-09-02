@@ -1,7 +1,9 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import SignUpContainer from "../../../redux/landing/users/SignUpContainer";
-import SignIn from "./SignIn";
+// import SignInContainer from "../../../redux/landing/users/SignInContainer";
 import ForgotPassword from "./ForgotPassword";
+import SignIn from "./SignIn";
 import Info from "./Info";
 
 const styles = {
@@ -31,6 +33,8 @@ const styles = {
 };
 
 const Hero = props => {
+ 
+
   const handleGetStarted = () => {
     props.setSignUpState({ open: true });
   };
@@ -46,12 +50,22 @@ const Hero = props => {
         content="Design and build your own high-quality websites. Whether you’re
           promoting a band, showcasing your work, selling merch or
           sharing your music with your fans, Hubstereo is here to help."
-        linkOne={["Solo Artists","#A", "#111"]}
-        linkTwo={["Bands","#B", "#111"]}
+        linkOne={["Solo Artists", "#A", "#111"]}
+        linkTwo={["Bands", "#B", "#111"]}
       />
-      {!props.signInState.open &&
-      !props.signUpState.open &&
-      !props.forgotPasswordState.open ? (
+      {props.forgotPasswordState.open ? (
+        <ForgotPassword />
+      ) : props.signInState.open ? (
+        <SignIn
+          forgotPasswordState={props.forgotPasswordState}
+          setForgotPasswordState={props.setForgotPasswordState}
+        />
+      ) : props.signUpState.open ? (
+        <SignUpContainer
+          setSignInState={props.setSignInState}
+          signInState={props.signInState}
+        />
+      ) : (
         <div style={styles.rightColumn}>
           <button
             onClick={handleGetStarted}
@@ -61,20 +75,8 @@ const Hero = props => {
             Get Started
           </button>
         </div>
-      ) : !props.signInState.open && !props.forgotPasswordState.open ? (
-        <SignUpContainer
-          setSignInState={props.setSignInState}
-          signInState={props.signInState}
-        />
-      ) : !props.forgotPasswordState.open ? (
-        <SignIn
-          forgotPasswordState={props.forgotPasswordState}
-          setForgotPasswordState={props.setForgotPasswordState}
-          token={props.token}
-        />
-      ) : (
-        <ForgotPassword />
       )}
+
       <div></div>
       <div></div>
       <div></div>
@@ -83,5 +85,4 @@ const Hero = props => {
     </section>
   );
 };
-
-export default Hero;
+export default withRouter(Hero);

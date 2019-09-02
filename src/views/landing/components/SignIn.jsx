@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import { DASHBOARD } from "../../../constants/routes";
+import * as REGEX from "../../../constants/regex";
 
 const styles = {
   form: {
@@ -9,10 +11,6 @@ const styles = {
     gridTemplateColumns: "1fr 6fr 1fr",
     gridTemplateRows: "1fr 10fr 1fr",
     alignItems: "center"
-  },
-  row: {
-    display: "grid",
-    gridColumn: "1 / span 3"
   },
   signIn: {
     borderRadius: "2rem",
@@ -53,174 +51,251 @@ const styles = {
 };
 
 const SignIn = props => {
-  const [validation, setValidation] = useState({
-    formIncomplete: false,
-    formValid: false,
-    email: "",
-    emailValid: false,
-    emailInvalid: false,
-    password: "",
-    passwordValid: false,
-    passwordInvalid: false,
-    formErrors: {
-      email: "",
-      password: ""
-    }
+  useEffect(() => {
+    setForm({ complete: true });
+  }, []);
+
+  const [form, setForm] = useState({
+    complete: false
+  });
+  const [email, setEmail] = useState({
+    value: "",
+    valid: false,
+    invalid: false
   });
 
-  const validateForm = () => {
-    const { emailValid, passwordValid } = validation;
-    let formValid = false;
-    if (emailValid && passwordValid) {
-      formValid = true;
-    } else {
-      setValidation({ ...validation, formIncomplete: true });
-    }
-    return formValid;
-  };
+  const [password, setPassword] = useState({
+    value: "",
+    valid: false,
+    invalid: false
+  });
 
-  const isEmail = email => {
-    const regEx = /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (email.match(regEx)) return true;
-    else return false;
-  };
+  const [formErrors, setFormErrors] = useState({
+    email: "",
+    password: ""
+  });
+
+  ///////////////////////////////////////////       VALIDATION ON CHANGE  
+
   const handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
-    let formErrors = validation.formErrors;
-    console.log(validation);
     switch (name) {
-      case "email":
-        formErrors.email = value.length === 0 ? "field required" : "";
-        formErrors.email = isEmail(value) ? "" : "must be a valid email";
+      case "email-field":
         value.length === 0
-          ? setValidation({
-              ...validation,
-              emailInvalid: true,
-              emailValid: false
-            })
-          : setValidation({
-              ...validation,
-              emailValid: true,
-              emailInvalid: false
-            });
+          ? setFormErrors({ ...formErrors, email: "field required" })
+          : setFormErrors({ ...formErrors, email: "" });
+        REGEX.isEmail(value)
+          ? setFormErrors({ ...formErrors, email: "" })
+          : setFormErrors({ ...formErrors, email: "must be a valid email" });
+        if (REGEX.isEmail(value)) {
+          email.valid = true;
+          email.invalid = false;
+        } else {
+          email.valid = false;
+          email.invalid = true;
+        }
         break;
-      case "password":
-        formErrors.password = value.length === 0 ? "field required" : "";
-        value.length === 0
-          ? setValidation({
-              ...validation,
-              passwordInvalid: true,
-              passwordValid: false
-            })
-          : setValidation({
-              ...validation,
-              passwordValid: true,
-              passwordInvalid: false
+      case "password-field":
+        switch (true) {
+          case !REGEX.containsLowerCase(value):
+            setFormErrors({
+              ...formErrors,
+              password:
+                "password must contain at least 1 lowercase alphabetical character"
             });
+            break;
+          case !REGEX.containsUpperCase(value):
+            setFormErrors({
+              ...formErrors,
+              password:
+                "password must contain at least 1 uppercase alphabetical character"
+            });
+            break;
+          case !REGEX.containsNumber(value):
+            setFormErrors({
+              ...formErrors,
+              password: "password must contain at least 1 numeric character"
+            });
+            break;
+          case !REGEX.containsSpecial(value):
+            setFormErrors({
+              ...formErrors,
+              password:
+                'password must contain atleast one of the symbols in this list "@#$%"'
+            });
+            break;
+          case !REGEX.containsEight(value):
+            setFormErrors({
+              ...formErrors,
+              password: "password must be eight characters or longer"
+            });
+            break;
+          default:
+            setFormErrors({ ...formErrors, password: "" });
+            break;
+        }
+        switch (true) {
+          case !REGEX.containsLowerCase(value):
+            password.valid = false;
+            password.invalid = true;
+            break;
+          case !REGEX.containsUpperCase(value):
+            password.valid = false;
+            password.invalid = true;
+            break;
+          case !REGEX.containsNumber(value):
+            password.valid = false;
+            password.invalid = true;
+            break;
+          case !REGEX.containsSpecial(value):
+            password.valid = false;
+            password.invalid = true;
+            break;
+          case !REGEX.containsEight(value):
+            password.valid = false;
+            password.invalid = true;
+            break;
+          default:
+            password.valid = true;
+            password.invalid = false;
+            break;
+        }
         break;
       default:
         break;
     }
-    setValidation({
-      ...validation,
-      formErrors,
-      [name]: value,
-      formIncomplete: false
+    switch (name) {
+      case "email-field":
+        setEmail({ ...email, value });
+        break;
+      case "password-field":
+        setPassword({ ...password, value });
+        break;
+      default:
+        break;
+    }
+    setForm({
+      complete: true
     });
   };
+
+  ///////////////////////////////////////////     RESET ALL STATES AFTER SUCCESSFUL SUBMITION  
 
   const resetState = () => {
-    setValidation({
-      formIncomplete: false,
-      formValid: false,
+    setForm({
+      complete: false
+    });
+    setEmail({
+      value: "",
+      valid: false,
+      invalid: false
+    });
+    setPassword({
+      value: "",
+      valid: false,
+      invalid: false
+    });
+    setFormErrors({
+      value: "",
       email: "",
-      emailValid: false,
-      emailInvalid: false,
       password: "",
-      passwordValid: false,
-      passwordInvalid: false,
-      formErrors: {
-        email: "",
-        password: ""
-      }
+      passwordConfirm: ""
     });
   };
 
-  function handleSubmit(e) {
+  ///////////////////////////////////////////     MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION   
+
+  const validateForm = () => {
+    let formValid = false;
+    if (email.valid && password.valid) {
+      formValid = true;
+    } else {
+      formValid = false;
+    }
+    return formValid;
+  };
+
+  ///////////////////////////////////////////       CREATES A NEW USER AND REDIRECTS TO DASHBO
+
+  const handleSubmit = e => {
     e.preventDefault();
     if (validateForm()) {
-      const { email, password } = validation;
-      props.signIn(email, password);
+      props.signIn(email.value, password.value);
       resetState();
+      props.history.push(DASHBOARD);
     } else {
-      setValidation({
-        ...validation,
-        fromIncomplete: true
+      setForm({
+        complete: false
       });
     }
-  }
+  };
 
-  ////// Already have an acount ////
+  ///////////////////////////////////////////     REDIRECTS TO Password Retreval     
+
   const handleForgotPassword = () => {
     props.setForgotPasswordState({ open: true });
   };
 
+  ///////////////////////////////////////////      JSX   
+
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>
-      <div id="one-two-three" style={styles.row}></div>
+      <div id="one-two-three" className="row"></div>
       <div id="four"></div>
       <div id="five">
         <h1 style={styles.header}>Sign In</h1>
+        <div className="feedback">{formErrors.handle}</div>
+
         <div>
           <div className="exp-line-center">
             <input
               type="email"
-              name="email"
+              name="email-field"
               onChange={handleChange}
               placeholder="Email"
-              value={validation.email}
+              value={email.value}
               id="email-field"
               className="control"
               noValidate
-              valid={(validation.emailValid).toString()}
-              invalid={(validation.emailInvalid).toString()}
+              valid={email.valid.toString()}
+              invalid={email.invalid.toString()}
             />
           </div>
-          <div className="feedback">{validation.formErrors.email}</div>
+          <div className="feedback">{formErrors.email}</div>
         </div>
         <div>
           <div className="exp-line-center">
             <input
               type="password"
-              name="password"
+              name="password-field"
               onChange={handleChange}
               placeholder="Password"
-              value={validation.password}
-              id="body-field"
-              className="control"
+              value={password.value}
+              id="current-password"
+              className="control "
               noValidate
               autoComplete="on"
-              valid={(validation.passwordValid).toString()}
-              invalid={(validation.passwordInvalid).toString()}
+              valid={password.valid.toString()}
+              invalid={password.invalid.toString()}
             />
           </div>
-          <div className="feedback">{validation.formErrors.password}</div>
+          <div className="feedback">{formErrors.password}</div>
         </div>
-        {validation.formIncomplete && <p> Form Incomplete </p>}
+        {!form.complete && <p style={styles.formErrors}> Form Incomplete </p>}
         <div style={styles.btnContainer}>
           <button style={styles.signIn} type="submit">
             Sign In
           </button>
         </div>
         <div style={styles.btnContainer}>
-        <button onClick={handleForgotPassword} style={styles.forgotPassword}>
-          Forgot Password?
-        </button>
+          <button onClick={handleForgotPassword} style={styles.forgotPassword}>
+            Forgot Password?
+          </button>
         </div>
       </div>
       <div id="six"></div>
-      <div id="seven-eight-nine" style={styles.row}></div>
+      <div id="seven-eight-nine" className="row"></div>
     </form>
   );
 };

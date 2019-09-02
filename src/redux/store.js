@@ -10,7 +10,7 @@ import toolsReducer  from './workstation/tools/reducer'
 
 // import reducers...
 const rootReducer = combineReducers({
-  secitons: sectionsReducer,
+  sections: sectionsReducer,
   websites: websitesReducer,
   units: unitsReducer,
   tools: toolsReducer,

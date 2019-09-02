@@ -6,6 +6,7 @@ import Navbar from "../theme/Navbar";
 import Footer from "../theme/Footer";
 
 export default function Landing() {
+
   const [signInState, setSignInState] = useState({
     open: false
   });
@@ -20,7 +21,7 @@ export default function Landing() {
   return (
     <>
       <Navbar setSignInState={setSignInState} signInState={signInState} forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState} setSignUpState={setSignUpState} signUpState={signUpState}/>
-      <Hero setSignInState={setSignInState} signInState={signInState} forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState} setSignUpState={setSignUpState} signUpState={signUpState}/>
+      <Hero   setSignInState={setSignInState} signInState={signInState} forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState} setSignUpState={setSignUpState} signUpState={signUpState}/>
       <ShowcaseA />
       <ShowcaseB />
       <Footer />

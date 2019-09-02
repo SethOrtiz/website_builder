@@ -2,9 +2,9 @@ import { connect } from "react-redux";
 import { signUp } from "./thunks";
 import SignUp from "../../../views/landing/components/SignUp";
 
-const mapStateToProps = function({ state }) {
+const mapStateToProps = function({ auth }) {
   return {
-    ...state
+   token: auth.token
   };
 };
 const mapDispatchToProps = function(dispatch) {

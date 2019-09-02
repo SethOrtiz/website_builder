@@ -1,4 +1,5 @@
 import { API } from "../../../constants/api";
+import { DASHBOARD } from "../../../constants/routes";
 import {
   loadingSignIn,
   loadingSignUp,
@@ -9,11 +10,16 @@ import {
 } from "./actions";
 
 export function signUp(handle, email, password, passwordConfirm) {
+  console.log('passwordConfirm:', passwordConfirm)
+  console.log('password:', password)
+  console.log('email:', email)
+  console.log('handle:', handle)
   return async function(dispatch) {
     dispatch(loadingSignUp());
     try {
       const res = await fetch(`${API}/signup`, {
         method: "POST",
+        
         body: JSON.stringify({
           handle,
           email,
@@ -25,15 +31,16 @@ export function signUp(handle, email, password, passwordConfirm) {
         }
       });
       if (!res.ok) {
+         console.log('err', res.json())
         throw new Error();
       } else {
-        alert("Sign Up Successful")
+        console.log("Sign Up Successful")
         const token = await res.json();
+        this.props.history.push(DASHBOARD);
         dispatch(signUpSuccess(token));
       }
     } catch (e) {
       dispatch(signUpFailed());
-      alert(e);
     }
   };
 }
@@ -53,9 +60,10 @@ export function signIn(email, password) {
         }
       });
       if (!res.ok) {
+        console.log('err', res.json())
         throw new Error();
       } else {
-        alert("Sign In Successful")
+        console.log("Sign In Successful")
         const token= await res.json();
         dispatch(signInSuccess(token));
       }

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import { DASHBOARD } from "../../../constants/routes";
+import * as REGEX from "../../../constants/regex";
 
-/////////////////// STYLES ///////////////////////////
+
+/////////////////////////////////////////////////////        STYLES         
 
 const styles = {
   form: {
@@ -58,7 +59,7 @@ const styles = {
     fontWeight: "600"
   }
 };
-/////////////// INITIAL STATE /////////////////////////////
+/////////////////////////////////////////////////////        INITIAL STATE            
 const SignUp = props => {
  
   useEffect(() => {
@@ -94,44 +95,9 @@ const SignUp = props => {
     password: "",
     passwordConfirm: ""
   });
-  /////////////// REGEX ///////////////////////////////////////////
 
-  const isEmail = email => {
-    const regEx = /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (email.match(regEx)) return true;
-    else return false;
-  };
-  const containsLowerCase = password => {
-    const regEx = "^(?=.*[a-z])";
-    if (password.match(regEx)) return true;
-    else return false;
-  };
-  const containsUpperCase = password => {
-    const regEx = "^(?=.*[A-Z])";
-    if (password.match(regEx)) return true;
-    else return false;
-  };
-
-  const containsSpecial = password => {
-    const regEx = "^(?=.*[@#$%])";
-    if (password.match(regEx)) return true;
-    else return false;
-  };
-
-  const containsNumber = password => {
-    const regEx = "^(?=.*[0-9])";
-    if (password.match(regEx)) return true;
-    else return false;
-  };
-
-  const containsEight = password => {
-    const regEx = "^(?=.{8,})";
-    if (password.match(regEx)) return true;
-    else return false;
-  };
-
-  ////////////////////////////////      VALIDATION ON CHANGE      ///////////////////////////////////////
-
+  //////////////////////////////////////////////////     VALIDATION ON CHANGE    
+  
   const handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -152,10 +118,10 @@ const SignUp = props => {
         value.length === 0
           ? setFormErrors({ ...formErrors, email: "field required" })
           : setFormErrors({ ...formErrors, email: "" });
-        isEmail(value)
+        REGEX.isEmail(value)
           ? setFormErrors({ ...formErrors, email: "" })
           : setFormErrors({ ...formErrors, email: "must be a valid email" });
-        if (isEmail(value)) {
+        if (REGEX.isEmail(value)) {
           email.valid = true;
           email.invalid = false;
         } else {
@@ -164,35 +130,36 @@ const SignUp = props => {
         }
         break;
       case "password-field":
+      
         switch (true) {
-          case !containsLowerCase(value):
+          case !REGEX.containsLowerCase(value):
             setFormErrors({
               ...formErrors,
               password:
                 "password must contain at least 1 lowercase alphabetical character"
             });
             break;
-          case !containsUpperCase(value):
+          case !REGEX.containsUpperCase(value):
             setFormErrors({
               ...formErrors,
               password:
                 "password must contain at least 1 uppercase alphabetical character"
             });
             break;
-          case !containsNumber(value):
+          case !REGEX.containsNumber(value):
             setFormErrors({
               ...formErrors,
               password: "password must contain at least 1 numeric character"
             });
             break;
-          case !containsSpecial(value):
+          case !REGEX.containsSpecial(value):
             setFormErrors({
               ...formErrors,
               password:
                 'password must contain atleast one of the symbols in this list "@#$%"'
             });
             break;
-          case !containsEight(value):
+          case !REGEX.containsEight(value):
             setFormErrors({
               ...formErrors,
               password: "password must be eight characters or longer"
@@ -203,30 +170,29 @@ const SignUp = props => {
             break;
         }
         switch (true) {
-          case !containsLowerCase(value):
+          case !REGEX.containsLowerCase(value):
             password.valid = false;
             password.invalid = true;
             break;
-          case !containsUpperCase(value):
+          case !REGEX.containsUpperCase(value):
             password.valid = false;
             password.invalid = true;
             break;
-          case !containsNumber(value):
+          case !REGEX.containsNumber(value):
             password.valid = false;
             password.invalid = true;
             break;
-          case !containsSpecial(value):
+          case !REGEX.containsSpecial(value):
             password.valid = false;
             password.invalid = true;
             break;
-          case !containsEight(value):
+          case !REGEX.containsEight(value):
             password.valid = false;
             password.invalid = true;
             break;
           default:
             password.valid = true;
             password.invalid = false;
-            console.log(password);
             break;
         }
         break;
@@ -270,7 +236,7 @@ const SignUp = props => {
     });
   };
 
-  /////////////////////// RESET ALL STATES AFTER SUCCESSFUL SUBMITION ////////////////////////
+  ////////////////////////////////////////////     RESET ALL STATES AFTER SUCCESSFUL SUBMITION       
 
   const resetState = () => {
     setForm({
@@ -304,8 +270,7 @@ const SignUp = props => {
     });
   };
 
-  ////////////////////// MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION //////////////////////
-
+  /////////////////////////////////////////     MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION   
   const validateForm = () => {
     let formValid = false;
     if (
@@ -321,7 +286,7 @@ const SignUp = props => {
     return formValid;
   };
 
-  ////////////////////////// CREATES A NEW USER AND REDIRECTS TO DASHBOARD //////////////////////////////////////
+  ////////////////////////////////////////     CREATES A NEW USER AND REDIRECTS TO DASHBOARD    
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -334,17 +299,14 @@ const SignUp = props => {
         passwordConfirm.value
       );
       resetState();
-      props.history.push(DASHBOARD);
-      
     } else {
-      console.log(props)
       setForm({
         complete: false
       });
     }
   };
 
-  /////////////////////// REDIRECTS TO SIGN IN ////////////////////////////////////
+  ////////////////////////////////////////////////////    REDIRECTS TO SIGN IN     
 
   const handleSignIn = () => {
     props.setSignInState({ open: true });
