@@ -1,9 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import SignUpContainer from "../../../redux/landing/users/SignUpContainer";
-// import SignInContainer from "../../../redux/landing/users/SignInContainer";
+import SignInContainer from "../../../redux/landing/users/SignInContainer";
 import ForgotPassword from "./ForgotPassword";
-import SignIn from "./SignIn";
 import Info from "./Info";
 
 const styles = {
@@ -33,12 +32,6 @@ const styles = {
 };
 
 const Hero = props => {
- 
-
-  const handleGetStarted = () => {
-    props.setSignUpState({ open: true });
-  };
-
   return (
     <section id="H" style={styles.hero}>
       <div className="navRow"></div>
@@ -53,22 +46,16 @@ const Hero = props => {
         linkOne={["Solo Artists", "#A", "#111"]}
         linkTwo={["Bands", "#B", "#111"]}
       />
-      {props.forgotPasswordState.open ? (
+      {props.forgotPasswordOpen ? (
         <ForgotPassword />
-      ) : props.signInState.open ? (
-        <SignIn
-          forgotPasswordState={props.forgotPasswordState}
-          setForgotPasswordState={props.setForgotPasswordState}
-        />
-      ) : props.signUpState.open ? (
-        <SignUpContainer
-          setSignInState={props.setSignInState}
-          signInState={props.signInState}
-        />
+      ) : props.signInOpen ? (
+        <SignInContainer/>
+      ) : props.signUpOpen ? (
+        <SignUpContainer/>
       ) : (
         <div style={styles.rightColumn}>
           <button
-            onClick={handleGetStarted}
+            onClick={props.handleSignUp}
             style={styles.getStarted}
             className="link"
           >
@@ -76,7 +63,6 @@ const Hero = props => {
           </button>
         </div>
       )}
-
       <div></div>
       <div></div>
       <div></div>

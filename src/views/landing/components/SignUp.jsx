@@ -306,12 +306,6 @@ const SignUp = props => {
     }
   };
 
-  ////////////////////////////////////////////////////    REDIRECTS TO SIGN IN     
-
-  const handleSignIn = () => {
-    props.setSignInState({ open: true });
-  };
-
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>
       <div id="one-two-three" className="row"></div>
@@ -320,7 +314,7 @@ const SignUp = props => {
         <h1 style={styles.header}>Sign Up</h1>
         <div style={styles.subtitle}>
           Already have an account?
-          <button onClick={handleSignIn} style={styles.signIn}>
+          <button onClick={props.handleSignIn} style={styles.signIn}>
             Sign In
           </button>
         </div>

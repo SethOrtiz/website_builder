@@ -1,27 +1,15 @@
-import React, { useState } from "react";
-import Hero from "./components/Hero";
+import React from "react";
+import HeroContainer from "../../redux/landing/nav/HeroContainer";
 import ShowcaseA from "./components/ShowcaseA";
 import ShowcaseB from "./components/ShowcaseB";
-import Navbar from "../theme/Navbar";
+import NavContainer from "../../redux/landing/nav/NavContainer";
 import Footer from "../theme/Footer";
 
 export default function Landing() {
-
-  const [signInState, setSignInState] = useState({
-    open: false
-  });
-  const [signUpState, setSignUpState] = useState({
-    open: false
-  });
-
-  const [forgotPasswordState, setForgotPasswordState] = useState({
-    open: false
-  });
-
   return (
     <>
-      <Navbar setSignInState={setSignInState} signInState={signInState} forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState} setSignUpState={setSignUpState} signUpState={signUpState}/>
-      <Hero   setSignInState={setSignInState} signInState={signInState} forgotPasswordState={forgotPasswordState} setForgotPasswordState={setForgotPasswordState} setSignUpState={setSignUpState} signUpState={signUpState}/>
+      <NavContainer />
+      <HeroContainer />
       <ShowcaseA />
       <ShowcaseB />
       <Footer />

@@ -29,28 +29,11 @@ const styles = {
 };
 
 const Navbar = props => {
-  ////// Redirect to Landing page with signIn engaged ////
-  const handleHome = () => {
-    props.setSignInState({ open: false });
-    props.setSignUpState({ open: false });
-    props.setForgotPasswordState({ open: false });
-  };
-
-  const handleSignIn = () => {
-    props.setSignInState({ open: true });
-    props.setSignUpState({ open: false });
-    props.setForgotPasswordState({ open: false });
-  };
-  const handleSignUp = () => {
-    props.setSignInState({ open: false });
-    props.setSignUpState({ open: true });
-    props.setForgotPasswordState({ open: false });
-  };
-
+  
   return (
     <div style={styles.navbar}>
       <div></div>
-      <Link style={styles.brand} onClick={handleHome} to={ROUTES.LANDING}>
+      <Link style={styles.brand} onClick={props.handleHome} to={ROUTES.LANDING}>
         <span>Hub</span>stereo
       </Link>
       <div style={styles.routes}>
@@ -67,7 +50,7 @@ const Navbar = props => {
         <div>
           <Link
             className="exp-line-start"
-            onClick={handleSignIn}
+            onClick={props.handleSignIn}
             to={ROUTES.LANDING}
           >
             Sign In
@@ -76,7 +59,7 @@ const Navbar = props => {
         <div>
           <Link
             className="exp-line-start"
-            onClick={handleSignUp}
+            onClick={props.handleSignUp}
             to={ROUTES.LANDING}
           >
             Sign Up

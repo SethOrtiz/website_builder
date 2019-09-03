@@ -51,6 +51,7 @@ const styles = {
 };
 
 const SignIn = props => {
+
   useEffect(() => {
     setForm({ complete: true });
   }, []);
@@ -234,7 +235,7 @@ const SignIn = props => {
   ///////////////////////////////////////////     REDIRECTS TO Password Retreval     
 
   const handleForgotPassword = () => {
-    props.setForgotPasswordState({ open: true });
+    props.handleForgotPassword();
   };
 
   ///////////////////////////////////////////      JSX   

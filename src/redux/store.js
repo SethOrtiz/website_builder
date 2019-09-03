@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
+import navReducer from './landing/nav/reducer'
 import authReducer  from './landing/users/reducer'
 import websitesReducer from './dashboard/websites/reducer'
 import sectionsReducer from './workstation/sections/reducer'
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   websites: websitesReducer,
   units: unitsReducer,
   tools: toolsReducer,
-  auth: authReducer
+  auth: authReducer,
+  nav: navReducer
 })
 
 const middleware = [thunk, logger]

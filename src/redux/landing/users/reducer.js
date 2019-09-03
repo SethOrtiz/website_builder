@@ -4,14 +4,17 @@ import {
   SIGNUP_SUCCESSFUL,
   LOADING_SIGNIN,
   SIGNIN_FAILED,
-  SIGNIN_SUCCESSFUL
+  SIGNIN_SUCCESSFUL,
 } from "./actions";
 const initialState = {
   token: "",
   signInLoading: false,
   signInFailed: false,
   signUploading: false,
-  signUpFailed: false
+  signUpFailed: false,
+  signInOpen: false,
+  signUpOpen: false,
+  forgotPasswordOpen: false
 };
 
 function authReducer(state = initialState, action) {
@@ -59,4 +62,3 @@ function authReducer(state = initialState, action) {
   }
 }
 export default authReducer;
-

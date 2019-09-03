@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
-import { signIn } from "./thunks";
-import SignIn from "../../../views/landing/components/SignIn";
 import {
   handleSignUp,
   handleSignIn,
   handleForgotPassword,
   handleHome
-} from "../nav/actions";
+} from "./actions";
+import Navbar from "../../../views/theme/Navbar";
+
 const mapStateToProps = function({ auth, nav }) {
   return {
     token: auth.token,
@@ -15,9 +15,6 @@ const mapStateToProps = function({ auth, nav }) {
 };
 const mapDispatchToProps = function(dispatch) {
   return {
-    signIn: function(email, password) {
-      dispatch(signIn(email, password));
-    },
     handleSignUp: function() {
       dispatch(handleSignUp());
     },
@@ -36,4 +33,4 @@ const mapDispatchToProps = function(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignIn);
+)(Navbar);
