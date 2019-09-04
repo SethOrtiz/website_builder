@@ -48,6 +48,8 @@ export function signUp(handle, email, password, passwordConfirm) {
 export function signIn(email, password) {
   return async function(dispatch) {
     dispatch(loadingSignIn());
+    console.log(email) 
+    console.log(password)
     try {
       const res = await fetch(`${API}/signin`, {
         method: "POST",
@@ -66,6 +68,7 @@ export function signIn(email, password) {
         console.log("Sign In Successful")
         const token= await res.json();
         dispatch(signInSuccess(token));
+        this.props.history.push(DASHBOARD);
       }
     } catch (e) {
       dispatch(signInFailed());

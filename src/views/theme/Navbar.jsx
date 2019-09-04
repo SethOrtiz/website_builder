@@ -6,7 +6,6 @@ const styles = {
   brand: {
     fontSize: "1.5rem",
     paddingLeft: "2rem",
-    textShadow: "1px 1px 2rem #eee",
     color: "black"
   },
   navbar: {

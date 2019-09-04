@@ -1,4 +1,4 @@
-import { API } from "../../constants/api";
+import { API } from "../../../constants/api";
 import {
   loadingWebsites,
   fetchWebsites,
@@ -48,7 +48,7 @@ export function addWebsite(websiteId) {
   return async function(dispatch) {
     dispatch(postingWebsite());
     try {
-      const res = await fetch(`${api}/websites/${websiteId}/website`, {
+      const res = await fetch(`${API}/websites/${websiteId}/website`, {
         method: "POST",
         body: JSON.stringify({
         }),

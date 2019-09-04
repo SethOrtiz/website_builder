@@ -8,7 +8,7 @@ import * as REGEX from "../../../constants/regex";
 const styles = {
   form: {
     width: "100%",
-    backgroundColor: "#eedbdb",
+    backgroundColor: "#e3c9c9",
     display: "grid",
     gridTemplateColumns: "1fr 6fr 1fr",
     gridTemplateRows: "1fr 10fr 1fr",
@@ -29,7 +29,7 @@ const styles = {
     marginBottom: "1rem",
     fontSize: "2rem",
     textAlign: "center",
-    color: "#fff"
+    color: "#fffef9"
   },
   subtitle: {
     width: "100%",
@@ -43,7 +43,7 @@ const styles = {
     outline: "none",
     padding: "1rem 0.5rem",
     fontSize: "1rem",
-    color: "#fff",
+    color: "#fffef9",
     fontWeight: "700",
     textShadow: "1px 1px 2px #ccc"
   },
@@ -319,7 +319,7 @@ const SignUp = props => {
           </button>
         </div>
         <div>
-          <div className="exp-line-center">
+          <div className="exp-center">
             <input
               type="text"
               name="handle-field"
@@ -336,7 +336,7 @@ const SignUp = props => {
           <div className="feedback">{formErrors.handle}</div>
         </div>
         <div>
-          <div className="exp-line-center">
+          <div className="exp-center">
             <input
               type="email"
               name="email-field"
@@ -353,7 +353,7 @@ const SignUp = props => {
           <div className="feedback">{formErrors.email}</div>
         </div>
         <div>
-          <div className="exp-line-center">
+          <div className="exp-center">
             <input
               type="password"
               name="password-field"
@@ -371,7 +371,7 @@ const SignUp = props => {
           <div className="feedback">{formErrors.password}</div>
         </div>
         <div>
-          <div className="exp-line-center">
+          <div className="exp-center">
             <input
               type="password"
               name="password-confirm-field"

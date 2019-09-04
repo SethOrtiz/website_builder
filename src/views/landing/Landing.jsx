@@ -4,7 +4,6 @@ import ShowcaseA from "./components/ShowcaseA";
 import ShowcaseB from "./components/ShowcaseB";
 import NavContainer from "../../redux/landing/nav/NavContainer";
 import Footer from "../theme/Footer";
-
 export default function Landing() {
   return (
     <>

@@ -27,7 +27,7 @@ const styles = {
     marginBottom: "2rem",
     fontSize: "2rem",
     textAlign: "center",
-    color: "#fff"
+    color: "#fffef9"
   },
   forgotPassword: {
     width: "100%",
@@ -36,7 +36,7 @@ const styles = {
     textAlign: "center",
     justifySelf: "center",
     backgroundColor: "inherit",
-    color: "#fff",
+    color: "#fffef9",
     border: "none",
     outline: "none",
     textShadow: "1px 1px 2px #ccc",
@@ -249,7 +249,7 @@ const SignIn = props => {
         <div className="feedback">{formErrors.handle}</div>
 
         <div>
-          <div className="exp-line-center">
+          <div className="exp-center">
             <input
               type="email"
               name="email-field"
@@ -266,7 +266,7 @@ const SignIn = props => {
           <div className="feedback">{formErrors.email}</div>
         </div>
         <div>
-          <div className="exp-line-center">
+          <div className="exp-center">
             <input
               type="password"
               name="password-field"

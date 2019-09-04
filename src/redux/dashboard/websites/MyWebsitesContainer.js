@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { getAllWebsites, getWebsite, addWebsite } from "./thunks";
-import MyWebsites from "../../../views/dashboard/components/MyWebites";
+import MyWebsites from "../../../views/dashboard/components/MyWebsites";
 
 const mapStateToProps = function({ websites }) {
   return {

@@ -7,7 +7,7 @@ import Info from "./Info";
 
 const styles = {
   hero: {
-    backgroundColor: "#fff",
+    backgroundColor: "#fffef9",
     height: "100vh",
     display: "grid",
     gridTemplateColumns: "1fr 5fr 5fr 1fr",
@@ -17,12 +17,12 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#cbdadb"
+    backgroundColor: "#333"
   },
   getStarted: {
     padding: "0.8rem 2rem",
     fontSize: "2rem",
-    backgroundColor: "#fff",
+    backgroundColor: "#fffef9",
     color: "black",
     borderRadius: "2rem",
     border: "none",
@@ -37,14 +37,14 @@ const Hero = props => {
       <div className="navRow"></div>
       <div></div>
       <Info
-        background="#cbdadb"
-        fontColor="#111"
+        background="#333"
+        fontColor="#fffef9"
         title="Let the world know who you are."
         content="Design and build your own high-quality websites. Whether you’re
           promoting a band, showcasing your work, selling merch or
           sharing your music with your fans, Hubstereo is here to help."
-        linkOne={["Solo Artists", "#A", "#111"]}
-        linkTwo={["Bands", "#B", "#111"]}
+        linkOne={["Solo Artists", "#A", "#fffef9"]}
+        linkTwo={["Bands", "#B", "#fffef9"]}
       />
       {props.forgotPasswordOpen ? (
         <ForgotPassword />

@@ -29,7 +29,7 @@ const styles = {
     marginBottom: "2rem",
     fontSize: "2rem",
     textAlign: "center",
-    color: "#fff"
+    color: "#fffef9"
   },
   subtitle: {
     width: "100%",
@@ -138,7 +138,7 @@ const ForgotPassword = props => {
       <div id="five">
         <h1 style={styles.header}>Recover Password</h1>
         <div>
-        <div className="exp-line-center">
+        <div className="exp-center">
           <input
             type="email"
             name="email"

@@ -26,14 +26,14 @@ export default function ShowcaseA() {
       <div></div>
       <div style={leftColumnStyles}></div>
       <Info
-        background="#ffefd7"
-        fontColor="#777"
+        background="#000"
+        fontColor="#fffef9"
         title="Express Yourself."
         content="Design and build your own high-quality websites. Whether you’re
           promoting a band, showcasing your work, selling merch or
           sharing your music with your fans, Hubstereo is here to help."
-        linkOne={["Get Started", "#H", "#777"]}
-        linkTwo={["Bands", "#B", "#777"]}
+        linkOne={["Get Started", "#H","#fffef9"]}
+        linkTwo={["Bands", "#B", "#fffef9"]}
       />
       <div></div>
       <div></div>
