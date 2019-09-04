@@ -28,10 +28,12 @@ const styles = {
     fontStyle: "italic",
     backgroundColor: "inherit",
     border: "none",
+    borderTop: "1px solid #000",
+    borderBottom: "1px solid #000",
     outline: "none",
     color: "#000",
     fontWeight: "600",
-    margin: "0 auto auto auto"
+    alignSelf: "flex-start"
   },
   input: {
     fontSize: "3em",
@@ -95,7 +97,6 @@ const MyWebsites = props => {
       {websites}
       <form style={styles.box} onSubmit={handleSubmit} noValidate>
         <div>
-        
           <input
             type="text"
             name="new-note"
@@ -110,9 +111,9 @@ const MyWebsites = props => {
           {empty.value && <div style={styles.feedback}> </div>}
         </div>
         <button
+          className="opacity"
           type="submit"
           style={styles.create}
-          className="exp-center-black"
         >
           Create
         </button>

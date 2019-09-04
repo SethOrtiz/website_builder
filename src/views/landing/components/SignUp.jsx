@@ -384,7 +384,7 @@ const SignUp = props => {
         </div>
         {!form.complete && <p style={styles.formErrors}> Form Incomplete </p>}
         <div style={styles.btnContainer}>
-          <button style={styles.signUp} type="submit">
+          <button style={styles.signUp} type="submit" className="opacity">
             Sign Up
           </button>
         </div>

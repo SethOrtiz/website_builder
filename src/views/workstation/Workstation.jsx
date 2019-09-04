@@ -1,7 +1,7 @@
 import React from "react";
 import NavContainer from "../../redux/landing/nav/NavContainer";
 import Footer from "../theme/Footer";
-
+import Display from "./display/Display";
 const styles = {
   workstation: {
     height: "100vh",
@@ -31,7 +31,9 @@ export default function Workstation() {
       <div style={styles.workstation} className="layout">
         <nav style={styles.nav}></nav>
         <aside style={styles.aside}></aside>
-        <main style={styles.main}></main>
+        <main style={styles.main}>
+          <Display/>
+        </main>
       </div>
       <Footer />
     </>

@@ -98,6 +98,15 @@ button:hover {
   text-decoration: none;
 }
 
+.opacity{
+  transition: opacity 0.s;
+}
+
+.opacity:hover{
+  opacity: 0.7;
+  filter: brightness(110%);
+}
+
 .crowd {
   background-image: url(./assets/crowd.jpg);
   background-repeat: repeat-x;
@@ -204,6 +213,8 @@ button:hover {
 }
 
 /* /////// ANIMATIONS //////// */
+
+
 .exp-line-start::after {
   content: "";
   display: flex;

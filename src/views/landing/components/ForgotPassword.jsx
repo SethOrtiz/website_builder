@@ -159,7 +159,7 @@ const ForgotPassword = props => {
           Enter the email you used to create the account.
         </div>
         <div style={styles.btnContainer}>
-          <button style={styles.send} type="submit">
+          <button style={styles.send} type="submit" className="opacity">
             Send Email
           </button>
         </div>

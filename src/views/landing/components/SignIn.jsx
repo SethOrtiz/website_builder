@@ -291,12 +291,12 @@ const SignIn = props => {
         </div>
         {!form.complete && <p style={styles.formErrors}> Form Incomplete </p>}
         <div style={styles.btnContainer}>
-          <button style={styles.signIn} type="submit">
+          <button style={styles.signIn} type="submit" className="opacity">
             Sign In
           </button>
         </div>
         <div style={styles.btnContainer}>
-          <button onClick={handleForgotPassword} style={styles.forgotPassword}>
+          <button onClick={handleForgotPassword} style={styles.forgotPassword} className="opacity">
             Forgot Password?
           </button>
         </div>
