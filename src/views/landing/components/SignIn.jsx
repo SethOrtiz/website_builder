@@ -42,7 +42,13 @@ const styles = {
     textShadow: "1px 1px 2px #ccc",
     fontWeight: "700"
   },
-
+    formErrors: {
+    fontSize: "1.2rem",
+    paddingTop: "1rem",
+    textAlign: "center",
+    color: "#777",
+    fontWeight: "600"
+  },
   btnContainer: {
     display: "flex",
     justifyContent: "center",
@@ -232,13 +238,13 @@ const SignIn = props => {
     }
   };
 
-  ///////////////////////////////////////////     REDIRECTS TO Password Retreval     
+///////////////////////////////////////////     REDIRECTS TO Password Retreval     
 
   const handleForgotPassword = () => {
     props.handleForgotPassword();
   };
-
-  ///////////////////////////////////////////      JSX   
+  
+///////////////////////////////////////////      JSX   
 
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>

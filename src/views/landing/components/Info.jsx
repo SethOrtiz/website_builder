@@ -9,7 +9,7 @@ const styles = {
   title: {
     display: "flex",
     fontSize: "3rem",
-    alignItems: "flex-end",
+    alignItems: "flex-end"
   },
   content: {
     display: "flex",
@@ -24,13 +24,19 @@ const styles = {
     fontWeight: "500"
   },
   link: {
-    paddingTop: "1rem",
+    paddingTop: "1rem"
   }
 };
 
 const Info = props => {
   return (
-    <section style={{...styles.info, backgroundColor: props.background, color: props.fontColor}}>
+    <section
+      style={{
+        ...styles.info,
+        backgroundColor: props.background,
+        color: props.fontColor
+      }}
+    >
       <div></div>
       <div></div>
       <div></div>
@@ -48,21 +54,21 @@ const Info = props => {
       {/* linkOne ,linkTwo, and linkThree are arrays in the props objects [href, content, color] */}
       <div style={styles.links}>
         {props.linkOne && (
-          <div style={styles.link} className="exp-center-fff">
+          <div style={styles.link} className="exp-center-black">
             <a style={{ color: props.linkOne[2] }} href={props.linkOne[1]}>
               {props.linkOne[0]}
             </a>
           </div>
         )}
         {props.linkTwo && (
-          <div style={styles.link} className="exp-center-fff">
+          <div style={styles.link} className="exp-center-black">
             <a style={{ color: props.linkTwo[2] }} href={props.linkTwo[1]}>
               {props.linkTwo[0]}
             </a>
           </div>
         )}
         {props.linkThree && (
-          <div style={styles.link} className="exp-center-fff">
+          <div style={styles.link} className="exp-center-black">
             <a href={props.linkThree[1]}>{props.linkThree[0]}</a>
           </div>
         )}

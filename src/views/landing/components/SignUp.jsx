@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import * as REGEX from "../../../constants/regex";
 
-
-/////////////////////////////////////////////////////        STYLES         
+/////////////////////////////////////////////////////        STYLES
 
 const styles = {
   form: {
@@ -59,12 +58,11 @@ const styles = {
     fontWeight: "600"
   }
 };
-/////////////////////////////////////////////////////        INITIAL STATE            
+/////////////////////////////////////////////////////        INITIAL STATE
 const SignUp = props => {
- 
   useEffect(() => {
     setForm({ complete: true });
-  },[])
+  }, []);
 
   const [form, setForm] = useState({
     complete: false
@@ -96,8 +94,8 @@ const SignUp = props => {
     passwordConfirm: ""
   });
 
-  //////////////////////////////////////////////////     VALIDATION ON CHANGE    
-  
+  //////////////////////////////////////////////////     VALIDATION ON CHANGE
+
   const handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -130,7 +128,6 @@ const SignUp = props => {
         }
         break;
       case "password-field":
-      
         switch (true) {
           case !REGEX.containsLowerCase(value):
             setFormErrors({
@@ -236,7 +233,7 @@ const SignUp = props => {
     });
   };
 
-  ////////////////////////////////////////////     RESET ALL STATES AFTER SUCCESSFUL SUBMITION       
+  ////////////////////////////////////////////     RESET ALL STATES AFTER SUCCESSFUL SUBMITION
 
   const resetState = () => {
     setForm({
@@ -270,7 +267,7 @@ const SignUp = props => {
     });
   };
 
-  /////////////////////////////////////////     MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION   
+  /////////////////////////////////////////     MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION
   const validateForm = () => {
     let formValid = false;
     if (
@@ -286,13 +283,12 @@ const SignUp = props => {
     return formValid;
   };
 
-  ////////////////////////////////////////     CREATES A NEW USER AND REDIRECTS TO DASHBOARD    
+  ////////////////////////////////////////     CREATES A NEW USER AND REDIRECTS TO DASHBOARD
 
   const handleSubmit = e => {
     e.preventDefault();
     if (validateForm()) {
-      
-       props.signUp(
+      props.signUp(
         handle.value,
         email.value,
         password.value,

@@ -70,7 +70,7 @@ select:-webkit-autofill:focus {
   background-color: inherit;
   backdrop-filter: brightness(98%);
   outline: 0;
-  -webkit-text-fill-color: #999;
+  -webkit-text-fill-color: #555;
   transition: background-color 5000s;
 }
 /* ///// LOGO ////// */
@@ -95,7 +95,6 @@ a:hover {
 }
 
 button:hover {
-  opacity: 0.8;
   text-decoration: none;
 }
 
@@ -111,7 +110,7 @@ button:hover {
   width: 100%;
   font-weight: 400;
   font-size: 2rem;
-  color: #fffef9 ;
+  color: #000 ;
   line-height: 1.5;
   background-clip: padding-box;
   border: 0 solid;
@@ -120,27 +119,24 @@ button:hover {
 }
 
 .control:focus {
-  color: #fffef9 ;
+  color: #000 ;
   background-color: inherit;
   backdrop-filter: brightness(98%);
   outline: 0;
 }
 
 .control::placeholder {
-  color: #fffef9 ;
+  color: #555;
 }
 .control:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #fffef9 ;
+  color: #555 ;
 }
 .control::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #fffef9 ;
+  color: #555 ;
 }
 
-.feedback {
-  color: black;
-}
 
 /* ////////GRID////////// */
 .navRow {
@@ -246,3 +242,8 @@ button:hover {
   left: 50%;
 }
 
+
+/* /////// DASH //////// */
+.website:nth-child(odd) {
+  background-color: #fffef9;
+}

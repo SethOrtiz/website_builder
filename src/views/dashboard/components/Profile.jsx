@@ -15,8 +15,9 @@ const styles = {
     height: "9em",
     width: "9em",
     marginLeft: "3em",
-    backgroundColor: "#333",
-    objectFit: "cover"
+    backgroundColor: "#ffefd7",
+    objectFit: "cover",
+    border: "1px solid #000"
   },
   handle: {
       margin: "auto",

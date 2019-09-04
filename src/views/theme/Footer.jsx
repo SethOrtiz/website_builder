@@ -1,12 +1,11 @@
 import React from "react";
-
 const styles = {
   footer: {
     height: "20vh",
     display: "grid",
     gridTemplateColumns: "1fr 5fr 5fr 1fr",
-    backgroundColor: "#222",
-    color: "#fff"
+    backgroundColor: "#111",
+    color: "#fffef9"
   },
   wrapper: {
     display: "flex",
@@ -17,14 +16,14 @@ const styles = {
     display: "flex",
     justifyContent: "space-around",
     paddingTop: "10%",
-    color: "#cecbcb",
+    color: "#fffef9",
     fontSize: "1.5rem"
   },
   header: {
     marginBottom: "0.3rem"
   },
   link: {
-    color: "#eedbdb"
+    color: "dddef9"
   }
 };
 export default function Footer() {

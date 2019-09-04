@@ -10,58 +10,53 @@ import { withRouter } from "react-router-dom";
 const styles = {
   MyWebsites: {
     height: "100%",
-    backgroundColor: "#000",
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gridTemplateRows: "auto",
     boxSizing: "border-box",
-    borderTop: "1px solid #333",
-    borderLeft: "1px solid #333"
+    borderLeft: "1px solid #000",
+    borderTop: "1px solid #000",
+    backgroundColor: " #ffefd7"
   },
   box: {
-    margin: "auto"
+    display: "grid",
+    backgroundColor: " #ffefd7"
   },
   create: {
     fontSize: "3em",
     fontStyle: "italic",
-    backgroundColor: "#000",
+    backgroundColor: "inherit",
     textAlign: "center",
     border: "none",
     outline: "none",
-    color: "#fffef9",
-    fontWeight: "600"
+    color: "#000",
+    fontWeight: "600",
+    margin: "auto"
   }
 };
-
 const MyWebsites = props => {
-  const assignColor = index => {
-    if (index % 2 === 0) {
-      return "#fffef9";
-    } else {
-      return "#d2e7ff";
-    }
-  };
-
-  /// reders a website component for every user website and assings it a new background
-  // to do: assing picture instead of color and add a blurr effect to it
   const websites = () => {
     for (let i = 0; i < props.websites.length; i++) {
       const website = props.websites[i];
-      return <Website handle={website.name} backgroundColor={assignColor(i)} />;
+      return <Website handle={website.name} />;
     }
   };
 
   return (
-    <section id="Dashboard" style={styles.MyWebsites}>
+    <section id="Dashboard" style={styles.MyWebsites} >
       {websites}
-      <div style={styles.box}>
-        <Link className="exp-center-fff" style={styles.create} to={WORKSTATION}>
+      <div style={styles.box} className="website">
+        <Link
+          className="exp-center-black"
+          style={styles.create}
+          to={WORKSTATION}
+        >
           New
         </Link>
       </div>
-      <Website handle="The Strokes" backgroundColor="#e3c9c9" />
-      <Website handle="The Clash" backgroundColor="#e3c9c9" />
-      <Website handle="AM" backgroundColor="#000" />
+      <Website handle="The Strokes"className="website" />
+      <Website handle="The Clash" className="website"/>
+      <Website handle="AM" className="website"/>
     </section>
   );
 };
