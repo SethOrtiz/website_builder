@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Website from "./Website";
-import { Link } from "react-router-dom";
-import { WORKSTATION } from "../../../constants/routes";
 import { withRouter } from "react-router-dom";
 
 /* COLOR SCHEME */
@@ -20,21 +18,71 @@ const styles = {
   },
   box: {
     display: "grid",
-    backgroundColor: " #ffefd7"
+    gridTemplateRows: "1fr 1fr",
+    backgroundColor: " #ffefd7",
+    alignItems: "flex-end",
+    boxSizing: "border-box"
   },
   create: {
     fontSize: "3em",
     fontStyle: "italic",
     backgroundColor: "inherit",
-    textAlign: "center",
     border: "none",
     outline: "none",
     color: "#000",
     fontWeight: "600",
-    margin: "auto"
+    margin: "0 auto auto auto"
+  },
+  input: {
+    fontSize: "3em",
+    borderBottom: "none"
+  },
+  feedback: {
+    width: "100%",
+    height: "3em",
+    backgroundColor: "darkred"
   }
 };
 const MyWebsites = props => {
+  const [note, setNote] = useState({
+    value: ""
+  });
+  const [empty, setEmpty] = useState({
+    value: false
+  });
+  ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
+  useEffect(() => {
+    setEmpty({ value: false });
+  }, []);
+  ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
+  const handleChange = e => {
+    e.preventDefault();
+    const { value } = e.target;
+    setNote({ value });
+    setEmpty({
+      value: false
+    });
+  };
+
+  ///////////////////////////////////////////     RESETS AFTER SUCCESSFUL SUBMITION
+  const resetState = () => {
+    setNote({
+      value: ""
+    });
+  };
+  ///////////////////////////////////////////       CREATES A NEW NOTE
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (note.value) {
+      props.addNote(note.value);
+      resetState();
+    } else {
+      setEmpty({
+        value: true
+      });
+    }
+  };
+
   const websites = () => {
     for (let i = 0; i < props.websites.length; i++) {
       const website = props.websites[i];
@@ -43,20 +91,35 @@ const MyWebsites = props => {
   };
 
   return (
-    <section id="Dashboard" style={styles.MyWebsites} >
+    <section id="Dashboard" style={styles.MyWebsites}>
       {websites}
-      <div style={styles.box} className="website">
-        <Link
-          className="exp-center-black"
+      <form style={styles.box} onSubmit={handleSubmit} noValidate>
+        <div>
+        
+          <input
+            type="text"
+            name="new-note"
+            style={styles.input}
+            onChange={handleChange}
+            placeholder="Name"
+            value={note.value}
+            className="control-center"
+            noValidate
+            autoComplete="off"
+          />
+          {empty.value && <div style={styles.feedback}> </div>}
+        </div>
+        <button
+          type="submit"
           style={styles.create}
-          to={WORKSTATION}
+          className="exp-center-black"
         >
-          New
-        </Link>
-      </div>
-      <Website handle="The Strokes"className="website" />
-      <Website handle="The Clash" className="website"/>
-      <Website handle="AM" className="website"/>
+          Create
+        </button>
+      </form>
+      <Website handle="The Strokes" className="website" />
+      <Website handle="The Clash" className="website" />
+      <Website handle="AM" className="website" />
     </section>
   );
 };

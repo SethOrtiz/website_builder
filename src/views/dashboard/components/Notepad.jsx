@@ -96,11 +96,19 @@ const Notepad = props => {
     }
   };
 
+  const notes = () => {
+    for (let i = 0; i < props.notes.length; i++) {
+      const note = props.notes[i];
+      return <li style={styles.note}> {note.content} </li>;
+    }
+  };
+
   return (
     <section id="Notepad" style={styles.notepad}>
       <div style={styles.main}>
         <h1 style={styles.title}>Notes</h1>
         <ul>
+          {notes}
           <li style={styles.note}>
             Lorem ratpudiandae, deserunt assumenda est. Quidem, cupiditate
             laborum.
@@ -117,17 +125,17 @@ const Notepad = props => {
       </div>
       <form style={styles.form} onSubmit={handleSubmit} noValidate>
         <div>
-            <input
-              type="text"
-              name="new-note"
-              style={styles.input}
-              onChange={handleChange}
-              placeholder="add a note here."
-              value={note.value}
-              className="control"
-              noValidate
-              autoComplete="off"
-            />
+          <input
+            type="text"
+            name="new-note"
+            style={styles.input}
+            onChange={handleChange}
+            placeholder="what to do..."
+            value={note.value}
+            className="control"
+            noValidate
+            autoComplete="off"
+          />
         </div>
         {empty.value && <div style={styles.feedback}> </div>}
         <button onClick style={styles.add}>

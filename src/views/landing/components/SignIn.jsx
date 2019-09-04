@@ -3,10 +3,13 @@ import { withRouter } from "react-router-dom";
 import { DASHBOARD } from "../../../constants/routes";
 import * as REGEX from "../../../constants/regex";
 
+/* COLOR SCHEME */
+/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
+
 const styles = {
   form: {
     width: "100%",
-    backgroundColor: "#e3c9c9",
+    backgroundColor: "#d2e7ff",
     display: "grid",
     gridTemplateColumns: "1fr 6fr 1fr",
     gridTemplateRows: "1fr 10fr 1fr",
@@ -16,18 +19,18 @@ const styles = {
     borderRadius: "2rem",
     padding: "0.8rem 2rem",
     fontSize: "1rem",
-    backgroundColor: "none",
-    border: "none",
+    backgroundColor: "inherit",
+    border: "1px solid #000",
     outline: "none",
     textAlign: "center",
-    marginTop: "2rem"
+    marginTop: "2rem",
+    fontWeight: "600"
   },
   header: {
     width: "100%",
     marginBottom: "2rem",
     fontSize: "2rem",
-    textAlign: "center",
-    color: "#fffef9"
+    textAlign: "center"
   },
   forgotPassword: {
     width: "100%",
@@ -36,13 +39,11 @@ const styles = {
     textAlign: "center",
     justifySelf: "center",
     backgroundColor: "inherit",
-    color: "#fffef9",
     border: "none",
     outline: "none",
-    textShadow: "1px 1px 2px #ccc",
     fontWeight: "700"
   },
-    formErrors: {
+  formErrors: {
     fontSize: "1.2rem",
     paddingTop: "1rem",
     textAlign: "center",
@@ -57,7 +58,6 @@ const styles = {
 };
 
 const SignIn = props => {
-
   useEffect(() => {
     setForm({ complete: true });
   }, []);
@@ -82,7 +82,7 @@ const SignIn = props => {
     password: ""
   });
 
-  ///////////////////////////////////////////       VALIDATION ON CHANGE  
+  ///////////////////////////////////////////       VALIDATION ON CHANGE
 
   const handleChange = e => {
     e.preventDefault();
@@ -187,7 +187,7 @@ const SignIn = props => {
     });
   };
 
-  ///////////////////////////////////////////     RESET ALL STATES AFTER SUCCESSFUL SUBMITION  
+  ///////////////////////////////////////////     RESET ALL STATES AFTER SUCCESSFUL SUBMITION
 
   const resetState = () => {
     setForm({
@@ -211,7 +211,7 @@ const SignIn = props => {
     });
   };
 
-  ///////////////////////////////////////////     MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION   
+  ///////////////////////////////////////////     MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION
 
   const validateForm = () => {
     let formValid = false;
@@ -238,13 +238,13 @@ const SignIn = props => {
     }
   };
 
-///////////////////////////////////////////     REDIRECTS TO Password Retreval     
+  ///////////////////////////////////////////     REDIRECTS TO Password Retreval
 
   const handleForgotPassword = () => {
     props.handleForgotPassword();
   };
-  
-///////////////////////////////////////////      JSX   
+
+  ///////////////////////////////////////////      JSX
 
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>

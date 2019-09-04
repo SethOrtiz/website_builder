@@ -136,6 +136,41 @@ button:hover {
   /* Microsoft Edge */
   color: #555 ;
 }
+  .control-center {
+    display: block;
+    background: none;
+    width: 100%;
+    font-weight: 400;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #000 ;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 0 solid;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+    text-align: center;
+  }
+  
+  .control-center:focus {
+    color: #000 ;
+    background-color: inherit;
+    backdrop-filter: brightness(98%);
+    outline: 0;
+  }
+  
+  .control-center::placeholder {
+    color: #555;
+  }
+  .control-center:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #555 ;
+  }
+  .control-center::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #555 ;
+  }
 
 
 /* ////////GRID////////// */
@@ -243,7 +278,12 @@ button:hover {
 }
 
 
-/* /////// DASH //////// */
-.website:nth-child(odd) {
-  background-color: #fffef9;
+/* /////// DISPLAY ON HOVER //////// */
+
+.hidden{
+  display: none;
+}
+
+.hidden:hover{
+  display: block;
 }

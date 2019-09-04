@@ -18,18 +18,18 @@ const styles = {
     borderRadius: "2rem",
     padding: "0.8rem 2rem",
     fontSize: "1rem",
-    backgroundColor: "none",
-    border: "none",
+    backgroundColor: "inherit",
+    border: "1px solid #000",
     outline: "none",
     textAlign: "center",
-    marginTop: "2rem"
+    marginTop: "2rem",
+    fontWeight: "600"
   },
   header: {
     width: "100%",
     marginBottom: "2rem",
     fontSize: "2rem",
-    textAlign: "center",
-    color: "#fffef9"
+    textAlign: "center"
   },
   subtitle: {
     width: "100%",
@@ -138,19 +138,19 @@ const ForgotPassword = props => {
       <div id="five">
         <h1 style={styles.header}>Recover Password</h1>
         <div>
-        <div className="exp-center">
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            placeholder="Email"
-            value={validation.email}
-            id="email-field"
-            className="control"
-            noValidate
-            valid={validation.emailValid}
-            invalid={validation.emailInvalid}
-          />
+          <div className="exp-center">
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              placeholder="Email"
+              value={validation.email}
+              id="email-field"
+              className="control"
+              noValidate
+              valid={validation.emailValid}
+              invalid={validation.emailInvalid}
+            />
           </div>
           <div className="feedback">{validation.formErrors.email}</div>
         </div>

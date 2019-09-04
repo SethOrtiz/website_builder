@@ -7,7 +7,7 @@ import * as REGEX from "../../../constants/regex";
 const styles = {
   form: {
     width: "100%",
-    backgroundColor: "#e3c9c9",
+    backgroundColor: "#d2e7ff",
     display: "grid",
     gridTemplateColumns: "1fr 6fr 1fr",
     gridTemplateRows: "1fr 10fr 1fr",
@@ -17,18 +17,18 @@ const styles = {
     borderRadius: "2rem",
     padding: "0.8rem 2rem",
     fontSize: "1rem",
-    backgroundColor: "none",
-    border: "none",
+    backgroundColor: "inherit",
+    border: "1px solid #000",
     outline: "none",
     textAlign: "center",
-    marginTop: "2rem"
+    marginTop: "2rem",
+    fontWeight: "600"
   },
   header: {
     width: "100%",
     marginBottom: "1rem",
     fontSize: "2rem",
     textAlign: "center",
-    color: "#fffef9"
   },
   subtitle: {
     width: "100%",
@@ -42,9 +42,7 @@ const styles = {
     outline: "none",
     padding: "1rem 0.5rem",
     fontSize: "1rem",
-    color: "#fffef9",
     fontWeight: "700",
-    textShadow: "1px 1px 2px #ccc"
   },
   btnContainer: {
     display: "flex",
