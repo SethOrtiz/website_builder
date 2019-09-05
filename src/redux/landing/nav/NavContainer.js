@@ -5,6 +5,7 @@ import {
   handleForgotPassword,
   handleHome
 } from "./actions";
+import {signOut} from "../users/thunks";
 import Navbar from "../../../views/theme/Navbar";
 
 const mapStateToProps = function({ auth, nav }) {
@@ -20,6 +21,9 @@ const mapDispatchToProps = function(dispatch) {
     },
     handleSignIn: function() {
       dispatch(handleSignIn());
+    },
+    signOut: function() {
+      dispatch(signOut());
     },
     handleForgotPassword: function() {
       dispatch(handleForgotPassword());

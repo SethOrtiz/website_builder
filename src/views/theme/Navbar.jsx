@@ -20,6 +20,11 @@ const styles = {
     fontWeight: "600",
     position: "fixed"
   },
+  signOut: {
+    border: "none",
+    outline: "none",
+    backgroundColor: "inherit"
+  },
   routes: {
     width: "100%",
     justifyContent: "space-around",
@@ -28,7 +33,6 @@ const styles = {
 };
 
 const Navbar = props => {
-  
   return (
     <div style={styles.navbar}>
       <div></div>
@@ -36,34 +40,56 @@ const Navbar = props => {
         <span>Hub</span>stereo
       </Link>
       <div style={styles.routes}>
-        <div>
-          <Link className="exp-line-start" to={ROUTES.DASHBOARD }>
-            Dashboard
-          </Link>
-        </div>
-        <div>
-          <Link className="exp-line-start" to={ROUTES.WORKSTATION}>
-            Workstation
-          </Link>
-        </div>
-        <div>
-          <Link
-            className="exp-line-start"
-            onClick={props.handleSignIn}
-            to={ROUTES.LANDING}
-          >
-            Sign In
-          </Link>
-        </div>
-        <div>
-          <Link
-            className="exp-line-start"
-            onClick={props.handleSignUp}
-            to={ROUTES.LANDING}
-          >
-            Sign Up
-          </Link>
-        </div>
+        {props.auth.authenticated ? (
+          <>
+            <div>
+              <Link className="exp-line-start" to={ROUTES.DASHBOARD}>
+                Dashboard
+              </Link>
+            </div>
+            <div>
+              <Link className="exp-line-start" to={ROUTES.WORKSTATION}>
+                Workstation
+              </Link>
+            </div>
+            <div>
+              <Link
+                onClick={props.signOut}
+                className="exp-line-start"
+                to={ROUTES.LANDING}
+              >
+                Sign Out
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <Link className="exp-line-start" to={ROUTES.LANDING}> Share</Link>
+            </div>
+            <div>
+              <Link className="exp-line-start" to={ROUTES.LANDING}> Explore</Link>
+            </div>
+            <div>
+              <Link
+                className="exp-line-start"
+                onClick={props.handleSignIn}
+                to={ROUTES.LANDING}
+              >
+                Sign In
+              </Link>
+            </div>
+            <div>
+              <Link
+                className="exp-line-start"
+                onClick={props.handleSignUp}
+                to={ROUTES.LANDING}
+              >
+                Sign Up
+              </Link>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

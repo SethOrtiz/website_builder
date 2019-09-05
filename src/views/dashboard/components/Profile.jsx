@@ -28,11 +28,12 @@ const styles = {
 const Profile = props => {
   return (
     <section id="P" style={styles.profile}>
-      <img src={props.profileImg} style={styles.img} alt="" />
+      <img src={props.imgUrl} style={styles.img} alt="" />
       <div style={styles.handle}>
         <h1>{props.handle} USER NAME</h1>
       </div>
     </section>
   );
 };
+
 export default withRouter(Profile);

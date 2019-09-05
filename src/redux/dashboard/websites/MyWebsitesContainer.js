@@ -5,7 +5,7 @@ import MyWebsites from "../../../views/dashboard/components/MyWebsites";
 const mapStateToProps = function({ auth, websites }) {
   return {
     ...websites,
-     authenticated: auth.user.authenticated
+     authenticated: auth.authenticated
   }; 
 };
 

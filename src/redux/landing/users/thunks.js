@@ -23,7 +23,6 @@ export const signUp = (newUserData, history) => dispatch => {
     .post(`${API}/signup`, newUserData)
     .then(res => {
       setAuthorizationHeader(res.data.token);
-      dispatch(getUserData());
       dispatch(clearErrors());
       console.log("Sign Up Successful");
       history.push(DASHBOARD);
@@ -39,7 +38,6 @@ export const signIn = (userData, history) => dispatch => {
     .post(`${API}/signin`, userData)
     .then(res => {
       setAuthorizationHeader(res.data.token);
-      dispatch(getUserData());
       dispatch(clearErrors());
       history.push(DASHBOARD);
     })
@@ -53,22 +51,12 @@ export const signOut = () => dispatch => {
   dispatch(setUnauthenticated());
 };
 
-export const getUserData = () => dispatch => {
-  dispatch(loadingUser());
-  axios
-    .get(`${API}/user`)
-    .then(res => {
-      dispatch(setUser(res.data));
-    })
-    .catch(err => console.log(err));
-};
-
 export const uploadImage = formData => dispatch => {
   dispatch(loadingUser());
   axios
     .post(`${API}/user/image`, formData)
     .then(() => {
-      dispatch(getUserData());
+      dispatch(setUser());
     })
     .catch(err => console.log(err));
 };

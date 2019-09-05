@@ -58,8 +58,7 @@ const MyWebsites = props => {
   ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
   useEffect(() => {
     setEmpty({ value: false });
-    setWebsites({ websites: props.getAllWebsites() });
-  }, [props]);
+  }, []);
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
   const handleChange = e => {
     e.preventDefault();
@@ -81,7 +80,7 @@ const MyWebsites = props => {
     if (websites.value) {
       props.addWebsite(newWebsite.value);
       resetState();
-      websites.websites.push({ name: newWebsite.value });
+      setWebsites({websites: websites.push({ name: newWebsite.value })})
     } else {
       setEmpty({
         value: true
