@@ -92,6 +92,7 @@ li a {
 button:hover,
 a:hover {
   text-decoration: none;
+  color: gradient(#111, )
 }
 
 button:hover {

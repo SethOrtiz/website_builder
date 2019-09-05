@@ -65,10 +65,10 @@ const Navbar = props => {
         ) : (
           <>
             <div>
-              <Link className="exp-line-start" to={ROUTES.LANDING}> Share</Link>
+              <Link className="exp-line-start" to={ROUTES.LANDING}> Share </Link>
             </div>
             <div>
-              <Link className="exp-line-start" to={ROUTES.LANDING}> Explore</Link>
+              <Link className="exp-line-start" to={ROUTES.LANDING}> Explore< /Link>
             </div>
             <div>
               <Link

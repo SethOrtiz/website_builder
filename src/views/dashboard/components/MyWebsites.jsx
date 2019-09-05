@@ -19,7 +19,6 @@ const styles = {
   box: {
     display: "grid",
     gridTemplateRows: "1fr 1fr",
-    backgroundColor: " #d2e7ff",
     alignItems: "flex-end",
     boxSizing: "border-box",
   },

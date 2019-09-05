@@ -15,7 +15,7 @@ const styles = {
     height: "9em",
     width: "9em",
     marginLeft: "3em",
-    backgroundColor: " #d2e7ff",
+    backgroundColor: "#ffefd7",
     objectFit: "cover",
     border: "1px solid #000"
   },

@@ -33,7 +33,12 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-center",
-    justifyContent: "space-evenly"
+    justifyContent: "space-around"
+  },
+  update: {
+    display: "grid",
+    gridTemplateRows: "auto",
+    gridTemplateColumns:"11fr 1fr",
   },
   add: {
     fontSize: "3em",
@@ -43,6 +48,13 @@ const styles = {
     color: "#000",
     fontWeight: "700",
     alignSelf: "flex-end"
+  },
+  delete: {
+    fontSize: "2em",
+    backgroundColor: "inherit",
+    border: "none",
+    outline: "none",
+    fontWeight: "700",
   },
   input: {
     borderBottom: "none",
@@ -57,7 +69,11 @@ const styles = {
 
 const Notepad = props => {
   ///////////////////////////////////////////     STATE DECLARATION
-  const [note, setNote] = useState({
+  const [allNotes, setAllNotes] = useState({
+    notes: [{ id: 1, value: "Hello" }]
+  });
+
+  const [newNote, setNewNote] = useState({
     value: ""
   });
   const [empty, setEmpty] = useState({
@@ -71,7 +87,7 @@ const Notepad = props => {
   const handleChange = e => {
     e.preventDefault();
     const { value } = e.target;
-    setNote({ value });
+    setNewNote({ value });
     setEmpty({
       value: false
     });
@@ -79,16 +95,21 @@ const Notepad = props => {
 
   ///////////////////////////////////////////     RESETS AFTER SUCCESSFUL SUBMITION
   const resetState = () => {
-    setNote({
+    setNewNote({
       value: ""
     });
   };
   ///////////////////////////////////////////       CREATES A NEW NOTE
+
+  // props.addNote(note.value);
   const handleSubmit = e => {
     e.preventDefault();
-    if (note.value) {
-      props.addNote(note.value);
+    if (newNote.value) {
+      setAllNotes({
+        notes: [...allNotes.notes, { id: (allNotes.notes.length + 1), value: newNote.value }]
+      });
       resetState();
+      console.log(allNotes.notes);
     } else {
       setEmpty({
         value: true
@@ -96,31 +117,24 @@ const Notepad = props => {
     }
   };
 
-  const notes = () => {
-    for (let i = 0; i < props.notes.length; i++) {
-      const note = props.notes[i];
-      return <li style={styles.note}> {note.content} </li>;
-    }
-  };
+
+// onBlur={handleUpdate}
 
   return (
     <section id="Notepad" style={styles.notepad}>
       <div style={styles.main}>
         <h1 style={styles.title}>Notes</h1>
         <ul>
-          {notes}
-          <li style={styles.note}>
-            Lorem ratpudiandae, deserunt assumenda est. Quidem, cupiditate
-            laborum.
-          </li>
-          <li style={styles.note}>
-            Lorem ratpudiandae, deserunt assumenda est. Quidem, cupiditate
-            laborum.
-          </li>
-          <li style={styles.note}>
-            Lorem ratpudiandae, deserunt assumenda est. Quidem, cupiditate
-            laborum.
-          </li>
+          {allNotes.notes.map(obj => {
+            return (
+              <div style={styles.update}>
+                <li contenteditable="true" key={obj.id.toString()}  style={styles.note}>
+                  {obj.value}
+                </li>
+                <button  className="opacity" style={styles.delete}>-</button>
+              </div>
+            );
+          })}
         </ul>
       </div>
       <form style={styles.form} onSubmit={handleSubmit} noValidate>
@@ -131,14 +145,14 @@ const Notepad = props => {
             style={styles.input}
             onChange={handleChange}
             placeholder="what to do..."
-            value={note.value}
+            value={newNote.value}
             className="control"
             noValidate
             autoComplete="off"
           />
         </div>
         {empty.value && <div style={styles.feedback}> </div>}
-        <button onClick style={styles.add}>
+        <button onClick={handleSubmit} style={styles.add}>
           +
         </button>
       </form>

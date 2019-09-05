@@ -9,7 +9,6 @@ import {
 const initialState = {
   authenticated: false,
   userLoading: false,
-  credentials: {},
   signInLoading: false,
   signInFailed: false,
   signUploading: false,

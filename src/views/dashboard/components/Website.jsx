@@ -11,7 +11,7 @@ const styles = {
     display: "grid",
     alignItems: "center",
     color: "#000",
-    backgroundColor: "#d2e7ff"
+    backgroundImage: "linear-gradient(45deg, #333, #ffefd7)"
   },
   handle: {
     margin: "auto",
