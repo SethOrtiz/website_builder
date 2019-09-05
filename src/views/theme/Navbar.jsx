@@ -6,7 +6,7 @@ const styles = {
   brand: {
     fontSize: "1.5rem",
     paddingLeft: "2rem",
-    color: "black"
+    color: "fffef9"
   },
   navbar: {
     width: "100vw",
@@ -18,7 +18,8 @@ const styles = {
     fontSize: "1rem",
     textTransform: "uppercase",
     fontWeight: "600",
-    position: "fixed"
+    position: "fixed",
+    color: "#fffef9"
   },
   signOut: {
     border: "none",
@@ -65,10 +66,16 @@ const Navbar = props => {
         ) : (
           <>
             <div>
-              <Link className="exp-line-start" to={ROUTES.LANDING}> Share </Link>
+              <Link className="exp-line-start" to={ROUTES.LANDING}>
+                {" "}
+                Share{" "}
+              </Link>
             </div>
             <div>
-              <Link className="exp-line-start" to={ROUTES.LANDING}> Explore< /Link>
+              <Link className="exp-line-start" to={ROUTES.LANDING}>
+                {" "}
+                Explore
+              </Link>
             </div>
             <div>
               <Link

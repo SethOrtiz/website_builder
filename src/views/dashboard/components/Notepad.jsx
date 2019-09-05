@@ -4,10 +4,10 @@ import { withRouter } from "react-router-dom";
 const styles = {
   notepad: {
     borderTop: "1px solid black",
-    backgroundColor: "#fffef9",
-    boxSizing: "border-box",
+    backgroundColor: "#222",
     display: "grid",
-    gridTemplateRows: "7fr 1fr"
+    gridTemplateRows: "7fr 1fr",
+    color: "#fffef9"
   },
   main: {
     display: "flex",
@@ -29,7 +29,7 @@ const styles = {
     borderRadius: "0.5em"
   },
   form: {
-    borderTop: "1px solid black",
+    borderTop: "2px solid #fffef9",
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-center",
@@ -38,14 +38,14 @@ const styles = {
   update: {
     display: "grid",
     gridTemplateRows: "auto",
-    gridTemplateColumns:"11fr 1fr",
+    gridTemplateColumns: "11fr 1fr"
   },
   add: {
     fontSize: "3em",
     backgroundColor: "inherit",
     border: "none",
     outline: "none",
-    color: "#000",
+    color: "#fffef9",
     fontWeight: "700",
     alignSelf: "flex-end"
   },
@@ -55,10 +55,13 @@ const styles = {
     border: "none",
     outline: "none",
     fontWeight: "700",
+    color: "#fffef9"
   },
   input: {
-    borderBottom: "none",
-    height: "100%"
+    outline: "none",
+    borderTop: "3px solid fffef9",
+    height: "100%",
+    color: "#fffef9"
   },
   feedback: {
     width: "5%",
@@ -106,7 +109,10 @@ const Notepad = props => {
     e.preventDefault();
     if (newNote.value) {
       setAllNotes({
-        notes: [...allNotes.notes, { id: (allNotes.notes.length + 1), value: newNote.value }]
+        notes: [
+          ...allNotes.notes,
+          { id: allNotes.notes.length + 1, value: newNote.value }
+        ]
       });
       resetState();
       console.log(allNotes.notes);
@@ -117,8 +123,7 @@ const Notepad = props => {
     }
   };
 
-
-// onBlur={handleUpdate}
+  // onBlur={handleUpdate}
 
   return (
     <section id="Notepad" style={styles.notepad}>
@@ -127,11 +132,11 @@ const Notepad = props => {
         <ul>
           {allNotes.notes.map(obj => {
             return (
-              <div style={styles.update}>
-                <li contenteditable="true" key={obj.id.toString()}  style={styles.note}>
-                  {obj.value}
-                </li>
-                <button  className="opacity" style={styles.delete}>-</button>
+              <div key={obj.id.toString()} style={styles.update}>
+                <li style={styles.note}>{obj.value}</li>
+                <button className="opacity" style={styles.delete}>
+                  -
+                </button>
               </div>
             );
           })}

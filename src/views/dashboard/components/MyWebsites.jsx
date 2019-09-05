@@ -6,11 +6,9 @@ import { withRouter } from "react-router-dom";
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 
 const styles = {
-  MyWebsites: {
+  myWebsites: {
     height: "100%",
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gridTemplateRows: "auto",
     boxSizing: "border-box",
     borderLeft: "1px solid #000",
     borderTop: "1px solid #000",
@@ -20,7 +18,7 @@ const styles = {
     display: "grid",
     gridTemplateRows: "1fr 1fr",
     alignItems: "flex-end",
-    boxSizing: "border-box",
+    boxSizing: "border-box"
   },
   create: {
     fontSize: "3em",
@@ -32,7 +30,7 @@ const styles = {
     outline: "none",
     color: "#000",
     fontWeight: "600",
-    alignSelf: "flex-start",
+    alignSelf: "flex-start"
   },
   input: {
     fontSize: "3em",
@@ -45,7 +43,7 @@ const styles = {
   }
 };
 const MyWebsites = props => {
-  const [websites, setWebsites] = useState({
+  const [allWebsites, setAllWebsites] = useState({
     websites: []
   });
   const [newWebsite, setNewWebsite] = useState({
@@ -76,24 +74,23 @@ const MyWebsites = props => {
   ///////////////////////////////////////////       CREATES A NEW WEBSITE
   const handleSubmit = e => {
     e.preventDefault();
-    if (websites.value) {
-      props.addWebsite(newWebsite.value);
+    if (newWebsite.value) {
+      //
+      setAllWebsites({
+        websites: [
+          ...allWebsites.websites,
+          { id: allWebsites.websites.length + 1, name: newWebsite.value }
+        ]
+      });
       resetState();
-      setWebsites({websites: websites.push({ name: newWebsite.value })})
     } else {
       setEmpty({
         value: true
       });
     }
   };
-  const websiteContainer = () => {
-    for (let i = 0; i < websites.length; i++) {
-      const website = websites[i];
-      return <Website handle={website.name} />;
-    }
-  };
   return (
-    <section id="Dashboard" style={styles.MyWebsites}>
+    <section id="Dashboard" style={styles.myWebsites}>
       <form style={styles.box} onSubmit={handleSubmit} noValidate>
         <div>
           <input
@@ -102,7 +99,7 @@ const MyWebsites = props => {
             style={styles.input}
             onChange={handleChange}
             placeholder="Name"
-            value={websites.value}
+            value={newWebsite.value}
             className="control-center"
             noValidate
             autoComplete="off"
@@ -113,10 +110,9 @@ const MyWebsites = props => {
           Create
         </button>
       </form>
-      {websiteContainer}
-      <Website handle="The Strokes" />
-      <Website handle="The Clash" />
-      <Website handle="AM" />
+      {allWebsites.websites.map(obj => {
+        return <Website key={obj.id.toString()} name={obj.name} />;
+      })}
     </section>
   );
 };

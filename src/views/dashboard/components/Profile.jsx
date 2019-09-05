@@ -15,7 +15,7 @@ const styles = {
     height: "9em",
     width: "9em",
     marginLeft: "3em",
-    backgroundColor: "#ffefd7",
+    backgroundColor: "#fffef9",
     objectFit: "cover",
     border: "1px solid #000"
   },
@@ -25,10 +25,14 @@ const styles = {
   }
 };
 
+
 const Profile = props => {
+  
   return (
     <section id="P" style={styles.profile}>
-      <img src={props.imgUrl} style={styles.img} alt="" />
+    { props.imgUrl ? <img src={props.imgUrl} style={styles.img} alt="" />
+    : <div className="no-img"></div>
+    }
       <div style={styles.handle}>
         <h1>{props.handle} USER NAME</h1>
       </div>

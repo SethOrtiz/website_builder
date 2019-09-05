@@ -8,7 +8,7 @@ import Footer from "../theme/Footer";
 const styles = {
   dashboard: {
     height: "100vh",
-    backgroundColor: "#ddd"
+    backgroundColor: "#111"
   },
   nav: {
     backgroundColor: "#fffef9"
@@ -17,10 +17,9 @@ const styles = {
     display: "grid",
     gridTemplateRows: "1fr 3fr",
     backgroundColor: "#222",
-    borderBottom: "1px solid #fff"
   },
   main: {
-    backgroundColor: "#ddd"
+    backgroundColor: "#111"
   }
 };
 

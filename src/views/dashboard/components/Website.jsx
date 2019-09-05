@@ -11,7 +11,7 @@ const styles = {
     display: "grid",
     alignItems: "center",
     color: "#000",
-    backgroundImage: "linear-gradient(45deg, #333, #ffefd7)"
+    backgroundImage: "linear-gradient(45deg, #111, #ffefd7)"
   },
   handle: {
     margin: "auto",
@@ -27,7 +27,7 @@ const website = props => {
     <section id="P" style={styles.website}>
       <div style={styles.handle} className="exp-center-black">
         <Link style={styles.handle} to={WORKSTATION}>
-          {props.handle}
+          {props.name}
         </Link>
       </div>
     </section>

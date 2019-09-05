@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
 import { SET_AUTHENTICATED } from "./redux/landing/users/actions";
 import { signOut } from "./redux/landing/users/thunks";
-
 //////////////////////////////////////////////////////      PAGES
 import Landing from "./views/landing/Landing";
 import Dashboard from "./views/dashboard/Dashboard";
