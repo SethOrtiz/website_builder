@@ -1,10 +1,36 @@
-import React from 'react'
-import './App.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Landing from './views/landing/Landing'
-import Dashboard from './views/dashboard/Dashboard'
-import Workstation from './views/workstation/Workstation'
-import * as ROUTES from './constants/routes';
+//////////////////////////////////////////////////////    REACT
+import React from "react";
+import jwtDecode from "jwt-decode";
+import "./App.css";
+//////////////////////////////////////////////////////     ROUTES
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import * as ROUTES from "./constants/routes";
+import { SET_AUTHENTICATED } from "./redux/landing/users/actions";
+import { signOut, getUserData } from "./redux/landing/users/thunks";
+
+//////////////////////////////////////////////////////      PAGES
+import Landing from "./views/landing/Landing";
+import Dashboard from "./views/dashboard/Dashboard";
+import Workstation from "./views/workstation/Workstation";
+import SignUp from "./views/landing/components/SignUp";
+import SignIn from "./views/landing/components/SignIn";
+//////////////////////////////////////////////////////       AUTH
+import AuthRoute from "./util/AuthRoute";
+import store from "./redux/store";
+import axios from "axios";
+
+const token = localStorage.FBIdToken;
+if (token) {
+  const decodedToken = jwtDecode(token);
+  if (decodedToken.exp * 1000 < Date.now()) {
+    store.dispatch(signOut());
+    window.location.href = "/login";
+  } else {
+    store.dispatch({ type: SET_AUTHENTICATED });
+    axios.defaults.headers.common["Authorization"] = token;
+    store.dispatch(getUserData());
+  }
+}
 
 function App() {
   return (
@@ -12,13 +38,15 @@ function App() {
       <div>
         <Switch>
           <Route exact path={ROUTES.LANDING} component={Landing} />
-          <Route path={ROUTES.DASHBOARD} component={Dashboard} />
-          <Route path={ROUTES.WORKSTATION} component={Workstation} />
           <Route path={ROUTES.NOT_FOUND} render={() => <div>Not found</div>} />
+          <AuthRoute exact path={ROUTES.SIGN_IN} component={SignIn} />
+          <AuthRoute exact path={ROUTES.SIGN_UP} component={SignUp} />
+          <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
+          <Route exact path={ROUTES.WORKSTATION} component={Workstation} />
         </Switch>
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

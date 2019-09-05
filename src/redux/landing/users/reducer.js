@@ -1,61 +1,54 @@
 import {
+  SET_USER,
+  SET_AUTHENTICATED,
+  SET_UNAUTHENTICATED,
+  LOADING_USER,
   LOADING_SIGNUP,
-  SIGNUP_FAILED,
-  SIGNUP_SUCCESSFUL,
-  LOADING_SIGNIN,
-  SIGNIN_FAILED,
-  SIGNIN_SUCCESSFUL,
+  LOADING_SIGNIN
 } from "./actions";
 const initialState = {
-  token: "",
+  authenticated: false,
+  userLoading: false,
+  credentials: {},
   signInLoading: false,
   signInFailed: false,
   signUploading: false,
   signUpFailed: false,
-  signInOpen: false,
-  signUpOpen: false,
   forgotPasswordOpen: false
 };
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
+    case SET_AUTHENTICATED:
+      return {
+        ...state,
+        authenticated: true
+      };
+    case SET_UNAUTHENTICATED:
+      return initialState;
+    case SET_USER:
+      return {
+        authenticated: true,
+        loading: false,
+        ...action.payload
+      };
+    case LOADING_USER:
+      return {
+        ...state,
+        loading: true
+      };
     case LOADING_SIGNUP:
       return {
         ...state,
         signInLoading: true,
         signInFailed: false
       };
-    case SIGNUP_FAILED:
-      return {
-        ...state,
-        signInLoading: false,
-        signInFailed: true
-      };
-    case SIGNUP_SUCCESSFUL:
-      return {
-        ...state,
-        signInLoading: false,
-        signInFailed: false,
-        token: action.token
-      };
+
     case LOADING_SIGNIN:
       return {
         ...state,
         signUploading: true,
         signUpFailed: false
-      };
-    case SIGNIN_FAILED:
-      return {
-        ...state,
-        signUploading: false,
-        signUpFailed: true
-      };
-    case SIGNIN_SUCCESSFUL:
-      return {
-        ...state,
-        signUploading: false,
-        signUpFailed: false,
-        token: action.token
       };
     default:
       return state;

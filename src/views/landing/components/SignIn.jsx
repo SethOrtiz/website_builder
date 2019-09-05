@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import { DASHBOARD } from "../../../constants/routes";
 import * as REGEX from "../../../constants/regex";
 
 /* COLOR SCHEME */
@@ -223,14 +222,17 @@ const SignIn = props => {
     return formValid;
   };
 
-  ///////////////////////////////////////////       CREATES A NEW USER AND REDIRECTS TO DASHBO
+  ///////////////////////////////////////////       CREATES A NEW USER AND REDIRECTS TO DASHBOARD
 
   const handleSubmit = e => {
     e.preventDefault();
     if (validateForm()) {
-      props.signIn(email.value, password.value);
+      const userData = {
+        email: email.value,
+        password: password.value
+      };
+      props.signIn(userData, props.history);
       resetState();
-      props.history.push(DASHBOARD);
     } else {
       setForm({
         complete: false
@@ -238,11 +240,13 @@ const SignIn = props => {
     }
   };
 
-  ///////////////////////////////////////////     REDIRECTS TO Password Retreval
+  ///////////////////////////////////////////     REDIRECTS TO PASSWORD RETRIEVAL
 
   const handleForgotPassword = () => {
     props.handleForgotPassword();
   };
+
+
 
   ///////////////////////////////////////////      JSX
 
@@ -296,7 +300,11 @@ const SignIn = props => {
           </button>
         </div>
         <div style={styles.btnContainer}>
-          <button onClick={handleForgotPassword} style={styles.forgotPassword} className="opacity">
+          <button
+            onClick={handleForgotPassword}
+            style={styles.forgotPassword}
+            className="opacity"
+          >
             Forgot Password?
           </button>
         </div>

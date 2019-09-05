@@ -37,7 +37,7 @@ const Navbar = props => {
       </Link>
       <div style={styles.routes}>
         <div>
-          <Link className="exp-line-start" to={ROUTES.DASHBOARD}>
+          <Link className="exp-line-start" to={ROUTES.DASHBOARD }>
             Dashboard
           </Link>
         </div>

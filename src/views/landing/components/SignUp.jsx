@@ -286,12 +286,13 @@ const SignUp = props => {
   const handleSubmit = e => {
     e.preventDefault();
     if (validateForm()) {
-      props.signUp(
-        handle.value,
-        email.value,
-        password.value,
-        passwordConfirm.value
-      );
+      const newUserData = {
+        email: email.value,
+        password: password.value,
+        passwordConfirm: passwordConfirm.value,
+        handle: handle.value
+      };
+      props.signUp(newUserData,props.history)
       resetState();
     } else {
       setForm({
@@ -299,7 +300,6 @@ const SignUp = props => {
       });
     }
   };
-
   return (
     <form style={styles.form} onSubmit={handleSubmit} noValidate>
       <div id="one-two-three" className="row"></div>

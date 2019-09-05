@@ -9,8 +9,8 @@ import Navbar from "../../../views/theme/Navbar";
 
 const mapStateToProps = function({ auth, nav }) {
   return {
-    token: auth.token,
-    ...nav
+    nav,
+    auth
   };
 };
 const mapDispatchToProps = function(dispatch) {

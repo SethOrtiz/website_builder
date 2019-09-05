@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import { WORKSTATION } from "../../../constants/routes";
 import { withRouter } from "react-router-dom";
 
-                                        /* COLOR SCHEME */
+/* COLOR SCHEME */
 /* blue: #d2e7ff  | lightblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 */
 
 const styles = {
   website: {
     display: "grid",
     alignItems: "center",
-    color: "#000"
+    color: "#000",
+    backgroundColor: "#d2e7ff"
   },
   handle: {
     margin: "auto",

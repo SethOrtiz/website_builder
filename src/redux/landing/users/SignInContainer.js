@@ -7,9 +7,9 @@ import {
   handleForgotPassword,
   handleHome
 } from "../nav/actions";
-const mapStateToProps = function({ auth, nav }) {
+const mapStateToProps = function({ auth, nav}) {
   return {
-    token: auth.token,
+    ...auth,
     ...nav
   };
 };

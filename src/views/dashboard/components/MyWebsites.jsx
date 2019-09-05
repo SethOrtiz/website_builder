@@ -19,9 +19,9 @@ const styles = {
   box: {
     display: "grid",
     gridTemplateRows: "1fr 1fr",
-    backgroundColor: " #ffefd7",
+    backgroundColor: " #d2e7ff",
     alignItems: "flex-end",
-    boxSizing: "border-box"
+    boxSizing: "border-box",
   },
   create: {
     fontSize: "3em",
@@ -33,7 +33,7 @@ const styles = {
     outline: "none",
     color: "#000",
     fontWeight: "600",
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
   input: {
     fontSize: "3em",
@@ -46,7 +46,10 @@ const styles = {
   }
 };
 const MyWebsites = props => {
-  const [note, setNote] = useState({
+  const [websites, setWebsites] = useState({
+    websites: []
+  });
+  const [newWebsite, setNewWebsite] = useState({
     value: ""
   });
   const [empty, setEmpty] = useState({
@@ -55,46 +58,44 @@ const MyWebsites = props => {
   ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
   useEffect(() => {
     setEmpty({ value: false });
-  }, []);
+    setWebsites({ websites: props.getAllWebsites() });
+  }, [props]);
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
   const handleChange = e => {
     e.preventDefault();
     const { value } = e.target;
-    setNote({ value });
+    setNewWebsite({ value });
     setEmpty({
       value: false
     });
   };
-
   ///////////////////////////////////////////     RESETS AFTER SUCCESSFUL SUBMITION
   const resetState = () => {
-    setNote({
+    setNewWebsite({
       value: ""
     });
   };
-  ///////////////////////////////////////////       CREATES A NEW NOTE
+  ///////////////////////////////////////////       CREATES A NEW WEBSITE
   const handleSubmit = e => {
     e.preventDefault();
-    if (note.value) {
-      props.addNote(note.value);
+    if (websites.value) {
+      props.addWebsite(newWebsite.value);
       resetState();
+      websites.websites.push({ name: newWebsite.value });
     } else {
       setEmpty({
         value: true
       });
     }
   };
-
-  const websites = () => {
-    for (let i = 0; i < props.websites.length; i++) {
-      const website = props.websites[i];
+  const websiteContainer = () => {
+    for (let i = 0; i < websites.length; i++) {
+      const website = websites[i];
       return <Website handle={website.name} />;
     }
   };
-
   return (
     <section id="Dashboard" style={styles.MyWebsites}>
-      {websites}
       <form style={styles.box} onSubmit={handleSubmit} noValidate>
         <div>
           <input
@@ -103,24 +104,21 @@ const MyWebsites = props => {
             style={styles.input}
             onChange={handleChange}
             placeholder="Name"
-            value={note.value}
+            value={websites.value}
             className="control-center"
             noValidate
             autoComplete="off"
           />
           {empty.value && <div style={styles.feedback}> </div>}
         </div>
-        <button
-          className="opacity"
-          type="submit"
-          style={styles.create}
-        >
+        <button className="opacity" type="submit" style={styles.create}>
           Create
         </button>
       </form>
-      <Website handle="The Strokes" className="website" />
-      <Website handle="The Clash" className="website" />
-      <Website handle="AM" className="website" />
+      {websiteContainer}
+      <Website handle="The Strokes" />
+      <Website handle="The Clash" />
+      <Website handle="AM" />
     </section>
   );
 };

@@ -1,78 +1,74 @@
 import { API } from "../../../constants/api";
 import { DASHBOARD } from "../../../constants/routes";
+import axios from "axios";
 import {
   loadingSignIn,
   loadingSignUp,
-  signInFailed,
-  signUpFailed,
-  signInSuccess,
-  signUpSuccess
+  setUnauthenticated,
+  setUser,
+  setErrors,
+  clearErrors,
+  loadingUser
 } from "./actions";
 
-export function signUp(handle, email, password, passwordConfirm) {
-  console.log('passwordConfirm:', passwordConfirm)
-  console.log('password:', password)
-  console.log('email:', email)
-  console.log('handle:', handle)
-  return async function(dispatch) {
-    dispatch(loadingSignUp());
-    try {
-      const res = await fetch(`${API}/signup`, {
-        method: "POST",
-        
-        body: JSON.stringify({
-          handle,
-          email,
-          password,
-          passwordConfirm
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      if (!res.ok) {
-         console.log('err', res.json())
-        throw new Error();
-      } else {
-        console.log("Sign Up Successful")
-        const token = await res.json();
-        this.props.history.push(DASHBOARD);
-        dispatch(signUpSuccess(token));
-      }
-    } catch (e) {
-      dispatch(signUpFailed());
-    }
-  };
-}
+const setAuthorizationHeader = token => {
+  const FBIdToken = `Bearer ${token}`;
+  localStorage.setItem("FBIdToken", FBIdToken);
+  axios.defaults.headers.common["Authorization"] = FBIdToken;
+};
 
-export function signIn(email, password) {
-  return async function(dispatch) {
-    dispatch(loadingSignIn());
-    console.log(email) 
-    console.log(password)
-    try {
-      const res = await fetch(`${API}/signin`, {
-        method: "POST",
-        body: JSON.stringify({
-          email,
-          password
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      if (!res.ok) {
-        console.log('err', res.json())
-        throw new Error();
-      } else {
-        console.log("Sign In Successful")
-        const token= await res.json();
-        dispatch(signInSuccess(token));
-        this.props.history.push(DASHBOARD);
-      }
-    } catch (e) {
-      dispatch(signInFailed());
-      alert(e);
-    }
-  };
-}
+export const signUp = (newUserData, history) => dispatch => {
+  dispatch(loadingSignUp());
+  axios
+    .post(`${API}/signup`, newUserData)
+    .then(res => {
+      setAuthorizationHeader(res.data.token);
+      dispatch(getUserData());
+      dispatch(clearErrors());
+      console.log("Sign Up Successful");
+      history.push(DASHBOARD);
+    })
+    .catch(err => {
+      dispatch(setErrors(err.res.data));
+    });
+};
+
+export const signIn = (userData, history) => dispatch => {
+  dispatch(loadingSignIn());
+  axios
+    .post(`${API}/signin`, userData)
+    .then(res => {
+      setAuthorizationHeader(res.data.token);
+      dispatch(getUserData());
+      dispatch(clearErrors());
+      history.push(DASHBOARD);
+    })
+    .catch(err => {
+      dispatch(setErrors(err.response.data));
+    });
+};
+export const signOut = () => dispatch => {
+  localStorage.removeItem("FBIdToken");
+  delete axios.defaults.headers.common["Authorization"];
+  dispatch(setUnauthenticated());
+};
+
+export const getUserData = () => dispatch => {
+  dispatch(loadingUser());
+  axios
+    .get(`${API}/user`)
+    .then(res => {
+      dispatch(setUser(res.data));
+    })
+    .catch(err => console.log(err));
+};
+
+export const uploadImage = formData => dispatch => {
+  dispatch(loadingUser());
+  axios
+    .post(`${API}/user/image`, formData)
+    .then(() => {
+      dispatch(getUserData());
+    })
+    .catch(err => console.log(err));
+};

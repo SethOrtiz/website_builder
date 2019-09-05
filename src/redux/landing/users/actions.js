@@ -1,4 +1,55 @@
-////////////// FETCH ACCESS DASHBOARD /////////////
+// User reducer types
+
+export const SET_UNAUTHENTICATED = 'SET_UNAUTHENTICATED';
+export function setUnauthenticated() {
+  return {
+    type: SET_UNAUTHENTICATED 
+  };
+}
+
+export const SET_AUTHENTICATED = 'SET_AUTHENTICATED';
+export function setAuthenticated() {
+  return {
+    type: SET_AUTHENTICATED 
+  };
+}
+export const SET_USER = 'SET_USER';
+export function setUser(data) {
+  return {
+    type: SET_USER,
+    data
+  };
+}
+
+export const SET_ERRORS = 'SET_ERRORS';
+export function setErrors(error) {
+  return {
+    type: SET_ERRORS,
+    error
+  };
+}
+
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export function clearErrors() {
+  return {
+    type: CLEAR_ERRORS
+  };
+}
+export const LOADING_DATA = 'LOADING_DATA';
+export function loadingData() {
+  return {
+    type: LOADING_DATA
+  };
+}
+
+
+export const LOADING_USER = 'LOADING_USER';
+export function loadingUser() {
+  return {
+    type: LOADING_USER
+  };
+}
+
 
 export const LOADING_SIGNIN = "LOADING_SIGNIN";
 export function loadingSignIn() {
@@ -7,41 +58,9 @@ export function loadingSignIn() {
   };
 }
 
-export const SIGNIN_FAILED = "SIGNIN_FAILED";
-export function signInFailed() {
-  return {
-    type: SIGNIN_FAILED
-  };
-}
-
-export const SIGNIN_SUCCESSFUL = "SIGNIN_SUCCESSFUL";
-export function signInSuccess(token) {
-    return {
-    type: SIGNIN_SUCCESSFUL,
-    token
-  };
-}
-
-///////////////////// ADD USER ////////////////////////
-
 export const LOADING_SIGNUP = "LOADING_SIGNUP";
 export function loadingSignUp() {
     return {
     type: LOADING_SIGNUP
-  };
-}
-
-export const SIGNUP_FAILED = "SIGNUP_FAILED";
-export function signUpFailed() {
-  return {
-    type: SIGNUP_FAILED
-  };
-}
-
-export const SIGNUP_SUCCESSFUL = "SIGNUP_SUCCESSFUL";
-export function signUpSuccess(token) {
-    return {
-    type: SIGNUP_SUCCESSFUL,
-    token
   };
 }

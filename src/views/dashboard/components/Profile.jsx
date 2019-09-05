@@ -15,21 +15,17 @@ const styles = {
     height: "9em",
     width: "9em",
     marginLeft: "3em",
-    backgroundColor: "#ffefd7",
+    backgroundColor: " #d2e7ff",
     objectFit: "cover",
     border: "1px solid #000"
   },
   handle: {
-      margin: "auto",
-      fontSize: "1.5em"
+    margin: "auto",
+    fontSize: "1.5em"
   }
 };
 
-
-
 const Profile = props => {
-
-
   return (
     <section id="P" style={styles.profile}>
       <img src={props.profileImg} style={styles.img} alt="" />

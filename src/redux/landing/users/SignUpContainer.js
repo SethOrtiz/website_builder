@@ -10,7 +10,8 @@ import {
 
 const mapStateToProps = function({ auth, nav }) {
   return {
-    token: auth.token,
+    auth,
+    nav
   };
 };
 const mapDispatchToProps = function(dispatch) {

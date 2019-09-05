@@ -2,9 +2,10 @@ import { connect } from "react-redux";
 import { getAllWebsites, getWebsite, addWebsite } from "./thunks";
 import MyWebsites from "../../../views/dashboard/components/MyWebsites";
 
-const mapStateToProps = function({ websites }) {
+const mapStateToProps = function({ auth, websites }) {
   return {
-    ...websites
+    ...websites,
+     authenticated: auth.user.authenticated
   }; 
 };
 
@@ -21,7 +22,6 @@ const mapDispatchToProps = function(dispatch) {
     }
   };
 };
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
