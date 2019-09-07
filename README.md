@@ -1,13 +1,26 @@
 # Hubstereo
 ### An easy to use website builder for musicians
+
+#### Instructions
+- clone this repo: https://github.com/SethOrtiz/hubstereo_java 
+- brew services start postgreQSL
+- Create a data base called "notes" on your local machine
+- install dependencies
+- ./gradlew bootrun
+- clone this repo: https://github.com/SethOrtiz/website_builder
+- npm install
+- npm start
+- application should start runnig on localhost 3000
+- firebase functions have already been deployed.
+
+
+
 #### MVP
 - Create an account
-- Login/Logout
+- SignIn/SignOut
 - Full CRUD notepad on the dashboard
-- Create personalized websites (section by section)
 - Save changes that persist to the backend
-- Preview website in progress
-- Once completed; newly created website can be viewed at https://Hubstereo.herokuapp.com/UserWebsiteName
+- Create websites by name and presist changes to firebase
 
 #### Not Included
 - MVP will not give the user the ability to deploy their website with a personalized domain name
@@ -16,14 +29,13 @@
 - MVP will not give the users more than one preset template to start from 
 
 #### Technologies Utilized
-
-| Languages     | Frameworks    | Libraries     | Databases     | Other         | 
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-| Javascript    | Bootstrap     | React.js      | Firebase      | Heroku        |
-| Java          | Springboot    | Redux         | PostgreSQL    | React-Router  |  
-| CSS           |               |               |               | EditorJs      |
-| HTML          |               |               |               | Reactstrap    |
-| SQL           |               |               |               |               |
+| Languages     | Frameworks    | Libraries     | Databases     | Other              |        |
+| ------------- | ------------- | ------------- | ------------- | ---------------    | ------ |
+| Javascript    | Springboot    | React.js      | Firebase      | Axions             | Busboy |
+| Java          | Express       | Redux         | PostgreSQL    | React-Router       |        |
+| CSS           |               |               |               | Firebase Admin     |        |
+| HTML          |               |               |               | Firebase Functions |        |
+| SQL           |               |               |               | JWT-Decode         |        |
 
 #### Implementation of Java & Springboot
 - The notepad in the dashboard page will run on java and springboot
@@ -160,6 +172,8 @@ As a user
 When I click the "edit" button on one of my websites
 I should be redirected to /workstation/:userId/:websiteId
 ```
+
+# Stretch
 ## Workstation
 
 __#1__
