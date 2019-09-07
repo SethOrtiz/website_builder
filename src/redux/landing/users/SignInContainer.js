@@ -7,10 +7,9 @@ import {
   handleForgotPassword,
   handleHome
 } from "../nav/actions";
-const mapStateToProps = function({ auth, nav}) {
+const mapStateToProps = function({auth}) {
   return {
-    ...auth,
-    ...nav
+    signInLoading: auth.signInLoading
   };
 };
 const mapDispatchToProps = function(dispatch) {

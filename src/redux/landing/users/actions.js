@@ -35,6 +35,7 @@ export function clearErrors() {
     type: CLEAR_ERRORS
   };
 }
+
 export const LOADING_DATA = 'LOADING_DATA';
 export function loadingData() {
   return {

@@ -12,6 +12,7 @@ import {
 
 const initialState = {
   websites: [],
+  sections: [],
   loading: false,
   error: false,
   posting: false,
@@ -37,7 +38,7 @@ function websitesReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: false,
-        websites: action.payload
+        websites: action.websites
       };
     case LOADING_WEBSITE:
       return {
@@ -56,7 +57,7 @@ function websitesReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: false,
-        websites: action.payload
+        sections: action.sections
       };
     case POSTING_WEBSITE:
       return {
@@ -75,7 +76,7 @@ function websitesReducer(state = initialState, action) {
         ...state,
         posting: false,
         postFailure: false,
-        sections: state.websites.concat(action.payload)
+        websites: state.websites.concat(action.website)
       };
     default:
       return state;

@@ -309,3 +309,53 @@ button:hover {
 .hidden:hover{
   display: block;
 }
+
+/* /////// LOADER  //////// */
+.loaderContainer{
+  width: 100%;
+  background-color: #d2e7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  position: relative;
+  width: 17rem;
+  height: 30rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.loader div {
+  display: inline-block;
+  position: absolute;
+  width: 5em;
+  background: #fffef9;
+  animation: loader 1.5s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation-duration: 3s;
+}
+.loader div:nth-child(1) {
+  left: 0;
+  animation-delay: 0s;
+}
+.loader div:nth-child(2) {
+  left: 6rem;
+  animation-delay: 0.3s;
+}
+.loader div:nth-child(3) {
+  left: 12rem;
+  animation-delay: 0.6s;
+}
+
+@keyframes loader {
+  0% {
+    top: 0rem;
+    height: 10rem;
+  }
+  50%, 100% {
+    top: 10rem;
+    height: 5rem;
+  }
+  from {background-color: #777;}
+  to {background-color: #fffef9;}
+}

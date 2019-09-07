@@ -4,8 +4,6 @@ import * as REGEX from "../../../constants/regex";
 
 /* COLOR SCHEME */
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
-
-
 const styles = {
   form: {
     width: "100%",
@@ -56,7 +54,7 @@ const styles = {
     padding: "1rem 7rem"
   }
 };
-
+///////////////////////////////////////////     INITIAL STATE
 const SignIn = props => {
   useEffect(() => {
     setForm({ complete: true });
@@ -83,7 +81,6 @@ const SignIn = props => {
   });
 
   ///////////////////////////////////////////       VALIDATION ON CHANGE
-
   const handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -188,7 +185,6 @@ const SignIn = props => {
   };
 
   ///////////////////////////////////////////     RESET ALL STATES AFTER SUCCESSFUL SUBMITION
-
   const resetState = () => {
     setForm({
       complete: false
@@ -212,7 +208,6 @@ const SignIn = props => {
   };
 
   ///////////////////////////////////////////     MAKES MAKES SURE ALL FIELDS ARE VALID BEFORE SUBMISSION
-
   const validateForm = () => {
     let formValid = false;
     if (email.valid && password.valid) {
@@ -224,7 +219,6 @@ const SignIn = props => {
   };
 
   ///////////////////////////////////////////       CREATES A NEW USER AND REDIRECTS TO DASHBOARD
-
   const handleSubmit = e => {
     e.preventDefault();
     if (validateForm()) {
@@ -241,78 +235,91 @@ const SignIn = props => {
     }
   };
 
-  ///////////////////////////////////////////     REDIRECTS TO PASSWORD RETRIEVAL
+  ///////////////////////////////////////////     DISPLAYS ANIMATION AFTER SUMBISSION
+  const { signInLoading } = props;
 
+  ///////////////////////////////////////////     REDIRECTS TO PASSWORD RETRIEVAL
   const handleForgotPassword = () => {
     props.handleForgotPassword();
   };
 
-
-
   ///////////////////////////////////////////      JSX
 
   return (
-    <form style={styles.form} onSubmit={handleSubmit} noValidate>
-      <div id="one-two-three" className="row"></div>
-      <div id="four"></div>
-      <div id="five">
-        <h1 style={styles.header}>Sign In</h1>
-        <div className="feedback">{formErrors.handle}</div>
-
-        <div>
-          <div className="exp-center">
-            <input
-              type="email"
-              name="email-field"
-              onChange={handleChange}
-              placeholder="Email"
-              value={email.value}
-              id="email-field"
-              className="control"
-              noValidate
-              valid={email.valid.toString()}
-              invalid={email.invalid.toString()}
-            />
+    <>
+      {signInLoading ? (
+        <div className="loaderContainer">
+          <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-          <div className="feedback">{formErrors.email}</div>
         </div>
-        <div>
-          <div className="exp-center">
-            <input
-              type="password"
-              name="password-field"
-              onChange={handleChange}
-              placeholder="Password"
-              value={password.value}
-              id="current-password"
-              className="control "
-              noValidate
-              autoComplete="on"
-              valid={password.valid.toString()}
-              invalid={password.invalid.toString()}
-            />
+      ) : (
+        <form style={styles.form} onSubmit={handleSubmit} noValidate>
+          <div id="one-two-three" className="row"></div>
+          <div id="four"></div>
+          <div id="five">
+            <h1 style={styles.header}>Sign In</h1>
+            <div className="feedback">{formErrors.handle}</div>
+            <div>
+              <div className="exp-center">
+                <input
+                  type="email"
+                  name="email-field"
+                  onChange={handleChange}
+                  placeholder="Email"
+                  value={email.value}
+                  id="email-field"
+                  className="control"
+                  noValidate
+                  valid={email.valid.toString()}
+                  invalid={email.invalid.toString()}
+                />
+              </div>
+              <div className="feedback">{formErrors.email}</div>
+            </div>
+            <div>
+              <div className="exp-center">
+                <input
+                  type="password"
+                  name="password-field"
+                  onChange={handleChange}
+                  placeholder="Password"
+                  value={password.value}
+                  id="current-password"
+                  className="control "
+                  noValidate
+                  autoComplete="on"
+                  valid={password.valid.toString()}
+                  invalid={password.invalid.toString()}
+                />
+              </div>
+              <div className="feedback">{formErrors.password}</div>
+            </div>
+            {!form.complete && (
+              <p style={styles.formErrors}> Form Incomplete </p>
+            )}
+            <div style={styles.btnContainer}>
+              <button style={styles.signIn} type="submit" className="opacity">
+                Sign In
+              </button>
+            </div>
+            <div style={styles.btnContainer}>
+              <button
+                onClick={handleForgotPassword}
+                style={styles.forgotPassword}
+                className="opacity"
+              >
+                Forgot Password?
+              </button>
+            </div>
           </div>
-          <div className="feedback">{formErrors.password}</div>
-        </div>
-        {!form.complete && <p style={styles.formErrors}> Form Incomplete </p>}
-        <div style={styles.btnContainer}>
-          <button style={styles.signIn} type="submit" className="opacity">
-            Sign In
-          </button>
-        </div>
-        <div style={styles.btnContainer}>
-          <button
-            onClick={handleForgotPassword}
-            style={styles.forgotPassword}
-            className="opacity"
-          >
-            Forgot Password?
-          </button>
-        </div>
-      </div>
-      <div id="six"></div>
-      <div id="seven-eight-nine" className="row"></div>
-    </form>
+          <div id="six"></div>
+          <div id="seven-eight-nine" className="row"></div>
+        </form>
+      )}
+    </>
   );
 };
 

@@ -38,14 +38,14 @@ function authReducer(state = initialState, action) {
         ...state,
         loading: true
       };
-    case LOADING_SIGNUP:
+    case LOADING_SIGNIN:
       return {
         ...state,
         signInLoading: true,
         signInFailed: false
       };
 
-    case LOADING_SIGNIN:
+    case LOADING_SIGNUP:
       return {
         ...state,
         signUploading: true,

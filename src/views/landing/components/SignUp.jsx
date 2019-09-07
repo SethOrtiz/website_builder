@@ -28,7 +28,7 @@ const styles = {
     width: "100%",
     marginBottom: "1rem",
     fontSize: "2rem",
-    textAlign: "center",
+    textAlign: "center"
   },
   subtitle: {
     width: "100%",
@@ -42,7 +42,7 @@ const styles = {
     outline: "none",
     padding: "1rem 0.5rem",
     fontSize: "1rem",
-    fontWeight: "700",
+    fontWeight: "700"
   },
   btnContainer: {
     display: "flex",
@@ -292,7 +292,7 @@ const SignUp = props => {
         passwordConfirm: passwordConfirm.value,
         handle: handle.value
       };
-      props.signUp(newUserData,props.history)
+      props.signUp(newUserData, props.history);
       resetState();
     } else {
       setForm({
@@ -300,98 +300,117 @@ const SignUp = props => {
       });
     }
   };
+
+  ///////////////////////////////////////////     DISPLAYS ANIMATION AFTER SUMBISSION
+  const { signUpLoading } = props;
+
+
   return (
-    <form style={styles.form} onSubmit={handleSubmit} noValidate>
-      <div id="one-two-three" className="row"></div>
-      <div id="four"></div>
-      <div id="five">
-        <h1 style={styles.header}>Sign Up</h1>
-        <div style={styles.subtitle}>
-          Already have an account?
-          <button onClick={props.handleSignIn} style={styles.signIn}>
-            Sign In
-          </button>
-        </div>
-        <div>
-          <div className="exp-center">
-            <input
-              type="text"
-              name="handle-field"
-              onChange={handleChange}
-              placeholder="UserName"
-              value={handle.value}
-              id="handle-field"
-              className="control"
-              noValidate
-              valid={handle.valid.toString()}
-              invalid={handle.invalid.toString()}
-            />
+    <>
+      {signUpLoading ? (
+        <div className="loaderContainer">
+          <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-          <div className="feedback">{formErrors.handle}</div>
         </div>
-        <div>
-          <div className="exp-center">
-            <input
-              type="email"
-              name="email-field"
-              onChange={handleChange}
-              placeholder="Email"
-              value={email.value}
-              id="email-field"
-              className="control"
-              noValidate
-              valid={email.valid.toString()}
-              invalid={email.invalid.toString()}
-            />
+      ) : (
+        <form style={styles.form} onSubmit={handleSubmit} noValidate>
+          <div id="one-two-three" className="row"></div>
+          <div id="four"></div>
+          <div id="five">
+            <h1 style={styles.header}>Sign Up</h1>
+            <div style={styles.subtitle}>
+              Already have an account?
+              <button onClick={props.handleSignIn} style={styles.signIn}>
+                Sign In
+              </button>
+            </div>
+            <div>
+              <div className="exp-center">
+                <input
+                  type="text"
+                  name="handle-field"
+                  onChange={handleChange}
+                  placeholder="UserName"
+                  value={handle.value}
+                  id="handle-field"
+                  className="control"
+                  noValidate
+                  valid={handle.valid.toString()}
+                  invalid={handle.invalid.toString()}
+                />
+              </div>
+              <div className="feedback">{formErrors.handle}</div>
+            </div>
+            <div>
+              <div className="exp-center">
+                <input
+                  type="email"
+                  name="email-field"
+                  onChange={handleChange}
+                  placeholder="Email"
+                  value={email.value}
+                  id="email-field"
+                  className="control"
+                  noValidate
+                  valid={email.valid.toString()}
+                  invalid={email.invalid.toString()}
+                />
+              </div>
+              <div className="feedback">{formErrors.email}</div>
+            </div>
+            <div>
+              <div className="exp-center">
+                <input
+                  type="password"
+                  name="password-field"
+                  onChange={handleChange}
+                  placeholder="Password"
+                  value={password.value}
+                  id="current-password"
+                  className="control "
+                  noValidate
+                  autoComplete="on"
+                  valid={password.valid.toString()}
+                  invalid={password.invalid.toString()}
+                />
+              </div>
+              <div className="feedback">{formErrors.password}</div>
+            </div>
+            <div>
+              <div className="exp-center">
+                <input
+                  type="password"
+                  name="password-confirm-field"
+                  onChange={handleChange}
+                  value={passwordConfirm.value}
+                  id="password-confirm-field"
+                  className="control"
+                  noValidate
+                  autoComplete="on"
+                  valid={passwordConfirm.valid.toString()}
+                  invalid={passwordConfirm.invalid.toString()}
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <div className="feedback">{formErrors.passwordConfirm}</div>
+            </div>
+            {!form.complete && (
+              <p style={styles.formErrors}> Form Incomplete </p>
+            )}
+            <div style={styles.btnContainer}>
+              <button style={styles.signUp} type="submit" className="opacity">
+                Sign Up
+              </button>
+            </div>
           </div>
-          <div className="feedback">{formErrors.email}</div>
-        </div>
-        <div>
-          <div className="exp-center">
-            <input
-              type="password"
-              name="password-field"
-              onChange={handleChange}
-              placeholder="Password"
-              value={password.value}
-              id="current-password"
-              className="control "
-              noValidate
-              autoComplete="on"
-              valid={password.valid.toString()}
-              invalid={password.invalid.toString()}
-            />
-          </div>
-          <div className="feedback">{formErrors.password}</div>
-        </div>
-        <div>
-          <div className="exp-center">
-            <input
-              type="password"
-              name="password-confirm-field"
-              onChange={handleChange}
-              value={passwordConfirm.value}
-              id="password-confirm-field"
-              className="control"
-              noValidate
-              autoComplete="on"
-              valid={passwordConfirm.valid.toString()}
-              invalid={passwordConfirm.invalid.toString()}
-              placeholder="Confirm Password"
-            />
-          </div>
-          <div className="feedback">{formErrors.passwordConfirm}</div>
-        </div>
-        {!form.complete && <p style={styles.formErrors}> Form Incomplete </p>}
-        <div style={styles.btnContainer}>
-          <button style={styles.signUp} type="submit" className="opacity">
-            Sign Up
-          </button>
-        </div>
-      </div>
-      <div id="six"></div>
-      <div id="seven-eight-nine" className="row"></div>
-    </form>
+          <div id="six"></div>
+          <div id="seven-eight-nine" className="row"></div>
+        </form>
+      )}
+    </>
   );
 };
 

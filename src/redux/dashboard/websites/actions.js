@@ -18,7 +18,7 @@ export const RECEIVED_WEBSITES = "RECEIVED_WEBSITES";
 export function fetchWebsites(websites) {
     return {
     type: RECEIVED_WEBSITES,
-    payload: websites
+    websites
   };
 }
 
@@ -42,16 +42,17 @@ export const RECEIVED_WEBSITE = "RECEIVED_WEBSITE";
 export function fetchWebsite(website) {
     return {
     type: RECEIVED_WEBSITE,
-    payload: website
+    website
   };
 }
 
 ///////////////////// Add Website ////////////////////////
 
 export const POSTING_WEBSITE = "POSTING_WEBSITE";
-export function postingWebsite() {
+export function postingWebsite(website) {
     return {
-    type: POSTING_WEBSITE
+    type: POSTING_WEBSITE,
+    website
   };
 }
 
@@ -63,9 +64,9 @@ export function websiteFailedToPost() {
 }
 
 export const WEBSITE_POST_SUCCESS = "WEBSITE_POST_SUCCESS";
-export function websitePostSuccess(newWebsiteJson) {
+export function websitePostSuccess(website) {
     return {
     type: WEBSITE_POST_SUCCESS,
-    payload: newWebsiteJson
+    website
   };
 }

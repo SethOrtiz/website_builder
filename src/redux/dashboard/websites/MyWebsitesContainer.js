@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
-import { getAllWebsites, getWebsite, addWebsite } from "./thunks";
+import { getAllWebsites, addWebsite } from "./thunks";
 import MyWebsites from "../../../views/dashboard/components/MyWebsites";
 
 const mapStateToProps = function({ auth, websites }) {
   return {
     ...websites,
-     authenticated: auth.authenticated
+     authenticated: auth.authenticated,
+     user_id: auth.user_id
   }; 
 };
 
@@ -14,11 +15,8 @@ const mapDispatchToProps = function(dispatch) {
     getAllWebsites: function() {
       dispatch(getAllWebsites());
     },
-    getWebsite: function(){
-      dispatch(getWebsite());
-    },
-    addWebsite: function(){
-      dispatch(addWebsite());
+    addWebsite: function(body){
+      dispatch(addWebsite(body));
     }
   };
 };

@@ -43,9 +43,6 @@ const styles = {
   }
 };
 const MyWebsites = props => {
-  const [allWebsites, setAllWebsites] = useState({
-    websites: []
-  });
   const [newWebsite, setNewWebsite] = useState({
     value: ""
   });
@@ -53,9 +50,13 @@ const MyWebsites = props => {
     value: false
   });
   ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
+  console.log(props);
+  const { getAllWebsites } = props;
+  const { user_id } = props;
   useEffect(() => {
+    getAllWebsites(user_id)
     setEmpty({ value: false });
-  }, []);
+  }, [getAllWebsites, user_id]);
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
   const handleChange = e => {
     e.preventDefault();
@@ -75,13 +76,7 @@ const MyWebsites = props => {
   const handleSubmit = e => {
     e.preventDefault();
     if (newWebsite.value) {
-      //
-      setAllWebsites({
-        websites: [
-          ...allWebsites.websites,
-          { id: allWebsites.websites.length + 1, name: newWebsite.value }
-        ]
-      });
+      props.addWebsite(newWebsite.value);
       resetState();
     } else {
       setEmpty({
@@ -110,8 +105,8 @@ const MyWebsites = props => {
           Create
         </button>
       </form>
-      {allWebsites.websites.map(obj => {
-        return <Website key={obj.id.toString()} name={obj.name} />;
+      {props.websites.map((obj,index) => {
+        return <Website  key={index} name={obj.name} />;
       })}
     </section>
   );

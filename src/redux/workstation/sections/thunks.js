@@ -1,50 +1,35 @@
+import axios from "axios";
+import { API } from "../../../constants/api";
 import {
-  loadingSections,
-  sectionsFetchError,
-  fetchSections,
+  loadingWebsite,
+  fetchWebsite,
+  websiteFetchError,
   postingSection,
   sectionFailedToPost,
-  sectionPostSuccess,
+  sectionPostSuccess
 } from "../actions/sectionActions";
 
-export function getSections(websiteId) {
-  return async function(dispatch) {
-    dispatch(loadingSections());
-    try {
-      const res = await fetch(`https://us-central1-hubstereo-5f9be.cloudfunctions.net/api/websites/${websiteId}`);
-      if (!res.ok) {
-        throw new Error();
-      }
-      const sectionsJson = await res.json();
-      dispatch(fetchSections(sectionsJson));
-    } catch (e) {
-      dispatch(sectionsFetchError());
-    }
-  };
-}
+export const getWebsite = websiteId => dispatch => {
+  dispatch(loadingWebsite());
+  axios
+    .get(`${API}/website/${websiteId}`)
+    .then(res => {
+      dispatch(fetchWebsite(res.data));
+      // res.data should be an array of sections.
+    })
+    .catch(err => {
+      dispatch(websiteFetchError(err.res.data));
+    });
+};
 
-export function addSection(websiteId) {
-  return async function(dispatch) {
-    dispatch(postingSection());
-    try {
-      const res = await fetch(`https://us-central1-hubstereo-5f9be.cloudfunctions.net/api/websites/${websiteId}/section`, {
-        method: "POST",
-        body: JSON.stringify({
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      if (!res.ok) {
-        throw new Error();
-      } else {
-        alert("Section Added")
-        const newSectionJson = await res.json();
-        dispatch(sectionPostSuccess(newSectionJson));
-      }
-    } catch (e) {
-      dispatch(sectionFailedToPost());
-      console.log(e);
-    }
-  };
-}
+export const addSection = (websiteId, sectionData) => dispatch => {
+  dispatch(postingSection());
+  axios
+    .post(`${API}/website/${websiteId}/section`, sectionData)
+    .then(res => {
+      dispatch(sectionPostSuccess(res.data));
+    })
+    .catch(err => {
+      dispatch(sectionFailedToPost(err.res.data));
+    });
+};

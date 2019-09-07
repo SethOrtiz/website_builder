@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 const styles = {
   notepad: {
+    height: "100%",
     borderTop: "1px solid black",
     backgroundColor: "#222",
     display: "grid",
@@ -11,7 +12,7 @@ const styles = {
   main: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "start",  
+    justifyContent: "start",
     flexDirection: "column",
     padding: "10%"
   },
@@ -79,9 +80,9 @@ const Notepad = props => {
   });
   ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
   const { getAllNotes } = props;
-  const { user_id } = props
+  const { user_id } = props;
   useEffect(() => {
-    getAllNotes(user_id)
+    getAllNotes(user_id);
     setEmpty({ value: false });
   }, [getAllNotes, user_id]);
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE

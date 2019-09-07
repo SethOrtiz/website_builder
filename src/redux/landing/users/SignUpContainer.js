@@ -8,10 +8,9 @@ import {
   handleHome
 } from "../nav/actions";
 
-const mapStateToProps = function({ auth, nav }) {
+const mapStateToProps = function({ auth }) {
   return {
-    auth,
-    nav
+    signUpLoading: auth.signUpLoading
   };
 };
 const mapDispatchToProps = function(dispatch) {
