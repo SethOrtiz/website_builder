@@ -1,13 +1,12 @@
 import React from "react";
 import Profile from "./components/Profile";
-import Notepad from "./components/Notepad";
+import NotepadContainer from "../../redux/dashboard/notes/NotepadContainer";
 import MyWebsitesContainer from "../../redux/dashboard/websites/MyWebsitesContainer";
 import NavContainer from "../../redux/landing/nav/NavContainer";
 import Footer from "../theme/Footer";
 
 const styles = {
   dashboard: {
-    height: "100vh",
     backgroundColor: "#111"
   },
   nav: {
@@ -16,7 +15,7 @@ const styles = {
   aside: {
     display: "grid",
     gridTemplateRows: "1fr 3fr",
-    backgroundColor: "#222",
+    backgroundColor: "#222"
   },
   main: {
     backgroundColor: "#111"
@@ -31,7 +30,7 @@ export default function Dashboard() {
         <nav style={styles.nav}></nav>
         <aside style={styles.aside}>
           <Profile />
-          <Notepad />
+          <NotepadContainer />
         </aside>
         <main style={styles.main}>
           <MyWebsitesContainer />
@@ -41,4 +40,3 @@ export default function Dashboard() {
     </>
   );
 }
-// connect containers 

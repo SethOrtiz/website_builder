@@ -1,3 +1,4 @@
+
 import {
   SET_USER,
   SET_AUTHENTICATED,
@@ -13,7 +14,8 @@ const initialState = {
   signInFailed: false,
   signUploading: false,
   signUpFailed: false,
-  forgotPasswordOpen: false
+  forgotPasswordOpen: false,
+  user_id: ""
 };
 
 function authReducer(state = initialState, action) {
@@ -29,7 +31,7 @@ function authReducer(state = initialState, action) {
       return {
         authenticated: true,
         loading: false,
-        ...action.payload
+        user_id: action.data
       };
     case LOADING_USER:
       return {

@@ -5,13 +5,15 @@ import "./App.css";
 //////////////////////////////////////////////////////     ROUTES
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
-import { SET_AUTHENTICATED } from "./redux/landing/users/actions";
-import { signOut } from "./redux/landing/users/thunks";
 //////////////////////////////////////////////////////      PAGES
 import Landing from "./views/landing/Landing";
 import Dashboard from "./views/dashboard/Dashboard";
 import Workstation from "./views/workstation/Workstation";
 //////////////////////////////////////////////////////       AUTH
+import { SET_AUTHENTICATED } from "./redux/landing/users/actions";
+import { signOut } from "./redux/landing/users/thunks";
+import { setUser } from "./redux/landing/users/actions";
+// import PublicRoute from "./util/PublicRoute";
 import AuthRoute from "./util/AuthRoute";
 import store from "./redux/store";
 import axios from "axios";
@@ -24,6 +26,7 @@ if (token) {
     window.location.href = ROUTES.LANDING;
   } else {
     store.dispatch({ type: SET_AUTHENTICATED });
+    store.dispatch(setUser(decodedToken.user_id));
     axios.defaults.headers.common["Authorization"] = token;
   }
 }

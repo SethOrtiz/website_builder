@@ -5,6 +5,7 @@ import * as REGEX from "../../../constants/regex";
 /* COLOR SCHEME */
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 
+
 const styles = {
   form: {
     width: "100%",

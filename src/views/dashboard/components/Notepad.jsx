@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-
 const styles = {
   notepad: {
     borderTop: "1px solid black",
@@ -12,7 +11,7 @@ const styles = {
   main: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "start",
+    justifyContent: "start",  
     flexDirection: "column",
     padding: "10%"
   },
@@ -72,10 +71,6 @@ const styles = {
 
 const Notepad = props => {
   ///////////////////////////////////////////     STATE DECLARATION
-  const [allNotes, setAllNotes] = useState({
-    notes: [{ id: 1, value: "Hello" }]
-  });
-
   const [newNote, setNewNote] = useState({
     value: ""
   });
@@ -83,9 +78,12 @@ const Notepad = props => {
     value: false
   });
   ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
+  const { getAllNotes } = props;
+  const { user_id } = props
   useEffect(() => {
+    getAllNotes(user_id)
     setEmpty({ value: false });
-  }, []);
+  }, [getAllNotes, user_id]);
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
   const handleChange = e => {
     e.preventDefault();
@@ -95,7 +93,6 @@ const Notepad = props => {
       value: false
     });
   };
-
   ///////////////////////////////////////////     RESETS AFTER SUCCESSFUL SUBMITION
   const resetState = () => {
     setNewNote({
@@ -103,37 +100,27 @@ const Notepad = props => {
     });
   };
   ///////////////////////////////////////////       CREATES A NEW NOTE
-
-  // props.addNote(note.value);
   const handleSubmit = e => {
     e.preventDefault();
     if (newNote.value) {
-      setAllNotes({
-        notes: [
-          ...allNotes.notes,
-          { id: allNotes.notes.length + 1, value: newNote.value }
-        ]
-      });
+      props.addNote(`${user_id}`, newNote.value);
       resetState();
-      console.log(allNotes.notes);
     } else {
       setEmpty({
         value: true
       });
     }
   };
-
   // onBlur={handleUpdate}
-
   return (
     <section id="Notepad" style={styles.notepad}>
       <div style={styles.main}>
         <h1 style={styles.title}>Notes</h1>
         <ul>
-          {allNotes.notes.map(obj => {
+          {props.notes.map(obj => {
             return (
               <div key={obj.id.toString()} style={styles.update}>
-                <li style={styles.note}>{obj.value}</li>
+                <li style={styles.note}>{obj.content}</li>
                 <button className="opacity" style={styles.delete}>
                   -
                 </button>

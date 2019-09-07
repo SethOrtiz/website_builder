@@ -34,7 +34,8 @@ const Profile = props => {
     : <div className="no-img"></div>
     }
       <div style={styles.handle}>
-        <h1>{props.handle} USER NAME</h1>
+      <p>welcome</p>  
+        <h1>{props.handle} Seth Ortiz</h1>
       </div>
     </section>
   );

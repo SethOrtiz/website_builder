@@ -1,5 +1,4 @@
 import { API } from "../../../constants/api";
-import { DASHBOARD } from "../../../constants/routes";
 import axios from "axios";
 import {
   loadingSignIn,
@@ -24,8 +23,6 @@ export const signUp = (newUserData, history) => dispatch => {
     .then(res => {
       setAuthorizationHeader(res.data.token);
       dispatch(clearErrors());
-      console.log("Sign Up Successful");
-      history.push(DASHBOARD);
     })
     .catch(err => {
       dispatch(setErrors(err.res.data));
@@ -39,7 +36,6 @@ export const signIn = (userData, history) => dispatch => {
     .then(res => {
       setAuthorizationHeader(res.data.token);
       dispatch(clearErrors());
-      history.push(DASHBOARD);
     })
     .catch(err => {
       dispatch(setErrors(err.response.data));
