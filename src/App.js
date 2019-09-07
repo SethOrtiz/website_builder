@@ -13,7 +13,7 @@ import Workstation from "./views/workstation/Workstation";
 import { SET_AUTHENTICATED } from "./redux/landing/users/actions";
 import { signOut } from "./redux/landing/users/thunks";
 import { setUser } from "./redux/landing/users/actions";
-// import PublicRoute from "./util/PublicRoute";
+import PublicRoute from "./util/PublicRoute";
 import AuthRoute from "./util/AuthRoute";
 import store from "./redux/store";
 import axios from "axios";
@@ -36,7 +36,7 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path={ROUTES.LANDING} component={Landing} />
+          <PublicRoute exact path={ROUTES.LANDING} component={Landing} />
           <AuthRoute exact path={ROUTES.DASHBOARD} component={Dashboard} />
           <AuthRoute exact path={ROUTES.WORKSTATION} component={Workstation} />
           <Route path={ROUTES.NOT_FOUND} render={() => <div>Not found</div>} />

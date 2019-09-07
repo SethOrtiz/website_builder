@@ -23,6 +23,7 @@ export const signUp = (newUserData, history) => dispatch => {
     .then(res => {
       setAuthorizationHeader(res.data.token);
       dispatch(clearErrors());
+      document.location.reload()
     })
     .catch(err => {
       dispatch(setErrors(err.res.data));
@@ -36,6 +37,7 @@ export const signIn = (userData, history) => dispatch => {
     .then(res => {
       setAuthorizationHeader(res.data.token);
       dispatch(clearErrors());
+      document.location.reload()
     })
     .catch(err => {
       dispatch(setErrors(err.response.data));
