@@ -8,10 +8,9 @@ import {
 import {signOut} from "../users/thunks";
 import Navbar from "../../../views/theme/Navbar";
 
-const mapStateToProps = function({ auth, nav }) {
+const mapStateToProps = function({ auth }) {
   return {
-    nav,
-    auth
+    authenticated: auth.authenticated
   };
 };
 const mapDispatchToProps = function(dispatch) {

@@ -76,10 +76,9 @@ select:-webkit-autofill:focus {
 /* ///// LOGO ////// */
 
 /* /////// LINKS //////// */
-
 .link,
 a {
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 
@@ -92,7 +91,6 @@ li a {
 button:hover,
 a:hover {
   text-decoration: none;
-  color: gradient(#111, )
 }
 
 button:hover {
@@ -181,15 +179,15 @@ button:hover {
   }
   
   .control-center::placeholder {
-    color: #555;
+    color: #000;
   }
   .control-center:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: #555 ;
+    color: #000 ;
   }
   .control-center::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: #555 ;
+    color: #000 ;
   }
 
 
@@ -209,7 +207,7 @@ button:hover {
   grid-template-rows: 1fr 11fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "nav nav nav"
+    "sidebar nav nav"
     "sidebar main main";
 }
 
@@ -224,14 +222,12 @@ button:hover {
 }
 
 /* /////// ANIMATIONS //////// */
-
-
 .exp-line-start::after {
   content: "";
   display: flex;
   align-self: center;
   height: 2px;
-  background-color: black;
+  background-color: #000;
   width: 0%;
   transition: width 0.3s;
 }
@@ -299,9 +295,7 @@ button:hover {
   left: 50%;
 }
 
-
 /* /////// DISPLAY ON HOVER //////// */
-
 .hidden{
   display: none;
 }
@@ -313,7 +307,7 @@ button:hover {
 /* /////// LOADER  //////// */
 .loaderContainer{
   width: 100%;
-  background-color: #d2e7ff;
+  background-color: #111;
   display: flex;
   align-items: center;
   justify-content: center;

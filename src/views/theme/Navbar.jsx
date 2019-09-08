@@ -18,8 +18,19 @@ const styles = {
     fontSize: "1rem",
     textTransform: "uppercase",
     fontWeight: "600",
+    position: "fixed"
+  },
+  authedNavbar: {
+    width: "100vw",
+    justifyContent: "start",
+    alignItems: "center",
+    display: "grid",
+    gridTemplateColumns: "1fr 2fr",
+    padding: "1.6rem 0rem",
+    fontSize: "1rem",
+    textTransform: "uppercase",
+    fontWeight: "600",
     position: "fixed",
-    color: "#fffef9"
   },
   signOut: {
     border: "none",
@@ -30,41 +41,60 @@ const styles = {
     width: "100%",
     justifyContent: "space-around",
     display: "flex"
+  },
+  authedRoutes: {
+    width: "100%",
+    justifyContent: "flex-end",
+    display: "flex"
+  },
+  navItem: {
+    marginRight: "1em"
   }
 };
 
 const Navbar = props => {
+  const { authenticated } = props;
+
   return (
-    <div style={styles.navbar}>
-      <div></div>
-      <Link style={styles.brand} onClick={props.handleHome} to={ROUTES.LANDING}>
-        <span>Hub</span>stereo
-      </Link>
-      <div style={styles.routes}>
-        {props.auth.authenticated ? (
-          <>
-            <div>
-              <Link className="exp-line-start" to={ROUTES.DASHBOARD}>
-                Dashboard
-              </Link>
+    <>
+      {authenticated ? (
+        <>
+          <div style={styles.authedNavbar}>
+            <div></div>
+            <div style={styles.authedRoutes}>
+              <div style={styles.navItem}>
+                <Link className="exp-line-start" to={ROUTES.DASHBOARD}>
+                  Dashboard
+                </Link>
+              </div>
+              <div style={styles.navItem}>
+                <Link className="exp-line-start" to={ROUTES.WORKSTATION}>
+                  Workstation
+                </Link>
+              </div>
+              <div style={styles.navItem}>
+                <Link
+                  onClick={props.signOut}
+                  className="exp-line-start"
+                  to={ROUTES.LANDING}
+                >
+                  Sign Out
+                </Link>
+              </div>
             </div>
-            <div>
-              <Link className="exp-line-start" to={ROUTES.WORKSTATION}>
-                Workstation
-              </Link>
-            </div>
-            <div>
-              <Link
-                onClick={props.signOut}
-                className="exp-line-start"
-                to={ROUTES.LANDING}
-              >
-                Sign Out
-              </Link>
-            </div>
-          </>
-        ) : (
-          <>
+          </div>
+        </>
+      ) : (
+        <div style={styles.navbar}>
+          <div></div>
+          <Link
+            style={styles.brand}
+            onClick={props.handleHome}
+            to={ROUTES.LANDING}
+          >
+            <span>Hub</span>stereo
+          </Link>
+          <div style={styles.routes}>
             <div>
               <Link className="exp-line-start" to={ROUTES.LANDING}>
                 {" "}
@@ -95,10 +125,11 @@ const Navbar = props => {
                 Sign Up
               </Link>
             </div>
-          </>
-        )}
-      </div>
-    </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
+
 export default Navbar;

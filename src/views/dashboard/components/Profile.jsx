@@ -1,14 +1,17 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+/* COLOR SCHEME */
+/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 
 const styles = {
   profile: {
     height: "100%",
+    paddingBottom: "3rem",
     backgroundColor: "#fffef9",
     display: "flex",
     alignItems: "center",
     color: "#000",
-    borderTop: "1px solid #333"
+    border: "2px solid #000"
   },
   img: {
     borderRadius: "50%",
@@ -19,9 +22,9 @@ const styles = {
     objectFit: "cover",
     border: "1px solid #000"
   },
-  handle: {
-    margin: "auto",
-    fontSize: "1.5em"
+  info: {
+    marginLeft: "1rem",
+    fontSize: "1.3em"
   }
 };
 
@@ -33,7 +36,7 @@ const Profile = props => {
     { props.imgUrl ? <img src={props.imgUrl} style={styles.img} alt="" />
     : <div className="no-img"></div>
     }
-      <div style={styles.handle}>
+      <div style={styles.info}>
       <p>welcome</p>  
         <h1>{props.handle} Seth Ortiz</h1>
       </div>

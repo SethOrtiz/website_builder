@@ -7,26 +7,28 @@ import { withRouter } from "react-router-dom";
 
 const styles = {
   myWebsites: {
-    height: "100%",
+    height: "82vh",
     display: "grid",
     boxSizing: "border-box",
-    borderLeft: "1px solid #000",
-    borderTop: "1px solid #000",
-    backgroundColor: " #ffefd7"
+    backgroundColor: " #ffefd7",
+    gridTemplateRows: "auto"
   },
   box: {
     display: "grid",
-    gridTemplateRows: "1fr 1fr",
+    gridTemplateColumns: "4fr 1fr",
     alignItems: "flex-end",
-    boxSizing: "border-box"
+    boxSizing: "border-box",
+    backgroundColor: "#ffefd7",
+    borderTop: "2px solid #000",
+    borderBottom: "2px solid #000"
   },
   create: {
+    height: "100%",
     fontSize: "3em",
     fontStyle: "italic",
     backgroundColor: "inherit",
     border: "none",
-    borderTop: "1px solid #000",
-    borderBottom: "1px solid #000",
+    borderLeft: "2px solid #000",
     outline: "none",
     color: "#000",
     fontWeight: "600",
@@ -42,20 +44,29 @@ const styles = {
     backgroundColor: "darkred"
   }
 };
+
 const MyWebsites = props => {
+  ///////////////////////////////////////////       INITIALIZES STATE
+   const [loader, setLoader] = useState({
+    open: true
+  });
+
   const [newWebsite, setNewWebsite] = useState({
     value: ""
   });
   const [empty, setEmpty] = useState({
     value: false
   });
-  ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
+  ///////////////////////////////////////////     GETS ALL WEBSITES FROM FIREBASE
   console.log(props);
-  const { getAllWebsites } = props;
-  const { user_id } = props;
+  const { getAllWebsites, user_id, loading } = props;
   useEffect(() => {
-    getAllWebsites(user_id)
     setEmpty({ value: false });
+    getAllWebsites(user_id);
+    const timer = setTimeout(() => {
+        setLoader({open: false})
+    }, 3000);
+    return () => clearTimeout(timer);
   }, [getAllWebsites, user_id]);
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
   const handleChange = e => {
@@ -84,8 +95,11 @@ const MyWebsites = props => {
       });
     }
   };
+
+  
+
   return (
-    <section id="Dashboard" style={styles.myWebsites}>
+    <section id="Dashboard">
       <form style={styles.box} onSubmit={handleSubmit} noValidate>
         <div>
           <input
@@ -105,10 +119,23 @@ const MyWebsites = props => {
           Create
         </button>
       </form>
-      {props.websites.map((obj,index) => {
-        return <Website  key={index} name={obj.name} />;
-      })}
+      <div style={styles.myWebsites}>
+        {loading || loader.open ? (
+          <div className="loaderContainer">
+            <div class="loader">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        ) : (
+          props.websites.map((obj, index) => {
+            return <Website key={index} name={obj.name} />;
+          })
+        )}
+      </div>
     </section>
   );
 };
+
 export default withRouter(MyWebsites);
