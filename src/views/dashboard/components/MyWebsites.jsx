@@ -4,14 +4,16 @@ import { withRouter } from "react-router-dom";
 
 /* COLOR SCHEME */
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
-
+///////////////////////////////////////////     STYLING
 const styles = {
   myWebsites: {
     height: "82vh",
     display: "grid",
     boxSizing: "border-box",
     backgroundColor: " #ffefd7",
-    gridTemplateRows: "auto"
+    gridTemplateRows: "auto",
+    borderBottom: "2px solid #000",
+    borderRight: "2px solid #000"
   },
   box: {
     display: "grid",
@@ -36,6 +38,7 @@ const styles = {
   },
   input: {
     fontSize: "3em",
+    paddingLeft: "0.5em",
     borderBottom: "none"
   },
   feedback: {
@@ -47,7 +50,7 @@ const styles = {
 
 const MyWebsites = props => {
   ///////////////////////////////////////////       INITIALIZES STATE
-   const [loader, setLoader] = useState({
+  const [loader, setLoader] = useState({
     open: true
   });
 
@@ -57,17 +60,17 @@ const MyWebsites = props => {
   const [empty, setEmpty] = useState({
     value: false
   });
+
   ///////////////////////////////////////////     GETS ALL WEBSITES FROM FIREBASE
-  console.log(props);
-  const { getAllWebsites, user_id, loading } = props;
+  const { loading } = props;
   useEffect(() => {
     setEmpty({ value: false });
-    getAllWebsites(user_id);
     const timer = setTimeout(() => {
-        setLoader({open: false})
-    }, 3000);
+      setLoader({ open: false });
+    }, 2500);
     return () => clearTimeout(timer);
-  }, [getAllWebsites, user_id]);
+  }, []);
+
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
   const handleChange = e => {
     e.preventDefault();
@@ -77,12 +80,14 @@ const MyWebsites = props => {
       value: false
     });
   };
+
   ///////////////////////////////////////////     RESETS AFTER SUCCESSFUL SUBMITION
   const resetState = () => {
     setNewWebsite({
       value: ""
     });
   };
+
   ///////////////////////////////////////////       CREATES A NEW WEBSITE
   const handleSubmit = e => {
     e.preventDefault();
@@ -96,20 +101,19 @@ const MyWebsites = props => {
     }
   };
 
-  
-
+  ///////////////////////////////////////////       JSX
   return (
     <section id="Dashboard">
       <form style={styles.box} onSubmit={handleSubmit} noValidate>
         <div>
           <input
             type="text"
-            name="new-note"
+            name="new-website"
             style={styles.input}
             onChange={handleChange}
-            placeholder="Name"
+            placeholder="Artist Name..."
             value={newWebsite.value}
-            className="control-center"
+            className="control"
             noValidate
             autoComplete="off"
           />
@@ -122,7 +126,7 @@ const MyWebsites = props => {
       <div style={styles.myWebsites}>
         {loading || loader.open ? (
           <div className="loaderContainer">
-            <div class="loader">
+            <div className="loader">
               <div></div>
               <div></div>
               <div></div>

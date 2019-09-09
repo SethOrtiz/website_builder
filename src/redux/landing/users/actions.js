@@ -1,5 +1,4 @@
 // User reducer types
-
 export const SET_UNAUTHENTICATED = 'SET_UNAUTHENTICATED';
 export function setUnauthenticated() {
   return {
@@ -13,10 +12,19 @@ export function setAuthenticated() {
     type: SET_AUTHENTICATED 
   };
 }
+
 export const SET_USER = 'SET_USER';
 export function setUser(data) {
   return {
     type: SET_USER,
+    data
+  };
+}
+
+export const GET_USER_DATA = 'GET_USER_DATA';
+export function getUserData(data) {
+  return {
+    type: GET_USER_DATA,
     data
   };
 }
@@ -43,14 +51,12 @@ export function loadingData() {
   };
 }
 
-
 export const LOADING_USER = 'LOADING_USER';
 export function loadingUser() {
   return {
     type: LOADING_USER
   };
 }
-
 
 export const LOADING_SIGNIN = "LOADING_SIGNIN";
 export function loadingSignIn() {

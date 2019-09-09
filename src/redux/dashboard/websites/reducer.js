@@ -1,17 +1,13 @@
 import {
   LOADING_WEBSITES,
-  WEBSITES_FETCH_ERROR,
-  RECEIVED_WEBSITES,
-  LOADING_WEBSITE,
   WEBSITE_FETCH_ERROR,
   RECEIVED_WEBSITE,
-  POSTING_WEBSITE,
   WEBSITE_FAILED_TO_POST,
-  WEBSITE_POST_SUCCESS
+  WEBSITE_POST_SUCCESS,
+  WEBSITE_DELETED
 } from "./actions";
 
 const initialState = {
-  websites: [],
   sections: [],
   loading: false,
   error: false,
@@ -22,25 +18,6 @@ const initialState = {
 function websitesReducer(state = initialState, action) {
   switch (action.type) {
     case LOADING_WEBSITES:
-      return {
-        ...state,
-        loading: true,
-        error: false
-      };
-    case WEBSITES_FETCH_ERROR:
-      return {
-        ...state,
-        loading: false,
-        error: true
-      };
-    case RECEIVED_WEBSITES:
-      return {
-        ...state,
-        loading: false,
-        error: false,
-        websites: action.websites
-      };
-    case LOADING_WEBSITE:
       return {
         ...state,
         loading: true,
@@ -59,12 +36,6 @@ function websitesReducer(state = initialState, action) {
         error: false,
         sections: action.sections
       };
-    case POSTING_WEBSITE:
-      return {
-        ...state,
-        posting: true,
-        postFailure: false
-      };
     case WEBSITE_FAILED_TO_POST:
       return {
         ...state,
@@ -77,6 +48,11 @@ function websitesReducer(state = initialState, action) {
         posting: false,
         postFailure: false,
         websites: state.websites.concat(action.website)
+      };
+    case WEBSITE_DELETED:
+      return {
+        ...state,
+        loading: false,
       };
     default:
       return state;

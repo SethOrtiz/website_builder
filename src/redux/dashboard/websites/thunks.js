@@ -2,27 +2,15 @@ import { API } from "../../../constants/api";
 import axios from "axios";
 import {
   loadingWebsites,
-  fetchWebsites,
-  websitesFetchError,
-  postingWebsite,
   websiteFailedToPost,
-  websitePostSuccess
+  websitePostSuccess,
+  websiteDeleted
 } from "./actions";
 
-export const getAllWebsites = () => (dispatch) => {
-  dispatch(loadingWebsites());
-  axios
-    .get(`${API}/websites`)
-    .then((res) => {
-      dispatch(fetchWebsites(res.data));
-    })
-    .catch((err) => {
-      dispatch(websitesFetchError());
-    });
-};
+
 
 export const addWebsite = (newWebsite) => (dispatch) => {
-  dispatch(postingWebsite());
+  dispatch(loadingWebsites());
   axios
     .post(`${API}/website`, newWebsite)
     .then(res => {
@@ -32,3 +20,14 @@ export const addWebsite = (newWebsite) => (dispatch) => {
       dispatch(websiteFailedToPost(err.res.data));
     });
 }
+
+export const deleteWebsite = (websiteId) => (dispatch) => {
+  dispatch(loadingWebsites());
+  axios
+    .delete(`/website/${websiteId}`)
+    .then(() => {
+      dispatch(websiteDeleted(websiteId));
+      document.location.reload();
+    })
+    .catch((err) => console.log(err));
+};

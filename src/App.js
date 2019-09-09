@@ -11,8 +11,7 @@ import Dashboard from "./views/dashboard/Dashboard";
 import Workstation from "./views/workstation/Workstation";
 //////////////////////////////////////////////////////       AUTH
 import { SET_AUTHENTICATED } from "./redux/landing/users/actions";
-import { signOut } from "./redux/landing/users/thunks";
-import { setUser } from "./redux/landing/users/actions";
+import { signOut, getUserData } from "./redux/landing/users/thunks";
 import PublicRoute from "./util/PublicRoute";
 import AuthRoute from "./util/AuthRoute";
 import store from "./redux/store";
@@ -26,8 +25,8 @@ if (token) {
     window.location.href = ROUTES.LANDING;
   } else {
     store.dispatch({ type: SET_AUTHENTICATED });
-    store.dispatch(setUser(decodedToken.user_id));
     axios.defaults.headers.common["Authorization"] = token;
+    store.dispatch(getUserData());
   }
 }
 

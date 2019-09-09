@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+/* COLOR SCHEME */
+/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
+///////////////////////////////////////////       STYLING
 const styles = {
   notepad: {
     height: "100%",
-    borderTop: "1px solid black",
+    boxSizing: "border-box",
+    border: "2px solid #000",
     backgroundColor: "#222",
     display: "grid",
     gridTemplateRows: "7fr 1fr",
@@ -29,7 +33,7 @@ const styles = {
     borderRadius: "0.5em"
   },
   form: {
-    borderTop: "2px solid #fffef9",
+    borderTop: "2px solid #000",
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-center",
@@ -78,6 +82,7 @@ const Notepad = props => {
   const [empty, setEmpty] = useState({
     value: false
   });
+
   ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
   const { getAllNotes } = props;
   const { user_id } = props;
@@ -85,6 +90,7 @@ const Notepad = props => {
     getAllNotes(user_id);
     setEmpty({ value: false });
   }, [getAllNotes, user_id]);
+
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
   const handleChange = e => {
     e.preventDefault();
@@ -94,12 +100,14 @@ const Notepad = props => {
       value: false
     });
   };
+
   ///////////////////////////////////////////     RESETS AFTER SUCCESSFUL SUBMITION
   const resetState = () => {
     setNewNote({
       value: ""
     });
   };
+
   ///////////////////////////////////////////       CREATES A NEW NOTE
   const handleSubmit = e => {
     e.preventDefault();
@@ -113,10 +121,12 @@ const Notepad = props => {
     }
   };
   // onBlur={handleUpdate}
+
+  ///////////////////////////////////////////       JSX
   return (
     <section id="Notepad" style={styles.notepad}>
       <div style={styles.main}>
-        <h1 style={styles.title}>Notes</h1>
+        <h1 style={styles.title}>MY CHECKLIST √</h1>
         <ul>
           {props.notes.map(obj => {
             return (

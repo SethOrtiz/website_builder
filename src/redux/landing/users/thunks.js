@@ -16,12 +16,24 @@ const setAuthorizationHeader = token => {
   axios.defaults.headers.common["Authorization"] = FBIdToken;
 };
 
+export const getUserData = () => (dispatch) => {
+  dispatch(loadingUser());
+  axios
+    .get(`${API}/user/details`)
+    .then((res) => {
+      dispatch(setUser(res.data));
+    })
+    .catch((err) => console.log(err));
+};
+
+
 export const signUp = (newUserData, history) => dispatch => {
   dispatch(loadingSignUp());
   axios
     .post(`${API}/signup`, newUserData)
     .then(res => {
       setAuthorizationHeader(res.data.token);
+      dispatch(getUserData());
       dispatch(clearErrors());
       document.location.reload()
     })
@@ -36,6 +48,7 @@ export const signIn = (userData, history) => dispatch => {
     .post(`${API}/signin`, userData)
     .then(res => {
       setAuthorizationHeader(res.data.token);
+      dispatch(getUserData());
       dispatch(clearErrors());
       document.location.reload()
     })

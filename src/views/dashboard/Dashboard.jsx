@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "./components/Profile";
+import ProfileContainer from "../../redux/dashboard/profile/ProfileContainer";
 import NotepadContainer from "../../redux/dashboard/notes/NotepadContainer";
 import MyWebsitesContainer from "../../redux/dashboard/websites/MyWebsitesContainer";
 import NavContainer from "../../redux/landing/nav/NavContainer";
@@ -31,7 +31,7 @@ export default function Dashboard() {
       <div style={styles.dashboard} className="layout">
         <nav style={styles.nav}></nav>
         <aside style={styles.aside}>
-          <Profile />
+          <ProfileContainer />
           <NotepadContainer />
         </aside>
         <main style={styles.main}>
