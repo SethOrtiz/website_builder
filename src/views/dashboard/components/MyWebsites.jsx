@@ -11,13 +11,13 @@ const styles = {
     display: "grid",
     backgroundColor: " #000",
     gridTemplateRows: "auto",
-    borderRight: "1px solid #000",
+    borderRight: "1px solid #000"
   },
   box: {
     display: "grid",
     gridTemplateColumns: "4fr 1fr",
     alignItems: "flex-end",
-    borderLeft: "none", 
+    borderLeft: "none"
   },
   create: {
     height: "100%",
@@ -36,7 +36,7 @@ const styles = {
     paddingLeft: "0.5em",
     color: "#000",
     backgroundColor: "#fffef9",
-    border: "2px solid #000",
+    border: "2px solid #000"
   },
   feedback: {
     width: "100%",
@@ -44,7 +44,17 @@ const styles = {
     backgroundColor: "darkred"
   },
   container: {
-    borderTop: "2px solid #000",
+    borderTop: "2px solid #000"
+  },
+  edit: {
+    position: "fixed",
+    fontSize: "1.5em",
+    backgroundColor: "#fffef9",
+    border: "2px solid #000",
+    borderLeft: "none",
+    outline: "none",
+    fontWeight: "500",
+    marginTop: "-2px"
   }
 };
 
@@ -58,6 +68,10 @@ const MyWebsites = props => {
     value: ""
   });
   const [empty, setEmpty] = useState({
+    value: false
+  });
+
+  const [editEnabled, setEditEnabled] = useState({
     value: false
   });
 
@@ -101,9 +115,17 @@ const MyWebsites = props => {
     }
   };
 
+  const handleEdit = e => {
+    e.preventDefault();
+    setEditEnabled({ value: !editEnabled.value });
+  };
+
   ///////////////////////////////////////////       JSX
   return (
     <section id="Dashboard" style={styles.container}>
+      <button onClick={handleEdit} style={styles.edit}>
+        EDIT
+      </button>
       <div style={styles.myWebsites}>
         {loading || loader.open ? (
           <div className="loaderContainer">
@@ -115,7 +137,13 @@ const MyWebsites = props => {
           </div>
         ) : (
           props.websites.map((obj, index) => {
-            return <Website key={index} name={obj.name} />;
+            return (
+              <Website
+                key={index}
+                name={obj.name}
+                editEnabled={editEnabled.value}
+              />
+            );
           })
         )}
       </div>

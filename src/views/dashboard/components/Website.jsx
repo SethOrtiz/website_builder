@@ -18,7 +18,7 @@ const styles = {
   handle: {
     color: "000",
     fontWeight: "600",
-    fontSize: "1.7em",
+    fontSize: "3em",
     fontStyle: "italic"
   }
 };
@@ -26,11 +26,18 @@ const styles = {
 const website = props => {
   return (
     <section style={styles.website}>
-      <div style={styles.handle} className="exp-center-black">
+    {props.editEnabled ?
+        <div style={styles.handle} to={WORKSTATION}>
+          {props.name}
+        </div>
+        
+     :
+      <div className="exp-center-black">
         <Link style={styles.handle} to={WORKSTATION}>
           {props.name}
         </Link>
       </div>
+    }
     </section>
   );
 };
