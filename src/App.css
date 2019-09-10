@@ -9,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #111;
 }
 
 code {
@@ -154,13 +155,12 @@ button:hover {
   /* Microsoft Edge */
   color: #555 ;
 }
-  .control-center {
+  .control-two {
     display: block;
     background: none;
     width: 100%;
     font-weight: 400;
     font-size: 2em;
-    font-style: italic;
     font-weight: 600;
     color: #000 ;
     line-height: 1.5;
@@ -168,26 +168,24 @@ button:hover {
     border: 0 solid;
     border-radius: 0;
     border-bottom: 1px solid black;
-    text-align: center;
   }
   
-  .control-center:focus {
-    color: #000 ;
+  .control-two:focus {
+    color: #555 ;
     background-color: inherit;
-    backdrop-filter: brightness(98%);
     outline: 0;
   }
   
-  .control-center::placeholder {
-    color: #000;
+  .control-two::placeholder {
+    color: #555;
   }
-  .control-center:-ms-input-placeholder {
+  .control-two:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: #000 ;
+    color: #555 ;
   }
-  .control-center::-ms-input-placeholder {
+  .control-two::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: #000 ;
+    color: #555 ;
   }
 
 
@@ -233,6 +231,23 @@ button:hover {
 }
 
 .exp-line-start:hover::after {
+  width: 100%;
+}
+
+.exp-start {
+  color: #fffef9;
+}
+.exp-start::after {
+  content: "";
+  display: flex;
+  align-self: center;
+  height: 2px;
+  background-color: #fffef9;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+.exp-start:hover::after {
   width: 100%;
 }
 

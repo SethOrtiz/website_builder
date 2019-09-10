@@ -1,4 +1,8 @@
 import {
+  WEBSITE_POST_SUCCESS,
+  WEBSITE_DELETED
+} from "../../dashboard/websites/actions";
+import {
   SET_USER,
   SET_AUTHENTICATED,
   SET_UNAUTHENTICATED,
@@ -6,6 +10,7 @@ import {
   LOADING_SIGNUP,
   LOADING_SIGNIN
 } from "./actions";
+
 const initialState = {
   authenticated: false,
   userLoading: false,
@@ -46,16 +51,27 @@ function authReducer(state = initialState, action) {
         signInLoading: true,
         signInFailed: false
       };
-
     case LOADING_SIGNUP:
       return {
         ...state,
         signUploading: true,
         signUpFailed: false
       };
+    case WEBSITE_POST_SUCCESS:
+      return {
+        ...state,
+        websites: [action.website, ...state.websites]
+      };
+    case WEBSITE_DELETED:
+      let index = state.websites.findIndex(
+        website => website.websiteId === action.websiteId
+      );
+      state.websites.splice(index, 1);
+      return {
+        ...state
+      };
     default:
       return state;
   }
 }
 export default authReducer;
-

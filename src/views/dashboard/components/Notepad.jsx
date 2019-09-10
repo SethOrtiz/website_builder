@@ -8,10 +8,10 @@ const styles = {
     height: "100%",
     boxSizing: "border-box",
     border: "2px solid #000",
-    backgroundColor: "#222",
+    backgroundColor: "#fffef9",
     display: "grid",
     gridTemplateRows: "7fr 1fr",
-    color: "#fffef9"
+    color: "#000"
   },
   main: {
     display: "flex",
@@ -22,7 +22,8 @@ const styles = {
   },
   title: {
     fontSize: "2em",
-    marginBottom: "1em"
+    marginBottom: "1em",
+    color: "#000"
   },
   note: {
     fontFamily: "Handlee",
@@ -33,7 +34,7 @@ const styles = {
     borderRadius: "0.5em"
   },
   form: {
-    borderTop: "2px solid #000",
+    borderTop: "3px solid #000",
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-center",
@@ -49,9 +50,7 @@ const styles = {
     backgroundColor: "inherit",
     border: "none",
     outline: "none",
-    color: "#fffef9",
     fontWeight: "700",
-    alignSelf: "flex-end"
   },
   delete: {
     fontSize: "2em",
@@ -59,13 +58,12 @@ const styles = {
     border: "none",
     outline: "none",
     fontWeight: "700",
-    color: "#fffef9"
+    color: "#000"
   },
   input: {
     outline: "none",
-    borderTop: "3px solid fffef9",
     height: "100%",
-    color: "#fffef9"
+    color: "#000"
   },
   feedback: {
     width: "5%",
@@ -126,7 +124,7 @@ const Notepad = props => {
   return (
     <section id="Notepad" style={styles.notepad}>
       <div style={styles.main}>
-        <h1 style={styles.title}>MY CHECKLIST √</h1>
+        <h1 style={styles.title}>CHECKLIST</h1>
         <ul>
           {props.notes.map(obj => {
             return (

@@ -11,7 +11,6 @@ const initialState = {
   sections: [],
   loading: false,
   error: false,
-  posting: false,
   postingFailure: false
 };
 
@@ -39,15 +38,14 @@ function websitesReducer(state = initialState, action) {
     case WEBSITE_FAILED_TO_POST:
       return {
         ...state,
-        posting: false,
+        loading: false,
         postFailure: true
       };
     case WEBSITE_POST_SUCCESS:
       return {
         ...state,
-        posting: false,
-        postFailure: false,
-        websites: state.websites.concat(action.website)
+        loading: false,
+        postFailure: false
       };
     case WEBSITE_DELETED:
       return {

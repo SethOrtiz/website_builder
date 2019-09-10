@@ -7,44 +7,44 @@ import { withRouter } from "react-router-dom";
 ///////////////////////////////////////////     STYLING
 const styles = {
   myWebsites: {
-    height: "82vh",
+    height: "80vh",
     display: "grid",
-    boxSizing: "border-box",
-    backgroundColor: " #ffefd7",
+    backgroundColor: " #000",
     gridTemplateRows: "auto",
-    borderBottom: "2px solid #000",
-    borderRight: "2px solid #000"
+    borderRight: "1px solid #000",
   },
   box: {
     display: "grid",
     gridTemplateColumns: "4fr 1fr",
     alignItems: "flex-end",
-    boxSizing: "border-box",
-    backgroundColor: "#ffefd7",
-    borderTop: "2px solid #000",
-    borderBottom: "2px solid #000"
+    borderLeft: "none", 
   },
   create: {
     height: "100%",
     fontSize: "3em",
     fontStyle: "italic",
-    backgroundColor: "inherit",
+    backgroundColor: "#fffef9",
     border: "none",
     borderLeft: "2px solid #000",
-    outline: "none",
+    outline: "2px solid #000",
     color: "#000",
     fontWeight: "600",
     alignSelf: "flex-start"
   },
   input: {
-    fontSize: "3em",
+    fontSize: "2.9em",
     paddingLeft: "0.5em",
-    borderBottom: "none"
+    color: "#000",
+    backgroundColor: "#fffef9",
+    border: "2px solid #000",
   },
   feedback: {
     width: "100%",
     height: "3em",
     backgroundColor: "darkred"
+  },
+  container: {
+    borderTop: "2px solid #000",
   }
 };
 
@@ -92,7 +92,7 @@ const MyWebsites = props => {
   const handleSubmit = e => {
     e.preventDefault();
     if (newWebsite.value) {
-      props.addWebsite(newWebsite.value);
+      props.addWebsite({ name: newWebsite.value });
       resetState();
     } else {
       setEmpty({
@@ -103,26 +103,7 @@ const MyWebsites = props => {
 
   ///////////////////////////////////////////       JSX
   return (
-    <section id="Dashboard">
-      <form style={styles.box} onSubmit={handleSubmit} noValidate>
-        <div>
-          <input
-            type="text"
-            name="new-website"
-            style={styles.input}
-            onChange={handleChange}
-            placeholder="Artist Name..."
-            value={newWebsite.value}
-            className="control"
-            noValidate
-            autoComplete="off"
-          />
-          {empty.value && <div style={styles.feedback}> </div>}
-        </div>
-        <button className="opacity" type="submit" style={styles.create}>
-          Create
-        </button>
-      </form>
+    <section id="Dashboard" style={styles.container}>
       <div style={styles.myWebsites}>
         {loading || loader.open ? (
           <div className="loaderContainer">
@@ -138,6 +119,25 @@ const MyWebsites = props => {
           })
         )}
       </div>
+      <form style={styles.box} onSubmit={handleSubmit} noValidate>
+        <div>
+          <input
+            type="text"
+            name="new-website"
+            style={styles.input}
+            onChange={handleChange}
+            placeholder="Artist Name..."
+            value={newWebsite.value}
+            className="control-two"
+            noValidate
+            autoComplete="off"
+          />
+          {empty.value && <div style={styles.feedback}> </div>}
+        </div>
+        <button type="submit" style={styles.create}>
+          Create
+        </button>
+      </form>
     </section>
   );
 };

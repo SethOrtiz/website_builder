@@ -7,8 +7,6 @@ import {
   websiteDeleted
 } from "./actions";
 
-
-
 export const addWebsite = (newWebsite) => (dispatch) => {
   dispatch(loadingWebsites());
   axios
@@ -17,7 +15,7 @@ export const addWebsite = (newWebsite) => (dispatch) => {
       dispatch(websitePostSuccess(res.data));
     })
     .catch(err => {
-      dispatch(websiteFailedToPost(err.res.data));
+      dispatch(websiteFailedToPost(err));
     });
 }
 

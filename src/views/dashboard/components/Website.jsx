@@ -10,12 +10,13 @@ const styles = {
   website: {
     display: "grid",
     alignItems: "center",
+    justifyContent: "center",
     color: "#000",
-    backgroundImage: "linear-gradient(45deg, #111, #ffefd7)"
+    backgroundImage: "linear-gradient(45deg, #222, #ffefd7, #d2e7ff, #222)",
+    outline: "2px solid #000"
   },
   handle: {
-    margin: "auto",
-    color: "#000",
+    color: "000",
     fontWeight: "600",
     fontSize: "1.7em",
     fontStyle: "italic"
@@ -24,7 +25,7 @@ const styles = {
 
 const website = props => {
   return (
-    <section id="P" style={styles.website}>
+    <section style={styles.website}>
       <div style={styles.handle} className="exp-center-black">
         <Link style={styles.handle} to={WORKSTATION}>
           {props.name}

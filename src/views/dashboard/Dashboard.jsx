@@ -8,10 +8,10 @@ import Footer from "../theme/Footer";
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 const styles = {
   dashboard: {
-    backgroundColor: "#111"
+    backgroundColor: "#000"
   },
   nav: {
-    backgroundColor: "#ffefd7",
+    backgroundColor: "#fffef9",
     borderTop: "2px solid #000"
   },
   aside: {
@@ -20,7 +20,7 @@ const styles = {
     backgroundColor: "#222"
   },
   main: {
-    backgroundColor: "#111"
+    backgroundColor: "#000"
   }
 };
 
