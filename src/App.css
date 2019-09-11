@@ -1,5 +1,4 @@
-
-                                        /* COLOR SCHEME */
+/* COLOR SCHEME */
 /* blue: #d2e7ff  | lightblue: #e3f0ff  | #fffef9 : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 */
 
 body {
@@ -16,7 +15,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 
 /* FONTS */
 @font-face {
@@ -51,7 +49,7 @@ embed,
 footer,
 header,
 nav,
-section{
+section {
   margin: 0;
   padding: 0;
   border: 0;
@@ -84,7 +82,7 @@ a {
 }
 
 li a {
-  color: #fffef9 ;
+  color: #fffef9;
   text-decoration: none;
 }
 
@@ -96,13 +94,22 @@ a:hover {
 
 button:hover {
   text-decoration: none;
+  cursor: pointer;
 }
 
-.opacity{
-  transition: opacity 0.s;
+.btn {
+  outline: none;
+  border: none;
+  height: 100%;
+  background-color: inherit;
+  font-size: 2em;
 }
 
-.opacity:hover{
+.opacity {
+  transition: opacity 0s;
+}
+
+.opacity:hover {
   opacity: 0.7;
   filter: brightness(110%);
 }
@@ -129,7 +136,7 @@ button:hover {
   width: 100%;
   font-weight: 400;
   font-size: 2em;
-  color: #000 ;
+  color: #000;
   line-height: 1.5;
   background-clip: padding-box;
   border: 0 solid;
@@ -138,7 +145,7 @@ button:hover {
 }
 
 .control:focus {
-  color: #000 ;
+  color: #000;
   background-color: inherit;
   backdrop-filter: brightness(98%);
   outline: 0;
@@ -149,46 +156,78 @@ button:hover {
 }
 .control:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #555 ;
+  color: #555;
 }
 .control::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #555 ;
+  color: #555;
 }
-  .control-two {
-    display: block;
-    background: none;
-    width: 100%;
-    font-weight: 400;
-    font-size: 2em;
-    font-weight: 600;
-    color: #000 ;
-    line-height: 1.5;
-    background-clip: padding-box;
-    border: 0 solid;
-    border-radius: 0;
-    border-bottom: 1px solid black;
-  }
-  
-  .control-two:focus {
-    color: #555 ;
-    background-color: inherit;
-    outline: 0;
-  }
-  
-  .control-two::placeholder {
-    color: #555;
-  }
-  .control-two:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #555 ;
-  }
-  .control-two::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #555 ;
-  }
+.control-two {
+  display: block;
+  background: none;
+  width: 100%;
+  font-weight: 400;
+  font-size: 2em;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 0 solid;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+}
+
+.control-two:focus {
+  color: #555;
+  background-color: inherit;
+  outline: 0;
+}
+.control-two::placeholder {
+  color: #555;
+}
+.control-two:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #555;
+}
+.control-two::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #555;
+}
 
 
+.journalInput{
+  display: block;
+  background: none;
+  width: 100%;
+  font-weight: 400;
+  font-size: 2em;
+  color: #000;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 0 solid;
+  border-radius: 0;
+  font-family: handlee;
+  height: 100%;
+}
+.journalInput:focus {
+  color: #000;
+  background-color: inherit;
+  backdrop-filter: brightness(98%);
+  outline: 0;
+}
+.journalInput::placeholder {
+  font-family: handlee;
+}
+.journalInput:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+
+  font-family: handlee;
+}
+.journalInput::-ms-input-placeholder {
+  /* Microsoft Edge */
+
+  font-family: handlee;
+}
 /* ////////GRID////////// */
 .navRow {
   display: grid;
@@ -303,7 +342,7 @@ button:hover {
   justify-self: center;
   align-items: center;
   height: 3px;
-  background-color: #fffef9 ;
+  background-color: #fffef9;
   width: 0%;
   transition: width 0.4s, transform 0.4s;
   position: relative;
@@ -311,16 +350,16 @@ button:hover {
 }
 
 /* /////// DISPLAY ON HOVER //////// */
-.hidden{
+.hidden {
   display: none;
 }
 
-.hidden:hover{
+.hidden:hover {
   display: block;
 }
 
 /* /////// LOADER  //////// */
-.loaderContainer{
+.loaderContainer {
   width: 100%;
   background-color: #111;
   display: flex;
@@ -361,10 +400,18 @@ button:hover {
     top: 0em;
     height: 10em;
   }
-  50%, 100% {
+  50%,
+  100% {
     top: 10em;
     height: 5em;
   }
-  from {background-color: #777;}
-  to {background-color: #fffef9;}
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #fffef9;
+  }
 }
+
+
+

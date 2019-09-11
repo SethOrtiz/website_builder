@@ -141,6 +141,8 @@ const MyWebsites = props => {
               <Website
                 key={index}
                 name={obj.name}
+                websiteId={obj.websiteId}
+                deleteWebsite={props.deleteWebsite}
                 editEnabled={editEnabled.value}
               />
             );

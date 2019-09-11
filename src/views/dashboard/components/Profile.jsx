@@ -20,7 +20,7 @@ const styles = {
     marginLeft: "3em",
     backgroundColor: "#fffef9",
     objectFit: "cover",
-    border: "1px solid #000"
+    border: "2px solid #000"
   },
   info: {
     marginLeft: "1rem",
@@ -31,11 +31,11 @@ const styles = {
 const Profile = props => {
   return (
     <section id="P" style={styles.profile}>
-    { props.imageUrl ? <img src={props.imageUrl} style={styles.img} alt="" />
+    { props.imageUrl ? <img src={props.imageUrl} style={styles.img} alt=""/>
     : <div className="no-img"></div>
     }
       <div style={styles.info}>
-      <p>welcome</p>  
+      <p>Welcome</p>  
         <h1>{props.handle}</h1>
       </div>
     </section>

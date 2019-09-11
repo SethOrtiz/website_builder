@@ -7,7 +7,7 @@ import {
   websiteDeleted
 } from "./actions";
 
-export const addWebsite = (newWebsite) => (dispatch) => {
+export const addWebsite = newWebsite => dispatch => {
   dispatch(loadingWebsites());
   axios
     .post(`${API}/website`, newWebsite)
@@ -17,15 +17,17 @@ export const addWebsite = (newWebsite) => (dispatch) => {
     .catch(err => {
       dispatch(websiteFailedToPost(err));
     });
-}
+};
 
-export const deleteWebsite = (websiteId) => (dispatch) => {
+export const deleteWebsite = websiteId => dispatch => {
   dispatch(loadingWebsites());
   axios
-    .delete(`/website/${websiteId}`)
+    .delete(`${API}/website/${websiteId}`)
     .then(() => {
       dispatch(websiteDeleted(websiteId));
-      document.location.reload();
     })
-    .catch((err) => console.log(err));
+    .catch(err => {
+      console.log(err);
+      console.log(websiteId)
+    });
 };

@@ -21,9 +21,11 @@ const styles = {
     padding: "10%"
   },
   title: {
+    fontFamily: "Handlee",
     fontSize: "2em",
     marginBottom: "1em",
-    color: "#000"
+    color: "#000",
+    fontStyle: "italic"
   },
   note: {
     fontFamily: "Handlee",
@@ -58,11 +60,6 @@ const styles = {
     border: "none",
     outline: "none",
     fontWeight: "700",
-    color: "#000"
-  },
-  input: {
-    outline: "none",
-    height: "100%",
     color: "#000"
   },
   feedback: {
@@ -124,7 +121,7 @@ const Notepad = props => {
   return (
     <section id="Notepad" style={styles.notepad}>
       <div style={styles.main}>
-        <h1 style={styles.title}>CHECKLIST</h1>
+        <h1 style={styles.title}>Journal</h1>
         <ul>
           {props.notes.map(obj => {
             return (
@@ -143,11 +140,10 @@ const Notepad = props => {
           <input
             type="text"
             name="new-note"
-            style={styles.input}
             onChange={handleChange}
             placeholder="what to do..."
             value={newNote.value}
-            className="control"
+            className="journalInput"
             noValidate
             autoComplete="off"
           />

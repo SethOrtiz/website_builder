@@ -1,20 +1,23 @@
 import { connect } from "react-redux";
-import { addWebsite } from "./thunks";
+import { addWebsite, deleteWebsite } from "./thunks";
 import MyWebsites from "../../../views/dashboard/components/MyWebsites";
 
 const mapStateToProps = function({ auth, websites }) {
   return {
     ...websites,
-     authenticated: auth.authenticated,
-     credentials: auth.credentials,
-     websites: auth.websites
-  }; 
+    authenticated: auth.authenticated,
+    credentials: auth.credentials,
+    websites: auth.websites
+  };
 };
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    addWebsite: function(body){
+    addWebsite: function(body) {
       dispatch(addWebsite(body));
+    },
+    deleteWebsite: function(websiteId) {
+      dispatch(deleteWebsite(websiteId));
     }
   };
 };
@@ -22,4 +25,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MyWebsites);
-
