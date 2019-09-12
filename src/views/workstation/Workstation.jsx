@@ -2,41 +2,43 @@ import React from "react";
 import NavContainer from "../../redux/landing/nav/NavContainer";
 import DisplayContainer from "../../redux/workstation/sections/DisplayContainer";
 import ToolboxContainer from "../../redux/workstation/tools/ToolboxContainer";
-import Footer from "../theme/Footer";
 const styles = {
   workstation: {
-    height: "100vh",
-    backgroundColor: "#111",
+    height: "100%",
+    backgroundColor: "#fffef9",
     border: "2px solid #000"
   },
-  nav: {
-    backgroundColor: "#fffef9",
-    borderLeft: "2px solid #000"
-  },
   aside: {
+    display: "grid",
     backgroundColor: "#fffef9",
+    position: "fixed",
+    width: "30vw"
   },
   main: {
-    borderTop: "2px solid #000",
     borderLeft: "2px solid #000",
-    backgroundColor: "lightyellow"
+    backgroundColor: "mistyrose",
+    overflow: "scroll",
+    width: "69.85vw",
+    position: "absolute",
+    right: "0"
+  },
+  footer: {
+    marginTop: "100vh"
   }
 };
 
 export default function Workstation() {
   return (
     <>
-      <NavContainer />
-      <div style={styles.workstation} className="layout">
-        <nav style={styles.nav}></nav>
+      <div style={styles.workstation}>
         <aside style={styles.aside}>
+          <NavContainer />
           <ToolboxContainer />
         </aside>
         <main style={styles.main}>
-        <DisplayContainer />
+          <DisplayContainer />
         </main>
       </div>
-      <Footer />
     </>
   );
 }

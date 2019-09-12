@@ -24,15 +24,8 @@ const styles = {
   title: {
     fontSize: "2em",
     marginBottom: "1em",
-    color: "#000",
-    fontStyle: "italic"
   },
   tool: {
-    fontSize: "1.2em",
-    listStyle: "disc",
-    margin: "0.5em 0",
-    padding: "0.2em",
-    borderRadius: "0.5em"
   },
   form: {
     borderTop: "3px solid #000",
@@ -106,7 +99,7 @@ const Toolbox = props => {
 
   ///////////////////////////////////////////       JSX
   return (
-    <section id="toolbo" style={styles.toolbox}>
+    <section id="toolbox" style={styles.toolbox}>
       <div style={styles.main}>
         <h1 style={styles.title}>Tools</h1>
         <ul>

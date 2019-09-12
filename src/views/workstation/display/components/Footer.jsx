@@ -3,8 +3,9 @@ const styles = {
   footer: {
     display: "grid",
     gridTemplateColumns: "1fr 5fr 5fr 1fr",
-    backgroundColor: "#111",
-    color: "#fffef9"
+    backgroundColor: "#333",
+    color: "#fffef9",
+    margin: "auto"
   },
   wrapper: {
     display: "flex",
@@ -14,7 +15,7 @@ const styles = {
   brand: {
     display: "flex",
     justifyContent: "space-around",
-    paddingTop: "10%",
+    padding: "10%",
     color: "#fffef9",
     fontSize: "1.5rem"
   },
@@ -30,28 +31,11 @@ export default function Footer() {
     <section style={styles.footer}>
       <div></div>
       <div style={styles.brand}>
-        Insert Logo
+        BAND LOGO
       </div>
       <div style={styles.wrapper}>
         <div>
           <h3 style={styles.header}>Community</h3>
-          <ul>
-            <li>
-              <a style={styles.link} href="#H">
-                Facebook
-              </a>
-            </li>
-            <li>
-              <a style={styles.link} href="#A">
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a style={styles.link} href="#B">
-                itunes
-              </a>
-            </li>
-          </ul>
         </div>
         <div>
           <h3 style={styles.header}>Fan Club</h3>

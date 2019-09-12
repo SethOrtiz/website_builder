@@ -21,7 +21,6 @@ const styles = {
     position: "fixed"
   },
   authedNavbar: {
-    width: "100vw",
     height: "8vh",
     justifyContent: "start",
     alignItems: "center",
@@ -32,9 +31,8 @@ const styles = {
     textTransform: "uppercase",
     fontWeight: "600",
     backgroundColor: "#fffef9",
-    borderTop: "2px solid #000",
-    borderLeft: "2px solid #000",
     borderRight: "2px solid #000",
+    borderLeft: "2px solid #000",
     boxSizing: "border-box"
   },
   signOut: {

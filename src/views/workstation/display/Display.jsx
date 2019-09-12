@@ -1,10 +1,10 @@
 import React from "react";
-import Nav from "./nav/Nav";
-import About from "./about/About";
-import Gallery from "./gallery/Gallery";
-import Hero from "./hero/Hero";
-// import Footer from "./footer/Footer";
-// import Soundcloud from "./soundcloud/Soundcloud";
+import Nav from "./components/Nav";
+import About from "./components/About";
+import Gallery from "./components/Gallery";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+import Soundcloud from "./components/Soundcloud";
 import { withRouter } from "react-router-dom";
 
 /* COLOR SCHEME */
@@ -129,7 +129,9 @@ const Display = props => {
         <Nav />
         <Hero />
         <Gallery />
-        <About />
+        <Soundcloud />
+        <About />   
+        <Footer/>
     </section>
   );
 };

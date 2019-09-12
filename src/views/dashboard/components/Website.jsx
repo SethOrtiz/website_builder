@@ -13,7 +13,6 @@ const styles = {
     justifyContent: "center",
     color: "#000",
     backgroundImage: "linear-gradient(45deg, #222, #ffefd7, #d2e7ff, #222)",
-    outline: "2px solid #000"
   },
   handle: {
     color: "000",

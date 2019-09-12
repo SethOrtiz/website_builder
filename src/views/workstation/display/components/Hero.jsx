@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 const styles = {
   hero: {
+    height: "50vh",
     display: "grid",
     backgroundColor: "#ffefd7",
     fontSize: "3rem",
