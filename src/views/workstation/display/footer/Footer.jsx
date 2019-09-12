@@ -1,7 +1,6 @@
 import React from "react";
 const styles = {
   footer: {
-    height: "20vh",
     display: "grid",
     gridTemplateColumns: "1fr 5fr 5fr 1fr",
     backgroundColor: "#111",
@@ -55,7 +54,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 style={styles.header}>Company</h3>
+          <h3 style={styles.header}>Fan Club</h3>
         </div>
         <div>
           <h3 style={styles.header}>Support</h3>

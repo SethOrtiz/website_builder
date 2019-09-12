@@ -38,11 +38,9 @@ const Website = props => {
   const [warning, setWarning] = useState({
     open: false
   });
-
   const toggleWarning = () => {
     setWarning({ open: !warning.open });
   };
-
 const handleDelete = (Id) => {
   props.deleteWebsite(props.websiteId)
 }
@@ -67,7 +65,6 @@ const handleDelete = (Id) => {
             ) : (
               <div style={styles.handle} to={WORKSTATION}>
                 {props.name}
-
                 <div style={styles.buttonContainer}>
                   <button
                     onClick={toggleWarning}
@@ -92,4 +89,5 @@ const handleDelete = (Id) => {
     </>
   );
 };
+
 export default withRouter(Website);

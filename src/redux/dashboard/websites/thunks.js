@@ -28,6 +28,5 @@ export const deleteWebsite = websiteId => dispatch => {
     })
     .catch(err => {
       console.log(err);
-      console.log(websiteId)
     });
 };

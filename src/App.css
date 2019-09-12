@@ -174,7 +174,6 @@ button:hover {
   background-clip: padding-box;
   border: 0 solid;
   border-radius: 0;
-  border-bottom: 1px solid black;
 }
 
 .control-two:focus {
@@ -194,40 +193,6 @@ button:hover {
   color: #555;
 }
 
-
-.journalInput{
-  display: block;
-  background: none;
-  width: 100%;
-  font-weight: 400;
-  font-size: 2em;
-  color: #000;
-  line-height: 1.5;
-  background-clip: padding-box;
-  border: 0 solid;
-  border-radius: 0;
-  font-family: handlee;
-  height: 100%;
-}
-.journalInput:focus {
-  color: #000;
-  background-color: inherit;
-  backdrop-filter: brightness(98%);
-  outline: 0;
-}
-.journalInput::placeholder {
-  font-family: handlee;
-}
-.journalInput:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-
-  font-family: handlee;
-}
-.journalInput::-ms-input-placeholder {
-  /* Microsoft Edge */
-
-  font-family: handlee;
-}
 /* ////////GRID////////// */
 .navRow {
   display: grid;
@@ -241,15 +206,9 @@ button:hover {
 
 .layout {
   display: grid;
-  grid-template-rows: 1fr 11fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "sidebar nav nav"
-    "sidebar main main";
-}
-
-.layout > nav {
-  grid-area: nav;
+    "sidebar main main"
 }
 .layout > aside {
   grid-area: sidebar;

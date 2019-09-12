@@ -1,6 +1,6 @@
 import {
-  LOADING_SECTIONS,
-  SECTIONS_FETCH_ERROR,
+  LOADING_WEBSITE,
+  WEBSITE_FETCH_ERROR,
   RECEIVED_SECTIONS,
   POSTING_SECTION,
   SECTION_FAILED_TO_POST,
@@ -16,13 +16,13 @@ const initialState = {
 
 function sectionsReducer(state = initialState, action) {
   switch (action.type) {
-    case LOADING_SECTIONS:
+    case LOADING_WEBSITE:
       return {
         ...state,
         loading: true,
         error: false
       };
-    case SECTIONS_FETCH_ERROR:
+    case WEBSITE_FETCH_ERROR:
       return {
         ...state,
         loading: false,

@@ -5,8 +5,7 @@ import { withRouter } from "react-router-dom";
 ///////////////////////////////////////////       STYLING
 const styles = {
   profile: {
-    height: "100%",
-    paddingBottom: "3rem",
+    height: "25vh",
     backgroundColor: "#fffef9",
     display: "flex",
     alignItems: "center",

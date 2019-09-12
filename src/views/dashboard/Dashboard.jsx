@@ -8,7 +8,7 @@ import Footer from "../theme/Footer";
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 const styles = {
   dashboard: {
-    backgroundColor: "#000"
+    backgroundColor: "#222",
   },
   nav: {
     backgroundColor: "#fffef9",
@@ -16,11 +16,12 @@ const styles = {
   },
   aside: {
     display: "grid",
-    gridTemplateRows: "1fr 3fr",
     backgroundColor: "#222"
   },
   main: {
-    backgroundColor: "#000"
+    backgroundColor: "#222"
+  },
+  footer: {
   }
 };
 
@@ -29,7 +30,6 @@ export default function Dashboard() {
     <>
       <NavContainer />
       <div style={styles.dashboard} className="layout">
-        <nav style={styles.nav}></nav>
         <aside style={styles.aside}>
           <ProfileContainer />
           <NotepadContainer />
@@ -38,7 +38,7 @@ export default function Dashboard() {
           <MyWebsitesContainer />
         </main>
       </div>
-      <Footer />
+      <Footer style={styles.footer}/>
     </>
   );
 }

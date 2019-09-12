@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Nav from "./nav/Nav";
 import About from "./about/About";
-import Footer from "./footer/Footer";
 import Gallery from "./gallery/Gallery";
 import Hero from "./hero/Hero";
-import Soundcloud from "./soundcloud/Soundcloud";
+// import Footer from "./footer/Footer";
+// import Soundcloud from "./soundcloud/Soundcloud";
 import { withRouter } from "react-router-dom";
 
 /* COLOR SCHEME */
@@ -13,13 +13,7 @@ import { withRouter } from "react-router-dom";
 const styles = {
   Display: {
     height: "100%",
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gridTemplateRows: "auto",
-    boxSizing: "border-box",
-    borderLeft: "1px solid #000",
-    borderTop: "1px solid #000",
-    backgroundColor: " #ffefd7"
+    backgroundColor: " #ffefd7",
   },
   box: {
     display: "grid",
@@ -41,132 +35,101 @@ const styles = {
   input: {
     fontSize: "3em",
     borderBottom: "none"
-  },
-  feedback: {
-    width: "100%",
-    height: "3em",
-    backgroundColor: "darkred"
   }
 };
 const Display = props => {
-  const [section, setSection] = useState({
-    value: ""
-  });
-  const [empty, setEmpty] = useState({
-    value: false
-  });
+  //   const [newSection, setNewSection] = useState({
+  //     value: ""
+  //   });
+  //   const [empty, setEmpty] = useState({
+  //     value: false
+  //   });
   ///////////////////////////////////////////     RESET WHEN COMPONENT MOUNTS
-  useEffect(() => {
-    setEmpty({ value: false });
-  }, []);
+  // useEffect(() => {
+  //   setEmpty({ value: false });
+  // }, []);
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
-  const handleChange = e => {
-    e.preventDefault();
-    const { value } = e.target;
-    setSection({ value });
-    setEmpty({
-      value: false
-    });
-  };
+  // const handleChange = e => {
+  //   e.preventDefault();
+  //   const { value } = e.target;
+  //   setNewSection({ value });
+  //   setEmpty({
+  //     value: false
+  //   });
+  // };
 
   ///////////////////////////////////////////     RESETS AFTER SUCCESSFUL SUBMITION
-  const resetState = () => {
-    setSection({
-      value: ""
-    });
-  };
+  // const resetState = () => {
+  //   setNewSection({
+  //     value: ""
+  //   });
+  // };
   ///////////////////////////////////////////       CREATES A SECTION
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (section.value) {
-      props.addSection(section.value);
-      resetState();
-    } else {
-      setEmpty({
-        value: true
-      });
-    }
-  };
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   if (section.value) {
+  //     props.addSection(section.value);
+  //     resetState();
+  //   } else {
+  //     setEmpty({
+  //       value: true
+  //     });
+  //   }
+  // };
 
-   ///////////////////////////////////////////       CREATE
-  const renderNav = () => {
-    return <Nav />;
-  };
-  const renderHero = () => {
-    return <Hero />;
-  };
-  const renderGallery = () => {
-    return <Gallery />;
-  };
-  const renderAbout = () => {
-    return <About />;
-  };
-  const renderSoundcloud = () => {
-    return <Soundcloud />;
-  };
-  const renderFooter = () => {
-    return <Footer />;
-  };
-  const websites = () => {
-    for (let i = 0; i < props.secitons.length; i++) {
-      const section = props.sections[i];
-      switch (section.type) {
-        case "nav":
-          renderNav();
-          break;
-        case "hero":
-          renderHero();
-          break;
-        case "gallery":
-          renderGallery();
-          break;
-        case "about":
-          renderAbout();
-          break;
-        case "soundcloud":
-          renderSoundcloud();
-          break;
-        case "footer":
-          renderFooter();
-          break;
-        default:
-          break;
-      }
-    }
-  };
+  ///////////////////////////////////////////       CREATE
+  // const renderNav = () => {
+  //   return <Nav />;
+  // };
+  // const renderHero = () => {
+  //   return <Hero />;
+  // };
+  // const renderGallery = () => {
+  //   return <Gallery />;
+  // };
+  // const renderAbout = () => {
+  //   return <About />;
+  // };
+  // const renderSoundcloud = () => {
+  //   return <Soundcloud />;
+  // };
+  // const renderFooter = () => {
+  //   return <Footer />;
+  // };
+  // const websites = () => {
+  //   for (let i = 0; i < props.sections.length; i++) {
+  //     const section = props.sections[i];
+  //     switch (section.type) {
+  //       case "nav":
+  //         renderNav();
+  //         break;
+  //       case "hero":
+  //         renderHero();
+  //         break;
+  //       case "gallery":
+  //         renderGallery();
+  //         break;
+  //       case "about":
+  //         renderAbout();
+  //         break;
+  //       case "soundcloud":
+  //         renderSoundcloud();
+  //         break;
+  //       case "footer":
+  //         renderFooter();
+  //         break;
+  //       default:
+  //         break;
+  //     }
+  //   }
+  // };
 
   return (
-    <section id="Dashboard" style={styles.Display}>
-      {websites}
-      <form style={styles.box} onSubmit={handleSubmit} noValidate>
-        <div>
-          <input
-            type="text"
-            name="new-section"
-            style={styles.input}
-            onChange={handleChange}
-            placeholder="Name"
-            value={section.value}
-            className="control-center"
-            noValidate
-            autoComplete="off"
-          />
-          {empty.value && <div style={styles.feedback}> </div>}
-        </div>
-        <button
-          type="submit"
-          style={styles.create}
-          className="exp-center-black"
-        >
-          Create
-        </button>
-      </form>
-      <Nav />
-      <Hero />
-      <Gallery />
-      <Soundcloud />
-      <About />
-      <Footer />
+    <section id="display" style={styles.display}>
+        <Nav />
+        <Hero />
+        <Gallery />
+        <About />
     </section>
   );
 };

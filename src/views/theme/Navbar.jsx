@@ -22,15 +22,20 @@ const styles = {
   },
   authedNavbar: {
     width: "100vw",
+    height: "8vh",
     justifyContent: "start",
     alignItems: "center",
     display: "grid",
     gridTemplateColumns: "1fr 2fr",
-    padding: "1.6rem 0rem",
+    textAlign: "center",
     fontSize: "1rem",
     textTransform: "uppercase",
     fontWeight: "600",
-    position: "fixed",
+    backgroundColor: "#fffef9",
+    borderTop: "2px solid #000",
+    borderLeft: "2px solid #000",
+    borderRight: "2px solid #000",
+    boxSizing: "border-box"
   },
   signOut: {
     border: "none",

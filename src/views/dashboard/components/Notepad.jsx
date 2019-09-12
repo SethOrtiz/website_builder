@@ -5,12 +5,13 @@ import { withRouter } from "react-router-dom";
 ///////////////////////////////////////////       STYLING
 const styles = {
   notepad: {
-    height: "100%",
+    height: "67vh",
     boxSizing: "border-box",
     border: "2px solid #000",
+    borderTop: "none",
     backgroundColor: "#fffef9",
     display: "grid",
-    gridTemplateRows: "7fr 1fr",
+    gridTemplateRows: "1fr 10fr 1fr",
     color: "#000"
   },
   main: {
@@ -18,14 +19,16 @@ const styles = {
     alignItems: "center",
     justifyContent: "start",
     flexDirection: "column",
-    padding: "10%"
+    padding: "5%"
+  },
+  titleContainer: {
+    borderBottom: "2px solid #000"
   },
   title: {
-    fontFamily: "Handlee",
     fontSize: "2em",
-    marginBottom: "1em",
     color: "#000",
-    fontStyle: "italic"
+    textAlign: "center",
+    padding: "0.2em"
   },
   note: {
     fontFamily: "Handlee",
@@ -36,23 +39,25 @@ const styles = {
     borderRadius: "0.5em"
   },
   form: {
-    borderTop: "3px solid #000",
+    borderTop: "2px solid #000",
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    padding: "0px 0.5em"
   },
+  input: {},
   update: {
     display: "grid",
     gridTemplateRows: "auto",
     gridTemplateColumns: "11fr 1fr"
   },
   add: {
-    fontSize: "3em",
+    fontSize: "3.5em",
     backgroundColor: "inherit",
     border: "none",
     outline: "none",
-    fontWeight: "700",
+    fontWeight: "700"
   },
   delete: {
     fontSize: "2em",
@@ -120,8 +125,10 @@ const Notepad = props => {
   ///////////////////////////////////////////       JSX
   return (
     <section id="Notepad" style={styles.notepad}>
-      <div style={styles.main}>
+      <div style={styles.titleContainer}>
         <h1 style={styles.title}>Journal</h1>
+      </div>
+      <div style={styles.main}>
         <ul>
           {props.notes.map(obj => {
             return (
@@ -136,18 +143,17 @@ const Notepad = props => {
         </ul>
       </div>
       <form style={styles.form} onSubmit={handleSubmit} noValidate>
-        <div>
-          <input
-            type="text"
-            name="new-note"
-            onChange={handleChange}
-            placeholder="what to do..."
-            value={newNote.value}
-            className="journalInput"
-            noValidate
-            autoComplete="off"
-          />
-        </div>
+        <input
+          type="text"
+          name="new-note"
+          onChange={handleChange}
+          placeholder="what to do..."
+          value={newNote.value}
+          className="control-two"
+          noValidate
+          autoComplete="off"
+          style={styles.input}
+        />
         {empty.value && <div style={styles.feedback}> </div>}
         <button onClick={handleSubmit} style={styles.add}>
           +

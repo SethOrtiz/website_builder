@@ -6,45 +6,48 @@ import { withRouter } from "react-router-dom";
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 ///////////////////////////////////////////     STYLING
 const styles = {
+  container: {
+    borderTop: "2px solid #000",
+    height: "92vh",
+  },
   myWebsites: {
-    height: "80vh",
+    height: "83.2vh",
     display: "grid",
-    backgroundColor: " #000",
+    backgroundColor: " #222",
     gridTemplateRows: "auto",
     borderRight: "1px solid #000"
   },
-  box: {
-    display: "grid",
-    gridTemplateColumns: "4fr 1fr",
-    alignItems: "flex-end",
-    borderLeft: "none"
+  form: {
+    borderTop: "3px solid #000",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-center",
+    justifyContent: "space-between"
   },
   create: {
     height: "100%",
-    fontSize: "3em",
+    fontSize: "2.76em",
     fontStyle: "italic",
     backgroundColor: "#fffef9",
-    border: "none",
-    borderLeft: "2px solid #000",
-    outline: "2px solid #000",
+    border: "2px solid #000",
+    borderTop: "none",
     color: "#000",
     fontWeight: "600",
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
+    lineHeight: "1.5"
   },
   input: {
-    fontSize: "2.9em",
+    fontSize: "2.76em",
     paddingLeft: "0.5em",
     color: "#000",
     backgroundColor: "#fffef9",
-    border: "2px solid #000"
+    borderBottom: "2px solid #000",
+    width: "100%"
   },
   feedback: {
     width: "100%",
-    height: "3em",
+    height: "0.1em",
     backgroundColor: "darkred"
-  },
-  container: {
-    borderTop: "2px solid #000"
   },
   edit: {
     position: "fixed",
@@ -71,8 +74,8 @@ const MyWebsites = props => {
     value: false
   });
 
-  const [editEnabled, setEditEnabled] = useState({
-    value: false
+  const [edit, setEdit] = useState({
+    enabled: false
   });
 
   ///////////////////////////////////////////     GETS ALL WEBSITES FROM FIREBASE
@@ -115,16 +118,16 @@ const MyWebsites = props => {
     }
   };
 
-  const handleEdit = e => {
+  const toggleEdit = e => {
     e.preventDefault();
-    setEditEnabled({ value: !editEnabled.value });
+    setEdit({ enabled: !edit.enabled });
   };
 
   ///////////////////////////////////////////       JSX
   return (
     <section id="Dashboard" style={styles.container}>
-      <button onClick={handleEdit} style={styles.edit}>
-        EDIT
+      <button onClick={toggleEdit} style={styles.edit}>
+        {edit.enabled ? "BACK" : "EDIT"}
       </button>
       <div style={styles.myWebsites}>
         {loading || loader.open ? (
@@ -143,14 +146,13 @@ const MyWebsites = props => {
                 name={obj.name}
                 websiteId={obj.websiteId}
                 deleteWebsite={props.deleteWebsite}
-                editEnabled={editEnabled.value}
+                editEnabled={edit.enabled}
               />
             );
           })
         )}
       </div>
-      <form style={styles.box} onSubmit={handleSubmit} noValidate>
-        <div>
+      <form style={styles.form} onSubmit={handleSubmit} noValidate>
           <input
             type="text"
             name="new-website"
@@ -163,7 +165,6 @@ const MyWebsites = props => {
             autoComplete="off"
           />
           {empty.value && <div style={styles.feedback}> </div>}
-        </div>
         <button type="submit" style={styles.create}>
           Create
         </button>
