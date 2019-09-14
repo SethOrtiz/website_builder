@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 
 const styles = {
   toolbox: {
-    height: "92vh",
+    height: "100vh",
     boxSizing: "border-box",
     border: "2px solid #000",
     backgroundColor: "#fffef9",
@@ -101,7 +101,7 @@ const Toolbox = props => {
   return (
     <section id="toolbox" style={styles.toolbox}>
       <div style={styles.main}>
-        <h1 style={styles.title}>Tools</h1>
+        <h1 style={styles.title}>Hubstereo</h1>
         <ul>
           {props.tools && (props.tools.map(obj => {
             return (

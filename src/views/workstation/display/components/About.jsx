@@ -6,10 +6,11 @@ const styles = {
   about: {
     height: "50vh",
     display: "grid",
-    backgroundColor: "#d2e7ff",
+    backgroundColor: "#111",
     fontSize: "3rem",
     padding: "2em",
-    textAlign: "center"
+    textAlign: "center",
+    color: "#fffef9"
   }
 };
 

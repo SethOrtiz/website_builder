@@ -7,6 +7,7 @@ const styles = {
     color: "fffef9"
   },
   navbar: {
+    width: "69.7vw",
     justifyContent: "start",
     alignItems: "center",
     display: "grid",
@@ -15,7 +16,8 @@ const styles = {
     fontSize: "1rem",
     textTransform: "uppercase",
     fontWeight: "600",
-    position: "fixed"
+    position: "fixed",
+    zIndex: "2"
   },
   routes: {
     width: "100%",
@@ -23,7 +25,7 @@ const styles = {
     display: "flex"
   },
   navItem: {
-    marginRight: "1em"
+    color: "fffef9"
   }
 };
 
@@ -31,22 +33,31 @@ const Nav = props => {
   return (
     <div style={styles.navbar}>
       <div></div>
-      <a href="#1">Band Name</a>
-      <div></div>
-      <div style={styles.routes}>
-        <div>
-          <div className="exp-line-start" style={styles.navItem}>Share</div>
-        </div>
-        <div>
-          <div className="exp-line-start" style={styles.navItem}>About</div>
-        </div>
-        <div>
-          <div className="exp-line-start" style={styles.navItem}>Listen</div>
-        </div>
-        <div>
-          <div className="exp-line-start" style={styles.navItem}>Support</div>
-        </div>
-      </div>
+      <li>
+        <a href="#1"style={styles.brand}>Band Name</a>
+      </li>
+      <ul style={styles.routes}>
+        <li>
+          <a href="#1" className="exp-start" style={styles.navItem}>
+            Share
+          </a>
+        </li>
+        <li>
+          <a href="#1" className="exp-start" style={styles.navItem}>
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#1" className="exp-start" style={styles.navItem}>
+            Listen
+          </a>
+        </li>
+        <li>
+          <a href="#1" className="exp-start" style={styles.navItem}>
+            Support
+          </a>
+        </li>
+      </ul>
       <div></div>
     </div>
   );

@@ -31,6 +31,7 @@ const styles = {
     textTransform: "uppercase",
     fontWeight: "600",
     backgroundColor: "#fffef9",
+    borderTop: "2px solid #000",
     borderRight: "2px solid #000",
     borderLeft: "2px solid #000",
     boxSizing: "border-box"
@@ -51,7 +52,10 @@ const styles = {
     display: "flex"
   },
   navItem: {
-    marginRight: "1em"
+    marginRight: "1em",
+  },
+  link: {
+    color: "#000"
   }
 };
 
@@ -66,7 +70,7 @@ const Navbar = props => {
             <div></div>
             <div style={styles.authedRoutes}>
               <div style={styles.navItem}>
-                <Link className="exp-line-start" to={ROUTES.DASHBOARD}>
+                <Link className="exp-line-start" style={styles.link}to={ROUTES.DASHBOARD}>
                   Dashboard
                 </Link>
               </div>

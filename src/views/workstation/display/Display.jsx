@@ -5,6 +5,7 @@ import Gallery from "./components/Gallery";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Soundcloud from "./components/Soundcloud";
+import Showcase from "./components/Showcase";
 import { withRouter } from "react-router-dom";
 
 /* COLOR SCHEME */
@@ -13,7 +14,7 @@ import { withRouter } from "react-router-dom";
 const styles = {
   Display: {
     height: "100%",
-    backgroundColor: " #ffefd7",
+    backgroundColor: " #ffefd7"
   },
   box: {
     display: "grid",
@@ -126,12 +127,13 @@ const Display = props => {
 
   return (
     <section id="display" style={styles.display}>
-        <Nav />
-        <Hero />
-        <Gallery />
-        <Soundcloud />
-        <About />   
-        <Footer/>
+      <Nav />
+      <Hero />
+      <Showcase />
+      <Soundcloud />
+      <About />
+      <Gallery />
+      <Footer />
     </section>
   );
 };

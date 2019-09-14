@@ -3,7 +3,7 @@ const styles = {
   footer: {
     display: "grid",
     gridTemplateColumns: "1fr 5fr 5fr 1fr",
-    backgroundColor: "#333",
+    backgroundColor: "#000",
     color: "#fffef9",
     margin: "auto"
   },
