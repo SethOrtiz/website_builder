@@ -63,9 +63,6 @@ const styles = {
 
 const MyWebsites = props => {
   ///////////////////////////////////////////       INITIALIZES STATE
-  const [loader, setLoader] = useState({
-    open: true
-  });
 
   const [newWebsite, setNewWebsite] = useState({
     value: ""
@@ -79,13 +76,9 @@ const MyWebsites = props => {
   });
 
   ///////////////////////////////////////////     GETS ALL WEBSITES FROM FIREBASE
-  const { loading } = props;
+  const { userLoading } = props;
   useEffect(() => {
     setEmpty({ value: false });
-    const timer = setTimeout(() => {
-      setLoader({ open: false });
-    }, 2500);
-    return () => clearTimeout(timer);
   }, []);
 
   ///////////////////////////////////////////     UPDATE VALUE ON CHANGE
@@ -122,7 +115,7 @@ const MyWebsites = props => {
     e.preventDefault();
     setEdit({ enabled: !edit.enabled });
   };
-
+console.log('loading',userLoading)
   ///////////////////////////////////////////       JSX
   return (
     <section id="Dashboard" style={styles.container}>
@@ -130,7 +123,7 @@ const MyWebsites = props => {
         {edit.enabled ? "BACK" : "EDIT"}
       </button>
       <div style={styles.myWebsites}>
-        {loading || loader.open ? (
+        {userLoading ? (
           <div className="loaderContainer">
             <div className="loader">
               <div></div>

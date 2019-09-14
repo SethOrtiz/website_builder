@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import Profile from "../../../views/dashboard/components/Profile";
 
-const mapStateToProps = function({ auth, websites }) {
+const mapStateToProps = function({ auth }) {
   return {
-    ...websites,
      authenticated: auth.authenticated,
-     ...auth.credentials
+     ...auth.credentials,
+     userLoading: auth.userLoading
   }; 
 };
 

@@ -7,7 +7,8 @@ const mapStateToProps = function({ auth, websites }) {
     ...websites,
     authenticated: auth.authenticated,
     credentials: auth.credentials,
-    websites: auth.websites
+    websites: auth.websites,
+    userLoading: auth.userLoading
   };
 };
 

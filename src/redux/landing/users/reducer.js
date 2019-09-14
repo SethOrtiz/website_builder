@@ -36,14 +36,14 @@ function authReducer(state = initialState, action) {
       return {
         ...state,
         authenticated: true,
-        loading: false,
+        userLoading: false,
         credentials: action.data.user,
         websites: action.data.websites
       };
     case LOADING_USER:
       return {
         ...state,
-        loading: true
+        userLoading: true
       };
     case LOADING_SIGNIN:
       return {

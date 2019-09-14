@@ -24,19 +24,34 @@ const styles = {
   info: {
     marginLeft: "1rem",
     fontSize: "1.3em"
+  },
+  placeholder: {
+    blackgroundColor: "#000",
   }
 };
 
 const Profile = props => {
   return (
     <section id="P" style={styles.profile}>
-    { props.imageUrl ? <img src={props.imageUrl} style={styles.img} alt=""/>
-    : <div className="no-img"></div>
-    }
-      <div style={styles.info}>
-      <p>Welcome</p>  
-        <h1>{props.handle}</h1>
-      </div>
+      {props.userLoading ? (
+        <>
+          <div className="lds-circle">
+            <div></div>
+          </div>
+          <div style={styles.info}>
+            <p style={styles.placeholder} >Loading...</p>
+            <h1 style={styles.placeholder} >Place Holder Text</h1>
+          </div>
+        </>
+      ) : (
+        <>
+          <img src={props.imageUrl} style={styles.img} alt="" />
+          <div style={styles.info}>
+            <p>Welcome</p>
+            <h1>{props.handle}</h1>
+          </div>
+        </>
+      )}
     </section>
   );
 };

@@ -11,7 +11,7 @@ const styles = {
     alignItems: "center"
   },
   getStarted: {
-    padding: "0.8rem 2rem",
+    padding: "0.8rem 2rem", 
     fontSize: "4rem",
     backgroundColor: "inherit",
     color: "#fffef9",
