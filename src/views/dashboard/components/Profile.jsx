@@ -40,7 +40,7 @@ const Profile = props => {
           </div>
           <div style={styles.info}>
             <p style={styles.placeholder} >Loading...</p>
-            <h1 style={styles.placeholder} >Place Holder Text</h1>
+            <h1 style={styles.placeholder} >UserName</h1>
           </div>
         </>
       ) : (

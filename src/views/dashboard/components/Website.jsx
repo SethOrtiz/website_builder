@@ -12,7 +12,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     color: "#000",
-    backgroundImage: "linear-gradient(45deg, #222, #ffefd7, #d2e7ff, #222)",
+    backgroundImage: "linear-gradient(45deg, #111, #999, #fffef9)",
   },
   handle: {
     color: "000",

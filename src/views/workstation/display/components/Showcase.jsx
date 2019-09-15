@@ -1,8 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import imgTwo from "../placeholders/guitar.jpg";
-import imgThree from "../placeholders/bass.jpg";
-import imgFour from "../placeholders/singer.jpg";
 /* COLOR SCHEME */
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 */
 const styles = {
@@ -17,6 +14,7 @@ const styles = {
   },
   item: {
     width: "100%",
+    backgroundImage: "linear-gradient(45deg, #111, #999, #d2e7ff)",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -26,7 +24,7 @@ const styles = {
   itemText: {
     color: "#fffef9",
     fontSize: "2em",
-    padding:"0 0 2em 1em"
+    padding: "0 0 2em 1em"
   }
 };
 
@@ -34,14 +32,17 @@ const Showcase = props => {
   return (
     <section style={styles.showcase}>
       <div style={styles.wrapper}>
-        <div style={{ ...styles.item, backgroundImage: `url(${imgThree})` }}>
-          <h2 style={styles.itemText}>John Doe</h2>
+        <div style={styles.item}>
+          <h2 style={styles.itemText}>Photo</h2>
         </div>
-        <div style={{ ...styles.item, backgroundImage: `url(${imgFour})` }}>
-          <h2 style={styles.itemText}>Jane Doe</h2>
+        <div style={styles.item}>
+          <h2 style={styles.itemText}>Photo</h2>
         </div>
-        <div style={{ ...styles.item, backgroundImage: `url(${imgTwo})` }}>
-          <h2 style={styles.itemText}>Bobby Doe</h2>
+        <div style={styles.item}>
+          <h2 style={styles.itemText}>Photo</h2>
+        </div>
+        <div style={styles.item}>
+          <h2 style={styles.itemText}>Photo</h2>
         </div>
       </div>
     </section>

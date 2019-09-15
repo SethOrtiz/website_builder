@@ -8,7 +8,7 @@ const styles = {
   },
   navbar: {
     width: "69.7vw",
-    justifyContent: "start",
+    justifyContent: "flex-start",
     alignItems: "center",
     display: "grid",
     gridTemplateColumns: "1fr 5fr 5fr 1fr",

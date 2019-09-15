@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import Info from "../../../landing/components/Info";
-import Background from "../placeholders/band.jpg";
 /* COLOR SCHEME */
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 const styles = {
@@ -11,7 +10,7 @@ const styles = {
     alignItems: "center"
   },
   getStarted: {
-    padding: "0.8rem 2rem", 
+    padding: "0.8rem 2rem",
     fontSize: "4rem",
     backgroundColor: "inherit",
     color: "#fffef9",
@@ -24,7 +23,7 @@ const styles = {
   },
   hero: {
     backgroundColor: "rgba(0,0,0,0)",
-    height: "100vh",
+    height: "100%",
     position: "relative",
     top: "-50%",
     left: "50%",
@@ -32,16 +31,16 @@ const styles = {
     zIndex: "1",
     width: "69.2vw",
     display: "grid",
-    gridTemplateColumns: "1fr 5fr 5fr 1fr",
-    gridTemplateRows: "1fr 10fr 1fr"
+    gridAutoRows: "100vh",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))"
   },
   bgImage: {
     height: "100%",
-    backgroundImage: `url(${Background})`,
+    backgroundImage: "linear-gradient(45deg, #111, #999,  #ffefd7)",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    filter: "blur(2px)",
+    filter: "blur(2px)"
   },
   container: {
     height: "100vh",
@@ -51,27 +50,20 @@ const styles = {
 
 const Hero = props => {
   return (
-    <div style={styles.container} >
-      <div id="bgImage"style={styles.bgImage}></div>
+    <div style={styles.container}>
+      <div id="bgImage" style={styles.bgImage}></div>
       <section id="hero-grid" style={styles.hero}>
-        <div className="navRow"></div>
-        <div></div>
         <Info
-          background="rgba(0,0,0,0.8)"
+          background="rgba(0,0,0,0.3)"
           fontColor="#fffef9"
           title="New Album Out Now"
-          content="12 new songs adopting a fresh new style. "
+          content="Lorem ipsum, Incidunt vel, obcaecati ipsum, corrupti nemo, saepe odio molestias qui. Commodi sit doloribus est eaque!"
         />
         <div style={styles.rightColumn}>
           <button className="exp-center-fff" style={styles.getStarted}>
-            Tour Dates
+            Listen
           </button>
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
       </section>
     </div>
   );

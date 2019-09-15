@@ -1,6 +1,3 @@
-/* COLOR SCHEME */
-/* blue: #d2e7ff  | lightblue: #e3f0ff  | #fffef9 : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 */
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -105,6 +102,17 @@ button:hover {
   font-size: 2em;
 }
 
+.track-btn {
+  display: flex;
+  justify-content: flex-start;
+  outline: none;
+  border: none;
+  height: 100%;
+  background-color: inherit;
+  font-size: 0.9em;
+  color: #fffef9
+}
+
 .opacity {
   transition: opacity 0s;
 }
@@ -112,12 +120,6 @@ button:hover {
 .opacity:hover {
   opacity: 0.7;
   filter: brightness(110%);
-}
-
-.crowd {
-  background-image: url(./assets/crowd.jpg);
-  background-repeat: repeat-x;
-  background-size: cover;
 }
 
 .no-img {
@@ -128,6 +130,14 @@ button:hover {
   background-image: url(./assets/no-img.png);
   background-size: cover;
   border: 1px solid #000;
+}
+
+/* /////////////// SOCIAL MEDIA //////////////// */
+.sphere {
+  border-radius: 50%;
+  height: 1em;
+  width: 1em;
+  background-color: #fffef9;
 }
 /* /////////FORM CONTROL///////////// */
 .control {
