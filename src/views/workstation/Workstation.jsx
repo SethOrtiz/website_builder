@@ -18,7 +18,7 @@ const styles = {
   main: {
     borderTop: "2px solid #000",
     borderRight: "2px solid #000",
-    backgroundColor: "mistyrose",
+    backgroundColor: "#111",
     width: "69.7vw",
     position: "absolute",
     right: "2px",

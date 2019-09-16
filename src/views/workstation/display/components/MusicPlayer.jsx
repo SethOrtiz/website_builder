@@ -71,11 +71,11 @@ const MusicPlayer = props => {
           ) : (
             <>
               <div style={styles.track}>
-                <div>1</div> <button className="track-btn">Intro</button>
+                <div>1</div> <button className="track-btn">Featured</button>
                 <button className="track-btn">+</button>
               </div>
               <div style={styles.track}>
-                <div>2</div> <button className="track-btn">Single</button>
+                <div>2</div> <button className="track-btn">Featured</button>
                 <button className="track-btn">+</button>
               </div>
               <div style={styles.track}>
@@ -107,7 +107,7 @@ const MusicPlayer = props => {
                 <button className="track-btn">+</button>
               </div>
               <div style={styles.track}>
-                <div>10</div> <button className="track-btn">Outro</button>
+                <div>10</div> <button className="track-btn">Featured</button>
                 <button className="track-btn">+</button>
               </div>
             </>

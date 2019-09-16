@@ -28,7 +28,7 @@ const styles = {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    filter: "blur(2px)"
+    // filter: "blur(2px)"
   },
   container: {
     height: "100vh",

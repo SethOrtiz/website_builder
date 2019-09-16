@@ -11,7 +11,6 @@ const styles = {
     border: "2px solid #000",
     backgroundColor: "#fffef9",
     display: "grid",
-    gridTemplateRows: "7fr 1fr",
     color: "#000"
   },
   main: {
@@ -23,10 +22,9 @@ const styles = {
   },
   title: {
     fontSize: "2em",
-    marginBottom: "1em",
+    marginBottom: "1em"
   },
-  tool: {
-  },
+  tool: {},
   form: {
     borderTop: "3px solid #000",
     display: "flex",
@@ -39,17 +37,25 @@ const styles = {
     gridTemplateRows: "auto",
     gridTemplateColumns: "11fr 1fr"
   },
-  add: {
-    fontSize: "3em",
-    backgroundColor: "inherit",
-    border: "none",
-    outline: "none",
-    fontWeight: "700",
-  },
   feedback: {
     width: "5%",
     height: "100%",
     backgroundColor: "darkred"
+  },
+  buttonContainer: {
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))"
+  },
+  mainButton: {
+    height: "100%",
+    fontSize: "2em",
+    backgroundColor: "#fffef9",
+    border: "2px solid #000",
+    color: "#000",
+    fontWeight: "600",
+    alignSelf: "center",
+    lineHeight: "1.5"
   }
 };
 
@@ -102,17 +108,22 @@ const Toolbox = props => {
     <section id="toolbox" style={styles.toolbox}>
       <div style={styles.main}>
         <h1 style={styles.title}>Hubstereo</h1>
+        <div style={styles.buttonContainer}>
+          <button className="btn" style={styles.mainButton}>Publish</button>
+          <button className="btn" style={styles.mainButton}>Preview</button>
+        </div>
         <ul>
-          {props.tools && (props.tools.map(obj => {
-            return (
-              <div key={obj.id.toString()} style={styles.update}>
-                <li style={styles.note}>{obj.content}</li>
-                <button className="opacity" style={styles.delete}>
-                  -
-                </button>
-              </div>
-            );
-          }))}
+          {props.tools &&
+            props.tools.map(obj => {
+              return (
+                <div key={obj.id.toString()} style={styles.update}>
+                  <li style={styles.tool}>{obj.content}</li>
+                  <button className="opacity" style={styles.delete}>
+                    -
+                  </button>
+                </div>
+              );
+            })}
         </ul>
       </div>
     </section>
