@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+
 /* COLOR SCHEME */
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 ///////////////////////////////////////////       STYLING
@@ -21,10 +22,14 @@ const styles = {
     padding: "10%"
   },
   title: {
-    fontSize: "2em",
+    fontSize: "2.5em",
     marginBottom: "1em"
   },
-  tool: {},
+  subTitle: {
+    fontSize: "1em",
+    margin: "1em 0 0.2em 0",
+    alignSelf: "flex-start"
+  },
   form: {
     borderTop: "3px solid #000",
     display: "flex",
@@ -37,11 +42,6 @@ const styles = {
     gridTemplateRows: "auto",
     gridTemplateColumns: "11fr 1fr"
   },
-  feedback: {
-    width: "5%",
-    height: "100%",
-    backgroundColor: "darkred"
-  },
   buttonContainer: {
     width: "100%",
     display: "grid",
@@ -49,14 +49,20 @@ const styles = {
   },
   mainButton: {
     height: "100%",
-    fontSize: "2em",
+    fontSize: "1.5em",
     backgroundColor: "#fffef9",
     border: "2px solid #000",
     color: "#000",
     fontWeight: "600",
     alignSelf: "center",
     lineHeight: "1.5"
-  }
+  },
+  container: {
+    backgroundColor: "#cccbc5",
+    width: "100%",
+    height: "30vh"
+  },
+  tool: {}
 };
 
 const Toolbox = props => {
@@ -109,22 +115,32 @@ const Toolbox = props => {
       <div style={styles.main}>
         <h1 style={styles.title}>Hubstereo</h1>
         <div style={styles.buttonContainer}>
-          <button className="btn" style={styles.mainButton}>Publish</button>
-          <button className="btn" style={styles.mainButton}>Preview</button>
+          <button className="btn" style={styles.mainButton}>
+            Publish
+          </button>
+          <button className="btn" style={styles.mainButton}>
+            Preview
+          </button>
         </div>
-        <ul>
-          {props.tools &&
-            props.tools.map(obj => {
-              return (
-                <div key={obj.id.toString()} style={styles.update}>
-                  <li style={styles.tool}>{obj.content}</li>
-                  <button className="opacity" style={styles.delete}>
-                    -
-                  </button>
-                </div>
-              );
-            })}
-        </ul>
+        <h2 style={styles.subTitle}>Tools</h2>
+        <div style={styles.container}>
+          <ul>
+            {props.tools &&
+              props.tools.map(obj => {
+                return (
+                  <div key={obj.id.toString()} style={styles.update}>
+                    <li style={styles.tool}>{obj.content}</li>
+                    <button className="opacity" style={styles.delete}>
+                      -
+                    </button>
+                  </div>
+                );
+              })}
+          </ul>
+        </div>
+        <h2 style={styles.subTitle}>Sections</h2>
+        <div style={styles.container}>
+        </div>
       </div>
     </section>
   );
