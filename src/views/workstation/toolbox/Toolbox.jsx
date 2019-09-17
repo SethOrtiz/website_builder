@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { PREVIEW } from "../../../constants/routes";
 /* COLOR SCHEME */
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
 ///////////////////////////////////////////       STYLING
@@ -119,7 +120,11 @@ const Toolbox = props => {
             Publish
           </button>
           <button className="btn" style={styles.mainButton}>
-            Preview
+            <Link
+              to={PREVIEW}
+            >
+              Preview
+            </Link>
           </button>
         </div>
         <h2 style={styles.subTitle}>Tools</h2>
@@ -139,8 +144,7 @@ const Toolbox = props => {
           </ul>
         </div>
         <h2 style={styles.subTitle}>Sections</h2>
-        <div style={styles.container}>
-        </div>
+        <div style={styles.container}></div>
       </div>
     </section>
   );

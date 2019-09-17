@@ -4,8 +4,8 @@ import * as ROUTES from "../../constants/routes";
 
 const styles = {
   brand: {
-    fontSize: "1.5rem",
-    paddingLeft: "2rem",
+    fontSize: "1.5em",
+    paddingLeft: "2em",
     color: "fffef9"
   },
   navbar: {

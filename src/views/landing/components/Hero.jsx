@@ -4,8 +4,7 @@ import SignUpContainer from "../../../redux/landing/users/SignUpContainer";
 import SignInContainer from "../../../redux/landing/users/SignInContainer";
 import ForgotPasswordContainer from "../../../redux/landing/users/ForgotPasswordContainer";
 import Info from "./Info";
-/* COLOR SCHEME */
-/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
+
 const styles = {
   hero: {
     backgroundColor: "#fffef9",

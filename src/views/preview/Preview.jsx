@@ -1,11 +1,12 @@
 import React from "react";
-import Nav from "../workstation/components/Nav";
-import About from "../workstation/components/About";
-import Gallery from "../workstation/components/Gallery";
-import Hero from "../workstation/components/Hero";
-import Footer from "../workstation/components/Footer";
-import Soundcloud from "../workstation/components/Soundcloud";
-import Showcase from "../workstation/components/Showcase";
+import "./css/preview.css";
+import Nav from "./components/Nav";
+import About from "./components/About";
+import Gallery from "./components/Gallery";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+import Soundcloud from "./components/Soundcloud";
+import Showcase from "./components/Showcase";
 import { withRouter } from "react-router-dom";
 
 /* COLOR SCHEME */
