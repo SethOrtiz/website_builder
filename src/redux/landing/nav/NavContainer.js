@@ -6,7 +6,7 @@ import {
   handleHome
 } from "./actions";
 import {signOut} from "../users/thunks";
-import Navbar from "../../../views/theme/Navbar";
+import Navbar from "../../../views/Navigation";
 
 const mapStateToProps = function({ auth }) {
   return {

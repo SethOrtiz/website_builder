@@ -1,0 +1,62 @@
+.control {
+    display: block;
+    background: none;
+    width: 100%;
+    font-weight: 400;
+    font-size: 2em;
+    color: #000;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 0 solid;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+  }
+  
+  .control:focus {
+    color: #000;
+    background-color: inherit;
+    backdrop-filter: brightness(98%);
+    outline: 0;
+  }
+  
+  .control::placeholder {
+    color: #555;
+  }
+  .control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #555;
+  }
+  .control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #555;
+  }
+  .control-two {
+    display: block;
+    background: none;
+    width: 100%;
+    font-weight: 400;
+    font-size: 2em;
+    font-weight: 600;
+    color: #000;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 0 solid;
+    border-radius: 0;
+  }
+  
+  .control-two:focus {
+    color: #555;
+    background-color: inherit;
+    outline: 0;
+  }
+  .control-two::placeholder {
+    color: #555;
+  }
+  .control-two:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #555;
+  }
+  .control-two::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #555;
+  }

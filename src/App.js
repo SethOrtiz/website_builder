@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////    REACT
 import React from "react";
 import jwtDecode from "jwt-decode";
-import "./App.css";
+import "./styles/App.scss";
 //////////////////////////////////////////////////////     ROUTES
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as ROUTES from "./constants/routes";

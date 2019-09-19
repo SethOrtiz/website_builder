@@ -3,7 +3,7 @@ import HeroContainer from "../../redux/landing/nav/HeroContainer";
 import ShowcaseA from "./components/ShowcaseA";
 import ShowcaseB from "./components/ShowcaseB";
 import NavContainer from "../../redux/landing/nav/NavContainer";
-import Footer from "../theme/Footer";
+import Footer from "../Footer";
 export default function Landing() {
   return (
     <>

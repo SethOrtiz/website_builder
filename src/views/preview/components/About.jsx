@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import Info from "../../landing/components/Info";
+import Info from "./Info";
 /* COLOR SCHEME */
 /* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | */
 const styles = {

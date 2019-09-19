@@ -1,0 +1,37 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  color: color(light);
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 100%;
+  position: relative;
+  z-index: 1;
+
+  .sphere {
+    border-radius: 50%;
+    height: 1em;
+    width: 1em;
+    background-color: #fffef9;
+  }
+  .social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: color(light);
+    font-size: 1.5em;
+  }
+  .header {
+    margin-bottom: 0.3em;
+  }
+  .links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: space-around;
+    font-size: 1.2em;
+    padding: 5%;
+  }
+  .container {
+    background-color: color(dark);
+  }
+}

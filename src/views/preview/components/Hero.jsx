@@ -21,25 +21,10 @@ const styles = {
     fontStyle: "italic"
   },
   hero: {
-    backgroundColor: "rgba(0,0,0,0)",
+    backgroundColor: "grey",
     height: "100%",
-    position: "relative",
-    top: "-50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    zIndex: "1",
     width: "100%",
-    display: "grid",
-    gridAutoRows: "100vh",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))"
-  },
-  bgImage: {
-    height: "100%",
-    backgroundImage: "linear-gradient(45deg, #111, #999,  #ffefd7)",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    // filter: "blur(2px)"
+ 
   },
   container: {
     height: "100vh",
