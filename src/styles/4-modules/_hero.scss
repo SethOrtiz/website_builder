@@ -1,0 +1,25 @@
+.hero {
+  height: 100%;
+  background-color: color(dark);
+  display: grid;
+  grid-auto-rows: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  .right-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .get-started {
+    padding: 0.8rem 2rem;
+    font-size: 4rem;
+    background-color: inherit;
+    color: color(light);
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-weight: 600;
+    font-style: italic;
+  }
+}

@@ -1,0 +1,14 @@
+.about {
+    height: 100%;
+    background-color: color(dark);
+    display: grid;
+    grid-auto-rows: 100vh;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  
+    .left-column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: color(complement)
+    }
+  }

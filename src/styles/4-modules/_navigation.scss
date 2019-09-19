@@ -1,16 +1,14 @@
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-
 /*  NAVIGATION */
 
 header {
-  background: color(nav-background);
-  color: color(light);
+  background: rgba(color(light), 0.8);
+  color: #000;
   text-align: center;
   position: fixed;
   z-index: 999;
@@ -19,17 +17,15 @@ header {
 }
 
 .logo {
-    padding-top: 0.5em;
-    font-size: 1.5em;
+  padding-top: 0.5em;
+  font-size: 1.5em;
+  color: #000;
+  text-decoration: none;
 }
 .nav-toggle {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important;
-}
-
-.nav-toggle:focus ~ .nav-toggle-label {
-  outline: 1px solid rgba(color(light), 0.2);
 }
 
 .nav-toggle-label {
@@ -46,7 +42,7 @@ header {
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   display: block;
-  background: color(light);
+  background: #000;
   height: 3px;
   width: 2em;
   border-radius: 3px;
@@ -72,7 +68,7 @@ nav {
   text-align: left;
   top: 100%;
   left: 0;
-  background: color(nav-background);
+  background: rgba(color(light), 0.8);
   width: 100%;
   transform: scale(1, 0);
   transform-origin: top;
@@ -88,7 +84,7 @@ nav {
     margin-left: 1em;
   }
   a {
-    color: color(light);
+    color: #000;
     text-decoration: none;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -160,7 +156,7 @@ nav {
       height: 3px;
       background: black;
       position: absolute;
-      bottom: -0.50em;
+      bottom: -0.5em;
       left: 0;
       right: 0;
       transform: scale(0, 1);

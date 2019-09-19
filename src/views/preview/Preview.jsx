@@ -4,7 +4,7 @@ import About from "./components/About";
 import Gallery from "./components/Gallery";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
-import Soundcloud from "./components/Soundcloud";
+import MusicPlayer from "./components/MusicPlayer";
 import Showcase from "./components/Showcase";
 import { withRouter } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const Preview = props => {
       <Nav />
       <Hero />
       <Showcase />
-      <Soundcloud />
+      <MusicPlayer />
       <About />
       <Gallery />
       <Footer />

@@ -1,0 +1,11 @@
+.gallery {
+  padding: 1em;
+  margin: 0 auto;
+  display: grid;
+  grid-auto-rows: 40vh;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1em;
+  img {
+    background-image: linear-gradient(45deg, color(dark), color(accent));
+  }
+}
