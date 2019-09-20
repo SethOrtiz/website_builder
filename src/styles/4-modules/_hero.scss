@@ -9,9 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(45deg, color(dark), color(accent));
   }
   .get-started {
-    padding: 0.8rem 2rem;
     font-size: 4rem;
     background-color: inherit;
     color: color(light);
@@ -21,5 +21,21 @@
     text-align: center;
     font-weight: 600;
     font-style: italic;
+    position: relative;
+  }
+  .get-started::before {
+    content: "";
+    display: block;
+    height: 3px;
+    background: color(light);
+    position: absolute;
+    bottom: -0.2em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 400ms;
+  }
+  .get-started:hover::before {
+    transform: scale(1, 1);
   }
 }

@@ -48,9 +48,16 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s;
 }
 
+a {
+  text-decoration: none;
+}
 button:hover,
 a:hover {
   text-decoration: none;
   cursor: pointer;
+}
+
+a:visited {
+  color: color(light);
 }
 

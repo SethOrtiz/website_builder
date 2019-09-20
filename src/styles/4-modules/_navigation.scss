@@ -7,8 +7,8 @@
 /*  NAVIGATION */
 
 header {
-  background: rgba(color(light), 0.8);
-  color: #000;
+  background: rgba(color(dark), 0.6);
+  color: color(light);
   text-align: center;
   position: fixed;
   z-index: 999;
@@ -17,9 +17,8 @@ header {
 }
 
 .logo {
-  padding-top: 0.5em;
   font-size: 1.5em;
-  color: #000;
+  color: color(light);
   text-decoration: none;
 }
 .nav-toggle {
@@ -42,7 +41,7 @@ header {
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   display: block;
-  background: #000;
+  background: color(light);
   height: 3px;
   width: 2em;
   border-radius: 3px;
@@ -68,7 +67,7 @@ nav {
   text-align: left;
   top: 100%;
   left: 0;
-  background: rgba(color(light), 0.8);
+  background: rgba(color(dark), 0.8);
   width: 100%;
   transform: scale(1, 0);
   transform-origin: top;
@@ -84,7 +83,7 @@ nav {
     margin-left: 1em;
   }
   a {
-    color: #000;
+    color: color(light);
     text-decoration: none;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -92,7 +91,7 @@ nav {
     transition: opacity 150ms ease-in-out;
   }
   a:hover {
-    color: #333;
+    color: #ddd;
   }
 }
 
@@ -116,6 +115,8 @@ nav {
   }
 
   .logo {
+    margin-top: none;
+    align-self: center;
     grid-column: 2 / 3;
     font-size: 2em;
   }
@@ -154,7 +155,7 @@ nav {
       content: "";
       display: block;
       height: 3px;
-      background: black;
+      background: color(light);
       position: absolute;
       bottom: -0.5em;
       left: 0;

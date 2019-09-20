@@ -2,60 +2,6 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import * as REGEX from "../../../constants/regex";
 
-/////////////////////////////////////////////////////        STYLES
-
-const styles = {
-  form: {
-    width: "100%",
-    backgroundColor: "#d2e7ff",
-    display: "grid",
-    gridTemplateColumns: "1fr 6fr 1fr",
-    gridTemplateRows: "1fr 10fr 1fr",
-    alignItems: "center"
-  },
-  signUp: {
-    borderRadius: "2rem",
-    padding: "0.8rem 2rem",
-    fontSize: "1rem",
-    backgroundColor: "inherit",
-    border: "1px solid #000",
-    outline: "none",
-    textAlign: "center",
-    marginTop: "2rem",
-    fontWeight: "600"
-  },
-  header: {
-    width: "100%",
-    marginBottom: "1rem",
-    fontSize: "2rem",
-    textAlign: "center"
-  },
-  subtitle: {
-    width: "100%",
-    padding: "1rem 0",
-    fontSize: "1rem",
-    textAlign: "center"
-  },
-  signIn: {
-    backgroundColor: "inherit",
-    border: "none",
-    outline: "none",
-    padding: "1rem 0.5rem",
-    fontSize: "1rem",
-    fontWeight: "700"
-  },
-  btnContainer: {
-    display: "flex",
-    justifyContent: "center"
-  },
-  formErrors: {
-    fontSize: "1.2rem",
-    paddingTop: "1rem",
-    textAlign: "center",
-    color: "#777",
-    fontWeight: "600"
-  }
-};
 /////////////////////////////////////////////////////        INITIAL STATE
 const SignUp = props => {
   useEffect(() => {
@@ -316,19 +262,15 @@ const SignUp = props => {
           </div>
         </div>
       ) : (
-        <form style={styles.form} onSubmit={handleSubmit} noValidate>
-          <div id="one-two-three" className="row"></div>
-          <div id="four"></div>
-          <div id="five">
-            <h1 style={styles.header}>Sign Up</h1>
-            <div style={styles.subtitle}>
+        <form className="auth-form" onSubmit={handleSubmit} noValidate>
+            <h1>Sign Up</h1>
+            <div>
               Already have an account?
-              <button onClick={props.handleSignIn} style={styles.signIn}>
+              <button onClick={props.handleSignIn} className="subtitle">
                 Sign In
               </button>
             </div>
             <div>
-              <div className="exp-center">
                 <input
                   type="text"
                   name="handle-field"
@@ -341,11 +283,9 @@ const SignUp = props => {
                   valid={handle.valid.toString()}
                   invalid={handle.invalid.toString()}
                 />
-              </div>
-              <div className="feedback">{formErrors.handle}</div>
+              <div>{formErrors.handle}</div>
             </div>
             <div>
-              <div className="exp-center">
                 <input
                   type="email"
                   name="email-field"
@@ -358,11 +298,9 @@ const SignUp = props => {
                   valid={email.valid.toString()}
                   invalid={email.invalid.toString()}
                 />
-              </div>
-              <div className="feedback">{formErrors.email}</div>
+              <div >{formErrors.email}</div>
             </div>
             <div>
-              <div className="exp-center">
                 <input
                   type="password"
                   name="password-field"
@@ -376,11 +314,9 @@ const SignUp = props => {
                   valid={password.valid.toString()}
                   invalid={password.invalid.toString()}
                 />
-              </div>
-              <div className="feedback">{formErrors.password}</div>
+              <div>{formErrors.password}</div>
             </div>
             <div>
-              <div className="exp-center">
                 <input
                   type="password"
                   name="password-confirm-field"
@@ -394,20 +330,16 @@ const SignUp = props => {
                   invalid={passwordConfirm.invalid.toString()}
                   placeholder="Confirm Password"
                 />
-              </div>
-              <div className="feedback">{formErrors.passwordConfirm}</div>
+              <div>{formErrors.passwordConfirm}</div>
             </div>
             {!form.complete && (
-              <p style={styles.formErrors}> Form Incomplete </p>
+              <p className="form-errors"> Form Incomplete </p>
             )}
-            <div style={styles.btnContainer}>
-              <button style={styles.signUp} type="submit" className="opacity">
+            <div className="btn-container">
+              <button type="submit">
                 Sign Up
               </button>
             </div>
-          </div>
-          <div id="six"></div>
-          <div id="seven-eight-nine" className="row"></div>
         </form>
       )}
     </>

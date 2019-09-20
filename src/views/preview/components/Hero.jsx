@@ -4,7 +4,6 @@ import Info from "./Info";
 
 const Hero = props => {
   return (
-    <div className="container">
       <section id="hero-grid" className="hero">
         <Info
           background="rgba(0,0,0,0.3)"
@@ -18,7 +17,6 @@ const Hero = props => {
           </button>
         </div>
       </section>
-    </div>
   );
 };
 export default withRouter(Hero);

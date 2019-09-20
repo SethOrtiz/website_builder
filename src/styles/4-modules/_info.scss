@@ -32,11 +32,12 @@
     content: "";
     display: block;
     height: 3px;
-    background: black;
+    background: color(light);
     position: absolute;
     bottom: -0.5em;
     left: 0;
     right: 0;
+    transform-origin: left;
     transform: scale(0, 1);
     transition: transform ease-in-out 250ms;
   }

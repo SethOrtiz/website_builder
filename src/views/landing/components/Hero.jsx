@@ -5,48 +5,18 @@ import SignInContainer from "../../../redux/landing/users/SignInContainer";
 import ForgotPasswordContainer from "../../../redux/landing/users/ForgotPasswordContainer";
 import Info from "./Info";
 
-const styles = {
-  hero: {
-    backgroundColor: "#fffef9",
-    height: "100vh",
-    display: "grid",
-    gridTemplateColumns: "1fr 5fr 5fr 1fr",
-    gridTemplateRows: "1fr 10fr 1fr"
-  },
-  rightColumn: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ffefd7"
-  },
-  getStarted: {
-    padding: "0.8rem 2rem",
-    fontSize: "4rem",
-    backgroundColor: "inherit",
-    color: "black",
-    borderRadius: "2rem",
-    border: "none",
-    outline: "none",
-    textAlign: "center",
-    fontWeight: "600",
-    fontStyle: "italic"
-  }
-};
-
 const Hero = props => {
   return (
-    <section id="H" style={styles.hero}>
-      <div className="navRow"></div>
-      <div></div>
+    <section id="Hero" className="hero">
       <Info
-        background="#ffefd7"
-        fontColor="#000"
+        background="#111"
+        fontColor="#fffef9"
         title="Let the world know who you are."
         content="Design and build your own high-quality websites. Whether you’re
           promoting a band, showcasing your work, selling merch or
           sharing your music with your fans, Hubstereo is here to help."
-        linkOne={["Solo Artists", "#A", "#000"]}
-        linkTwo={["Bands", "#B", "#000"]}
+        linkOne={["Solo Artists", "#A", "fffef9"]}
+        linkTwo={["Bands", "#B", "#fffef9"]}
       />
       {props.forgotPasswordOpen ? (
         <ForgotPasswordContainer />
@@ -55,21 +25,15 @@ const Hero = props => {
       ) : props.signUpOpen ? (
         <SignUpContainer />
       ) : (
-        <div style={styles.rightColumn}>
+        <div className="right-column">
           <button
-            className="exp-center-black"
             onClick={props.handleSignUp}
-            style={styles.getStarted}
+            className="get-started"
           >
             Get Started
           </button>
         </div>
       )}
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
     </section>
   );
 };

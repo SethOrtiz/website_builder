@@ -2,58 +2,6 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import * as REGEX from "../../../constants/regex";
 
-/* COLOR SCHEME */
-/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
-const styles = {
-  form: {
-    width: "100%",
-    backgroundColor: "#d2e7ff",
-    display: "grid",
-    gridTemplateColumns: "1fr 6fr 1fr",
-    gridTemplateRows: "1fr 10fr 1fr",
-    alignItems: "center"
-  },
-  signIn: {
-    borderRadius: "2rem",
-    padding: "0.8rem 2rem",
-    fontSize: "1rem",
-    backgroundColor: "inherit",
-    border: "1px solid #000",
-    outline: "none",
-    textAlign: "center",
-    marginTop: "2rem",
-    fontWeight: "600"
-  },
-  header: {
-    width: "100%",
-    marginBottom: "2rem",
-    fontSize: "2rem",
-    textAlign: "center"
-  },
-  forgotPassword: {
-    width: "100%",
-    padding: "1rem 0",
-    fontSize: "1rem",
-    textAlign: "center",
-    justifySelf: "center",
-    backgroundColor: "inherit",
-    border: "none",
-    outline: "none",
-    fontWeight: "700"
-  },
-  formErrors: {
-    fontSize: "1.2rem",
-    paddingTop: "1rem",
-    textAlign: "center",
-    color: "#777",
-    fontWeight: "600"
-  },
-  btnContainer: {
-    display: "flex",
-    justifyContent: "center",
-    padding: "1rem 7rem"
-  }
-};
 ///////////////////////////////////////////     INITIAL STATE
 const SignIn = props => {
   useEffect(() => {
@@ -249,7 +197,7 @@ const SignIn = props => {
   return (
     <>
       {signInLoading ? (
-        <div className="loaderContainer">
+        <div className="loader-container">
           <div class="loader">
             <div></div>
             <div></div>
@@ -257,12 +205,9 @@ const SignIn = props => {
           </div>
         </div>
       ) : (
-        <form style={styles.form} onSubmit={handleSubmit} noValidate>
-          <div id="one-two-three" className="row"></div>
-          <div id="four"></div>
-          <div id="five">
-            <h1 style={styles.header}>Sign In</h1>
-            <div className="feedback">{formErrors.handle}</div>
+        <form className="sign-in auth-form" onSubmit={handleSubmit} noValidate>
+            <h1>Sign In</h1>
+            <div >{formErrors.handle}</div>
             <div>
               <div className="exp-center">
                 <input
@@ -278,10 +223,9 @@ const SignIn = props => {
                   invalid={email.invalid.toString()}
                 />
               </div>
-              <div className="feedback">{formErrors.email}</div>
+              <div >{formErrors.email}</div>
             </div>
             <div>
-              <div className="exp-center">
                 <input
                   type="password"
                   name="password-field"
@@ -289,35 +233,30 @@ const SignIn = props => {
                   placeholder="Password"
                   value={password.value}
                   id="current-password"
-                  className="control "
+                  className="control"
                   noValidate
                   autoComplete="on"
                   valid={password.valid.toString()}
                   invalid={password.invalid.toString()}
                 />
-              </div>
-              <div className="feedback">{formErrors.password}</div>
+              <div >{formErrors.password}</div>
             </div>
             {!form.complete && (
-              <p style={styles.formErrors}> Form Incomplete </p>
+              <p className="form-errors"> Form Incomplete </p>
             )}
-            <div style={styles.btnContainer}>
-              <button style={styles.signIn} type="submit" className="opacity">
+            <div className="btn-container">
+              <button type="submit">
                 Sign In
               </button>
             </div>
-            <div style={styles.btnContainer}>
+            <div className="btn-container">
               <button
                 onClick={handleForgotPassword}
-                style={styles.forgotPassword}
-                className="opacity"
+                className="subtitle"
               >
                 Forgot Password?
               </button>
             </div>
-          </div>
-          <div id="six"></div>
-          <div id="seven-eight-nine" className="row"></div>
         </form>
       )}
     </>

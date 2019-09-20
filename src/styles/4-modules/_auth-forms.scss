@@ -1,62 +1,113 @@
 .control {
-    display: block;
-    background: none;
-    width: 100%;
-    font-weight: 400;
-    font-size: 2em;
-    color: #000;
-    line-height: 1.5;
-    background-clip: padding-box;
-    border: 0 solid;
-    border-radius: 0;
-    border-bottom: 1px solid black;
-  }
-  
-  .control:focus {
-    color: #000;
-    background-color: inherit;
-    backdrop-filter: brightness(98%);
-    outline: 0;
-  }
-  
-  .control::placeholder {
-    color: #555;
-  }
-  .control:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #555;
-  }
-  .control::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #555;
-  }
-  .control-two {
-    display: block;
-    background: none;
-    width: 100%;
-    font-weight: 400;
-    font-size: 2em;
+  display: block;
+  background: none;
+  width: 100%;
+  font-weight: 400;
+  font-size: 2em;
+  color: color(light);
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 0 solid;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+}
+
+.control:focus {
+  color: color(light);
+  background-color: inherit;
+  backdrop-filter: brightness(95%);
+  outline: 0;
+}
+
+.control::placeholder {
+  color: #777;
+}
+.control:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #777;
+}
+.control::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #777;
+}
+.control-two {
+  display: block;
+  background: none;
+  width: 100%;
+  font-weight: 400;
+  font-size: 2em;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 0 solid;
+  border-radius: 0;
+}
+
+.control-two:focus {
+  color: #555;
+  background-color: inherit;
+  outline: 0;
+}
+.control-two::placeholder {
+  color: #555;
+}
+.control-two:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #555;
+}
+.control-two::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #555;
+}
+
+.auth-form {
+  background-image: linear-gradient(45deg, color(dark), color(accent));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: color(light);
+  button {
+    border-radius: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    background: inherit;
+    border: 1px solid color(light);
+    color: color(light);
+    outline: none;
+    text-align: center;
     font-weight: 600;
-    color: #000;
-    line-height: 1.5;
-    background-clip: padding-box;
-    border: 0 solid;
-    border-radius: 0;
   }
-  
-  .control-two:focus {
-    color: #555;
+  h1 {
+    width: 100%;
+    margin-bottom: 1.5em;
+    font-size: 2em;
+    text-align: center;
+    color: color(light);
+  }
+  .subtitle {
+    width: 100%;
+    padding: 0.5em 0;
+    font-size: 1rem;
+    text-align: center;
+    justify-self: center;
     background-color: inherit;
-    outline: 0;
+    color: color(light);
+    border: none;
+    outline: none;
+    font-weight: 700;
   }
-  .control-two::placeholder {
-    color: #555;
+  .form-errors {
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    text-align: center;
+    color: color(contrast);
+    font-weight: 600;
   }
-  .control-two:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #555;
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 7rem;
   }
-  .control-two::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #555;
-  }
+}
