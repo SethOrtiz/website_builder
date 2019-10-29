@@ -3,24 +3,3 @@
 @import "./workstation";
 @import "./preview";
 
-.row {
-  display: grid;
-  grid-column: 1 / span 3;
-}
-
-.layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "sidebar main main";
-}
-.layout > aside {
-  grid-area: sidebar;
-}
-.layout > main {
-  grid-area: main;
-}
-
-.navRow {
-  display: grid;
-  grid-column: 1 / span 4;
-}
