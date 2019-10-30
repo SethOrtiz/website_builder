@@ -65,6 +65,13 @@ a:visited {
   color: #fffef9;
 }
 
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 @font-face {
   font-family: Handlee;
   src: url(../../assets/fonts/Handlee/Handlee-Regular.ttf);
@@ -143,8 +150,8 @@ code {
   border: 1px solid #000;
 }
 
-.dashboard {
-  background: #111;
+.dashboard .navigation {
+  position: relative;
 }
 
 .control {
@@ -628,15 +635,8 @@ code {
   }
 }
 
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 /*  NAVIGATION */
-header {
+.navigation {
   background: rgba(17, 17, 17, 0.6);
   color: #fffef9;
   text-align: center;
@@ -647,19 +647,19 @@ header {
   z-index: 1;
 }
 
-.logo {
+.navigation .logo {
   font-size: 1.5em;
   color: #fffef9;
   text-decoration: none;
 }
 
-.nav-toggle {
+.navigation .nav-toggle {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important;
 }
 
-.nav-toggle-label {
+.navigation .nav-toggle-label {
   position: absolute;
   top: 0;
   left: 0;
@@ -673,9 +673,9 @@ header {
           align-items: center;
 }
 
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
+.navigation .nav-toggle-label span,
+.navigation .nav-toggle-label span::before,
+.navigation .nav-toggle-label span::after {
   display: block;
   background: #fffef9;
   height: 3px;
@@ -684,21 +684,21 @@ header {
   position: relative;
 }
 
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
+.navigation .nav-toggle-label span::before,
+.navigation .nav-toggle-label span::after {
   content: "";
   position: absolute;
 }
 
-.nav-toggle-label span::before {
+.navigation .nav-toggle-label span::before {
   bottom: 8px;
 }
 
-.nav-toggle-label span::after {
+.navigation .nav-toggle-label span::after {
   top: 8px;
 }
 
-nav {
+.navigation nav {
   position: absolute;
   text-align: left;
   top: 100%;
@@ -715,18 +715,18 @@ nav {
   transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
 }
 
-nav ul {
+.navigation nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-nav li {
+.navigation nav li {
   margin-bottom: 1em;
   margin-left: 1em;
 }
 
-nav a {
+.navigation nav a {
   color: #fffef9;
   text-decoration: none;
   font-size: 1.2rem;
@@ -736,32 +736,32 @@ nav a {
   transition: opacity 150ms ease-in-out;
 }
 
-nav a:hover {
+.navigation nav a:hover {
   color: #ddd;
 }
 
-.nav-toggle:checked ~ nav {
+.navigation .nav-toggle:checked ~ nav {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
 }
 
-.nav-toggle:checked ~ nav a {
+.navigation .nav-toggle:checked ~ nav a {
   opacity: 1;
   -webkit-transition: opacity 250ms ease-in-out 250ms;
   transition: opacity 250ms ease-in-out 250ms;
 }
 
 @media screen and (min-width: 840px) {
-  .nav-toggle-label {
-    display: none;
-  }
-  header {
+  .navigation {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr auto minmax(600px, 3fr) 1fr;
         grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
   }
-  .logo {
+  .navigation .nav-toggle-label {
+    display: none;
+  }
+  .navigation .logo {
     margin-top: none;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -771,7 +771,7 @@ nav a:hover {
     grid-column: 2 / 3;
     font-size: 2em;
   }
-  nav {
+  .navigation nav {
     position: relative;
     text-align: left;
     -webkit-transition: none;
@@ -794,20 +794,20 @@ nav a:hover {
         -ms-flex-align: center;
             align-items: center;
   }
-  nav ul {
+  .navigation nav ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  nav li {
+  .navigation nav li {
     margin-left: 3em;
     margin-bottom: 0;
   }
-  nav a {
+  .navigation nav a {
     opacity: 1;
     position: relative;
   }
-  nav a::before {
+  .navigation nav a::before {
     content: "";
     display: block;
     height: 3px;
@@ -823,7 +823,7 @@ nav a:hover {
     transition: transform ease-in-out 250ms;
     transition: transform ease-in-out 250ms, -webkit-transform ease-in-out 250ms;
   }
-  nav a:hover::before {
+  .navigation nav a:hover::before {
     -webkit-transform: scale(1, 1);
             transform: scale(1, 1);
   }
@@ -963,7 +963,7 @@ nav a:hover {
   margin-left: 3em;
 }
 
-.lds-circle > div {
+.lds-circle div {
   display: inline-block;
   border-radius: 50%;
   height: 9em;
@@ -979,7 +979,8 @@ nav a:hover {
 }
 
 @-webkit-keyframes lds-circle {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
             animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
   }
@@ -1000,7 +1001,8 @@ nav a:hover {
 }
 
 @keyframes lds-circle {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
             animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
   }

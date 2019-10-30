@@ -61,3 +61,8 @@ a:visited {
   color: color(light);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

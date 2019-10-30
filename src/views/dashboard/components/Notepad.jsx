@@ -1,78 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-/* COLOR SCHEME */
-/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
-///////////////////////////////////////////       STYLING
-const styles = {
-  notepad: {
-    height: "67vh",
-    boxSizing: "border-box",
-    border: "2px solid #000",
-    borderTop: "none",
-    backgroundColor: "#fffef9",
-    display: "grid",
-    gridTemplateRows: "1fr 10fr 1fr",
-    color: "#000"
-  },
-  main: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "start",
-    flexDirection: "column",
-    padding: "5%"
-  },
-  titleContainer: {
-    borderBottom: "2px solid #000"
-  },
-  title: {
-    fontSize: "2em",
-    color: "#000",
-    textAlign: "center",
-    padding: "0.2em"
-  },
-  note: {
-    fontFamily: "Handlee",
-    fontSize: "1.2em",
-    listStyle: "disc",
-    margin: "0.5em 0",
-    padding: "0.2em",
-    borderRadius: "0.5em"
-  },
-  form: {
-    borderTop: "2px solid #000",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "flex-center",
-    justifyContent: "space-around",
-    padding: "0px 0.5em"
-  },
-  input: {},
-  update: {
-    display: "grid",
-    gridTemplateRows: "auto",
-    gridTemplateColumns: "11fr 1fr"
-  },
-  add: {
-    fontSize: "3.5em",
-    backgroundColor: "inherit",
-    border: "none",
-    outline: "none",
-    fontWeight: "700"
-  },
-  delete: {
-    fontSize: "2em",
-    backgroundColor: "inherit",
-    border: "none",
-    outline: "none",
-    fontWeight: "700",
-    color: "#000"
-  },
-  feedback: {
-    width: "5%",
-    height: "100%",
-    backgroundColor: "darkred"
-  }
-};
 
 const Notepad = props => {
   ///////////////////////////////////////////     STATE DECLARATION
@@ -124,25 +51,23 @@ const Notepad = props => {
 
   ///////////////////////////////////////////       JSX
   return (
-    <section id="Notepad" style={styles.notepad}>
-      <div style={styles.titleContainer}>
-        <h1 style={styles.title}>Journal</h1>
+    <section id="Notepad" className="notepad">
+      <div className="titleContainer">
+        <h1 className="title">Journal</h1>
       </div>
-      <div style={styles.main}>
+      <div className="main">
         <ul>
           {props.notes.map(obj => {
             return (
-              <div key={obj.id.toString()} style={styles.update}>
-                <li style={styles.note}>{obj.content}</li>
-                <button className="opacity" style={styles.delete}>
-                  -
-                </button>
+              <div key={obj.id.toString()} className="update">
+                <li className="note">{obj.content} </li>
+                <button className="opacity delete">-</button>
               </div>
             );
           })}
         </ul>
       </div>
-      <form style={styles.form} onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate>
         <input
           type="text"
           name="new-note"
@@ -152,10 +77,9 @@ const Notepad = props => {
           className="control-two"
           noValidate
           autoComplete="off"
-          style={styles.input}
         />
-        {empty.value && <div style={styles.feedback}> </div>}
-        <button onClick={handleSubmit} style={styles.add}>
+        {empty.value && <div className="feedback"> </div>}
+        <button onClick={handleSubmit} className="add">
           +
         </button>
       </form>

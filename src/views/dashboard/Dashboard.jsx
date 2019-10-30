@@ -5,13 +5,12 @@ import MyWebsitesContainer from "../../redux/dashboard/websites/MyWebsitesContai
 import NavContainer from "../../redux/landing/nav/NavContainer";
 import Footer from "../Footer";
 
-
 export default function Dashboard() {
   return (
     <>
       <div  className="layout">
-        <NavContainer  />
-        <aside >
+        <NavContainer />
+        <aside>
           <ProfileContainer />
           <NotepadContainer />
         </aside>

@@ -8,7 +8,7 @@ const Navbar = props => {
   return (
     <>
       {authenticated ? (
-        <header>
+        <header className="navigation">
           <Link className="logo" onClick={props.handleHome} to={ROUTES.LANDING}>
             Hubstereo
           </Link>
@@ -41,7 +41,7 @@ const Navbar = props => {
           </label>
         </header>
       ) : (
-        <header>
+        <header className="navigation">
           <Link className="logo" onClick={props.handleHome} to={ROUTES.LANDING}>
             <h1>Hubstereo</h1>
           </Link>
