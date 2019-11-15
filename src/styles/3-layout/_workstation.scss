@@ -1,0 +1,81 @@
+.workstation {
+  background-color: color(light);
+  border: 2px solid color(darker);
+  border-top: none;
+  .aside {
+    display: grid;
+    background-color: color(light);
+    position: fixed;
+    width: 30vw;
+    margin-top: -8vh;
+  }
+  .main {
+    border-top: 2px solid color(darker);
+    border-right: 2px solid color(darker);
+    background-color: color(dark);
+    width: 69.7vw;
+    position: absolute;
+    right: 2px;
+    box-sizing: border-box;
+  }
+  .footer {
+    margin-top: 100vh;
+  }
+}
+
+.toolbox {
+  height: 70vh;
+  box-sizing: border-box;
+  border: 2px solid color(darker);
+  background-color: color(light);
+  display: grid;
+  color: color(darker);
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 10%;
+  }
+  .title {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+  }
+  .subtitle {
+    font-size: 1em;
+    margin: 1em 0 0.2em 0;
+    align-self: flex-start;
+  }
+  .form {
+    border-top: 3px solid color(darker);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-center;
+    justify-content: space-around;
+  }
+  .update {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 11fr 1fr;
+  }
+  .button-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .main-button {
+    height: 100%;
+    font-size: 1.5em;
+    background-color: color(light);
+    border: 2px solid color(darker);
+    color: color(darker);
+    font-weight: 600;
+    align-self: center;
+    line-height: 1.5;
+  }
+  .container {
+    background-color: #cccbc5;
+    width: 100%;
+    height: 30vh;
+  }
+}

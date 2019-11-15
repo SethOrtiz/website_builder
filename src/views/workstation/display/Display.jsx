@@ -4,40 +4,10 @@ import About from "./components/About";
 import Gallery from "./components/Gallery";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
-import Soundcloud from "./components/Soundcloud";
+import MusicPlayer from "./components/MusicPlayer";
 import Showcase from "./components/Showcase";
 import { withRouter } from "react-router-dom";
 
-/* COLOR SCHEME */
-/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
-
-const styles = {
-  Display: {
-    height: "100%",
-    backgroundColor: " #ffefd7"
-  },
-  box: {
-    display: "grid",
-    gridTemplateRows: "1fr 1fr",
-    backgroundColor: " #ffefd7",
-    alignItems: "flex-end",
-    boxSizing: "border-box"
-  },
-  create: {
-    fontSize: "3em",
-    fontStyle: "italic",
-    backgroundColor: "inherit",
-    border: "none",
-    outline: "none",
-    color: "#000",
-    fontWeight: "600",
-    margin: "0 auto auto auto"
-  },
-  input: {
-    fontSize: "3em",
-    borderBottom: "none"
-  }
-};
 const Display = props => {
   //   const [newSection, setNewSection] = useState({
   //     value: ""
@@ -91,8 +61,8 @@ const Display = props => {
   // const renderAbout = () => {
   //   return <About />;
   // };
-  // const renderSoundcloud = () => {
-  //   return <Soundcloud />;
+  // const renderMusicPlayer = () => {
+  //   return <MusicPlayer />;
   // };
   // const renderFooter = () => {
   //   return <Footer />;
@@ -113,8 +83,8 @@ const Display = props => {
   //       case "about":
   //         renderAbout();
   //         break;
-  //       case "soundcloud":
-  //         renderSoundcloud();
+  //       case "MusicPlayer":
+  //         renderMusicPlayer();
   //         break;
   //       case "footer":
   //         renderFooter();
@@ -126,11 +96,11 @@ const Display = props => {
   // };
 
   return (
-    <section id="display" style={styles.display}>
+    <section id="display" >
       <Nav />
       <Hero />
       <Showcase />
-      <Soundcloud />
+      <MusicPlayer />
       <About />
       <Gallery />
       <Footer />

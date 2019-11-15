@@ -2,69 +2,6 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { PREVIEW } from "../../../constants/routes";
-/* COLOR SCHEME */
-/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
-///////////////////////////////////////////       STYLING
-
-const styles = {
-  toolbox: {
-    height: "100vh",
-    boxSizing: "border-box",
-    border: "2px solid #000",
-    backgroundColor: "#fffef9",
-    display: "grid",
-    color: "#000"
-  },
-  main: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "start",
-    flexDirection: "column",
-    padding: "10%"
-  },
-  title: {
-    fontSize: "2.5em",
-    marginBottom: "1em"
-  },
-  subTitle: {
-    fontSize: "1em",
-    margin: "1em 0 0.2em 0",
-    alignSelf: "flex-start"
-  },
-  form: {
-    borderTop: "3px solid #000",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "flex-center",
-    justifyContent: "space-around"
-  },
-  update: {
-    display: "grid",
-    gridTemplateRows: "auto",
-    gridTemplateColumns: "11fr 1fr"
-  },
-  buttonContainer: {
-    width: "100%",
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))"
-  },
-  mainButton: {
-    height: "100%",
-    fontSize: "1.5em",
-    backgroundColor: "#fffef9",
-    border: "2px solid #000",
-    color: "#000",
-    fontWeight: "600",
-    alignSelf: "center",
-    lineHeight: "1.5"
-  },
-  container: {
-    backgroundColor: "#cccbc5",
-    width: "100%",
-    height: "30vh"
-  },
-  tool: {}
-};
 
 const Toolbox = props => {
   ///////////////////////////////////////////     STATE DECLARATION
@@ -112,14 +49,14 @@ const Toolbox = props => {
 
   ///////////////////////////////////////////       JSX
   return (
-    <section id="toolbox" style={styles.toolbox}>
-      <div style={styles.main}>
-        <h1 style={styles.title}>Hubstereo</h1>
-        <div style={styles.buttonContainer}>
-          <button className="btn" style={styles.mainButton}>
+    <section id="toolbox" className="toolbox">
+      <div className="main">
+        <h1 className="title">Hubstereo</h1>
+        <div className="button-container">
+          <button className="main-button btn">
             Publish
           </button>
-          <button className="btn" style={styles.mainButton}>
+          <button className="main-button btn">
             <Link
               to={PREVIEW}
             >
@@ -127,15 +64,15 @@ const Toolbox = props => {
             </Link>
           </button>
         </div>
-        <h2 style={styles.subTitle}>Tools</h2>
-        <div style={styles.container}>
+        <h2 className="subtitle">Tools</h2>
+        <div className="container">
           <ul>
             {props.tools &&
               props.tools.map(obj => {
                 return (
-                  <div key={obj.id.toString()} style={styles.update}>
-                    <li style={styles.tool}>{obj.content}</li>
-                    <button className="opacity" style={styles.delete}>
+                  <div key={obj.id.toString()} className="update">
+                    <li className="tool">{obj.content}</li>
+                    <button className="delete opacity">
                       -
                     </button>
                   </div>
@@ -143,8 +80,8 @@ const Toolbox = props => {
               })}
           </ul>
         </div>
-        <h2 style={styles.subTitle}>Sections</h2>
-        <div style={styles.container}></div>
+        <h2 className="subtitle">Sections</h2>
+        <div className="container"></div>
       </div>
     </section>
   );
