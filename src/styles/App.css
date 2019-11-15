@@ -136,8 +136,8 @@ code {
 }
 
 .dashboard .sidebar {
-  -webkit-box-shadow: 0.2em 0.3em 0.5em #2968b0;
-          box-shadow: 0.2em 0.3em 0.5em #2968b0;
+  -webkit-box-shadow: 0.2em 0.3em 0.5em #040404;
+          box-shadow: 0.2em 0.3em 0.5em #040404;
 }
 
 .layout {
@@ -313,6 +313,7 @@ code {
   font-size: 1.2rem;
   padding-top: 1rem;
   text-align: center;
+  color: #f9e78c;
   font-weight: 600;
 }
 
@@ -1247,8 +1248,8 @@ code {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 2em;
-  -webkit-box-shadow: 0.2em 0.3em 0.5em #2968b0;
-          box-shadow: 0.2em 0.3em 0.5em #2968b0;
+  -webkit-box-shadow: 0.2em 0.3em 0.5em #040404;
+          box-shadow: 0.2em 0.3em 0.5em #040404;
 }
 
 .myWebsites .form .create {
