@@ -111,27 +111,6 @@ code {
   grid-column: 1 / span 3;
 }
 
-.layout {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-areas: "sidebar main main";
-}
-
-.layout > aside {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: sidebar;
-}
-
-.layout > main {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-area: main;
-}
-
 .navRow {
   display: -ms-grid;
   display: grid;
@@ -150,8 +129,38 @@ code {
   border: 1px solid #000;
 }
 
-.dashboard .navigation {
-  position: relative;
+.dashboard .header-space {
+  width: 100%;
+  height: 8vh;
+  background-color: #111;
+}
+
+.dashboard .sidebar {
+  -webkit-box-shadow: 0.2em 0.3em 0.5em #2968b0;
+          box-shadow: 0.2em 0.3em 0.5em #2968b0;
+}
+
+.layout {
+  padding: 0 2em 2em 2em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "sidebar main main";
+  grid-column-gap: 2em;
+}
+
+.layout aside {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: sidebar;
+}
+
+.layout main {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: main;
 }
 
 .control {
@@ -249,7 +258,7 @@ code {
 }
 
 .auth-form {
-  background-image: linear-gradient(45deg, #111, #154c8a);
+  background-image: linear-gradient(45deg, #111, #2968b0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -398,7 +407,7 @@ code {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: linear-gradient(45deg, #111, #154c8a);
+  background-image: linear-gradient(45deg, #111, #2968b0);
 }
 
 .hero .get-started {
@@ -845,7 +854,7 @@ code {
 
 .showcase .item {
   width: 100%;
-  background-image: linear-gradient(-45deg, #111, #154c8a);
+  background-image: linear-gradient(-45deg, #111, #2968b0);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1034,7 +1043,7 @@ code {
 }
 
 .gallery img {
-  background-image: linear-gradient(45deg, #111, #154c8a);
+  background-image: linear-gradient(45deg, #111, #2968b0);
 }
 
 .about {
@@ -1070,6 +1079,240 @@ code {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: linear-gradient(45deg, #111, #154c8a);
+  background-image: linear-gradient(45deg, #111, #2968b0);
+}
+
+.notepad {
+  height: 63vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-top: none;
+  background-color: #fffef9;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 10fr 1fr;
+      grid-template-rows: 1fr 10fr 1fr;
+  color: #fffef9;
+}
+
+.notepad form {
+  border-top: 2px solid #040404;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: flex-center;
+      -ms-flex-align: flex-center;
+          align-items: flex-center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0px 0.5em;
+}
+
+.notepad .main {
+  display: "flex";
+  -webkit-box-align: "center";
+      -ms-flex-align: "center";
+          align-items: "center";
+  -webkit-box-pack: "start";
+      -ms-flex-pack: "start";
+          justify-content: "start";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "column";
+          flex-direction: "column";
+  padding: "5%";
+}
+
+.notepad .titleContainer {
+  border-bottom: 2px solid #040404;
+}
+
+.notepad .titleContainer .title {
+  font-size: 2em;
+  color: #040404;
+  text-align: center;
+  padding: 0.2em;
+}
+
+.notepad .note {
+  font-family: Handlee;
+  font-size: 1.2em;
+  list-style: disc;
+  margin: 0.5em 0;
+  padding: 0.2em;
+  border-radius: 0.5em;
+}
+
+.notepad .update {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -ms-grid-columns: 11fr 1fr;
+      grid-template-columns: 11fr 1fr;
+}
+
+.notepad .add {
+  font-size: 3.5em;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  font-weight: 700;
+}
+
+.notepad .delete {
+  font-size: 2em;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  color: #040404;
+}
+
+.notepad .feedback {
+  width: 5%;
+  height: 100%;
+  background-color: darkred;
+}
+
+.profile {
+  height: 25vh;
+  background-color: #fffef9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #040404;
+  border-bottom: 2px solid #040404;
+}
+
+.profile img {
+  border-radius: 50%;
+  height: 9em;
+  width: 9em;
+  margin-left: 3em;
+  background-color: #fffef9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid #040404;
+}
+
+.profile .info {
+  margin-left: 0.3em;
+  font-size: 0.6em;
+}
+
+.profile .placeholder {
+  background-color: #040404;
+}
+
+.myWebsites {
+  height: 75vh;
+  display: -ms-grid;
+  display: grid;
+  background-color: #222;
+  grid-auto-rows: auto;
+}
+
+.myWebsites .edit {
+  position: fixed;
+  font-size: 1.5em;
+  background-color: #fffef9;
+  border: 2px solid #040404;
+  border-left: none;
+  outline: none;
+  font-weight: 500;
+  margin-top: -2px;
+}
+
+.myWebsites .form {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: flex-center;
+      -ms-flex-align: flex-center;
+          align-items: flex-center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2em;
+  -webkit-box-shadow: 0.2em 0.3em 0.5em #2968b0;
+          box-shadow: 0.2em 0.3em 0.5em #2968b0;
+}
+
+.myWebsites .form .create {
+  height: 100%;
+  font-size: 2.76em;
+  font-style: italic;
+  background-color: #fffef9;
+  border-left: 2px solid #040404;
+  border-top: none;
+  color: #040404;
+  font-weight: 600;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  line-height: 1.5;
+}
+
+.myWebsites .form .input {
+  font-size: 2.76em;
+  padding-left: 0.5em;
+  color: #040404;
+  background-color: #fffef9;
+  width: 100%;
+}
+
+.myWebsites .form .feedback {
+  width: 100%;
+  height: 0.1em;
+  background-color: darkred;
+}
+
+.website {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #000;
+  background-image: linear-gradient(-45deg, #111, #2968b0);
+}
+
+.website .handle {
+  color: #000;
+  font-weight: 600;
+  font-size: 3em;
+  font-style: italic;
+}
+
+.website .button-container {
+  font-size: 0.3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: 500;
+}
+
+.website .warning {
+  color: 000;
+  font-weight: 600;
+  font-size: 2.5em;
 }
 /*# sourceMappingURL=App.css.map */

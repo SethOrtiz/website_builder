@@ -2,65 +2,6 @@ import React, { useState, useEffect } from "react";
 import Website from "./Website";
 import { withRouter } from "react-router-dom";
 
-/* COLOR SCHEME */
-/* blue: #d2e7ff  | babyblue: #e3f0ff  | white : #fffef9  | peach: #ffefd7  | lightpeach: #fff6e9 | salmon: "#e3c9c9"*/
-///////////////////////////////////////////     STYLING
-const styles = {
-  container: {
-    borderTop: "2px solid #000",
-    height: "92vh",
-  },
-  myWebsites: {
-    height: "83.2vh",
-    display: "grid",
-    backgroundColor: " #222",
-    gridTemplateRows: "auto",
-    borderRight: "1px solid #000"
-  },
-  form: {
-    borderTop: "3px solid #000",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "flex-center",
-    justifyContent: "space-between"
-  },
-  create: {
-    height: "100%",
-    fontSize: "2.76em",
-    fontStyle: "italic",
-    backgroundColor: "#fffef9",
-    border: "2px solid #000",
-    borderTop: "none",
-    color: "#000",
-    fontWeight: "600",
-    alignSelf: "flex-start",
-    lineHeight: "1.5"
-  },
-  input: {
-    fontSize: "2.76em",
-    paddingLeft: "0.5em",
-    color: "#000",
-    backgroundColor: "#fffef9",
-    borderBottom: "2px solid #000",
-    width: "100%"
-  },
-  feedback: {
-    width: "100%",
-    height: "0.1em",
-    backgroundColor: "darkred"
-  },
-  edit: {
-    position: "fixed",
-    fontSize: "1.5em",
-    backgroundColor: "#fffef9",
-    border: "2px solid #000",
-    borderLeft: "none",
-    outline: "none",
-    fontWeight: "500",
-    marginTop: "-2px"
-  }
-};
-
 const MyWebsites = props => {
   ///////////////////////////////////////////       INITIALIZES STATE
 
@@ -115,14 +56,14 @@ const MyWebsites = props => {
     e.preventDefault();
     setEdit({ enabled: !edit.enabled });
   };
-console.log('loading',userLoading)
+  console.log("loading", userLoading);
   ///////////////////////////////////////////       JSX
   return (
-    <section id="Dashboard" style={styles.container}>
-      <button onClick={toggleEdit} style={styles.edit}>
+    <section id="Dashboard" className="myWebsites">
+      <button onClick={toggleEdit} className="edit">
         {edit.enabled ? "BACK" : "EDIT"}
       </button>
-      <div style={styles.myWebsites}>
+      <div className="myWebsites">
         {userLoading ? (
           <div className="loaderContainer">
             <div className="loader">
@@ -145,20 +86,19 @@ console.log('loading',userLoading)
           })
         )}
       </div>
-      <form style={styles.form} onSubmit={handleSubmit} noValidate>
-          <input
-            type="text"
-            name="new-website"
-            style={styles.input}
-            onChange={handleChange}
-            placeholder="Artist Name..."
-            value={newWebsite.value}
-            className="control-two"
-            noValidate
-            autoComplete="off"
-          />
-          {empty.value && <div style={styles.feedback}> </div>}
-        <button type="submit" style={styles.create}>
+      <form className="form" onSubmit={handleSubmit} noValidate>
+        <input
+          type="text"
+          name="new-website"
+          onChange={handleChange}
+          placeholder="Artist Name..."
+          value={newWebsite.value}
+          className="control-two input"
+          noValidate
+          autoComplete="off"
+        />
+        {empty.value && <div className="feedback"> </div>}
+        <button type="submit" className="create">
           Create
         </button>
       </form>

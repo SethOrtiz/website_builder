@@ -7,18 +7,21 @@ import Footer from "../Footer";
 
 export default function Dashboard() {
   return (
-    <>
-      <div  className="layout">
-        <NavContainer />
-        <aside>
+    <div className="dashboard">
+      <NavContainer />
+      <div className="header-space"></div>
+      <div className="layout">
+      <div></div>
+        <aside className="sidebar">
           <ProfileContainer />
           <NotepadContainer />
         </aside>
-        <main >
+        <main>
           <MyWebsitesContainer />
         </main>
+        <div></div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }

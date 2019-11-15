@@ -1,0 +1,76 @@
+.myWebsites {
+  height: 75vh;
+  display: grid;
+  background-color: #222;
+  grid-auto-rows: auto;
+
+  .edit {
+    position: fixed;
+    font-size: 1.5em;
+    background-color: color(light);
+    border: 2px solid color(darker);
+    border-left: none;
+    outline: none;
+    font-weight: 500;
+    margin-top: -2px;
+  }
+  .form {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-center;
+    justify-content: space-between;
+    margin-top: 2em;
+    box-shadow: 0.2em 0.3em 0.5em color(accent);
+    .create {
+      height: 100%;
+      font-size: 2.76em;
+      font-style: italic;
+      background-color: color(light);
+      border-left: 2px solid color(darker);
+      border-top: none;
+      color: color(darker);
+      font-weight: 600;
+      align-self: flex-start;
+      line-height: 1.5;
+    }
+    .input {
+      font-size: 2.76em;
+      padding-left: 0.5em;
+      color: color(darker);
+      background-color: color(light);
+      width: 100%;
+    }
+    .feedback {
+      width: 100%;
+      height: 0.1em;
+      background-color: darkred;
+    }
+  }
+}
+
+.website {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  background-image: linear-gradient(-45deg, color(dark), color(accent));
+
+  .handle {
+    color: #000;
+    font-weight: 600;
+    font-size: 3em;
+    font-style: italic;
+  }
+  .button-container {
+    font-size: 0.3em;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+  .warning {
+    color: 000;
+    font-weight: 600;
+    font-size: 2.5em;
+  }
+}
