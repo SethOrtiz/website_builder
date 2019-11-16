@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
 
-const Navbar = props => {
+const Navigation = props => {
   const { authenticated } = props;
 
   return (
@@ -87,4 +87,4 @@ const Navbar = props => {
   );
 };
 
-export default Navbar;
+export default Navigation;

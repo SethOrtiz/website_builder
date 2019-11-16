@@ -1,7 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { PREVIEW } from "../../../constants/routes";
+import { PREVIEW, DASHBOARD} from "../../../constants/routes";
+
 
 const Toolbox = props => {
   ///////////////////////////////////////////     STATE DECLARATION
@@ -51,17 +52,13 @@ const Toolbox = props => {
   return (
     <section id="toolbox" className="toolbox">
       <div className="main">
-        <h1 className="title">Hubstereo</h1>
+        <Link className="title" onClick={props.handleHome} to={DASHBOARD}>
+          <h1 >Hubstereo</h1>
+        </Link>
         <div className="button-container">
+          <button className="main-button btn">Publish</button>
           <button className="main-button btn">
-            Publish
-          </button>
-          <button className="main-button btn">
-            <Link
-              to={PREVIEW}
-            >
-              Preview
-            </Link>
+            <Link to={PREVIEW}>Preview</Link>
           </button>
         </div>
         <h2 className="subtitle">Tools</h2>
@@ -72,9 +69,7 @@ const Toolbox = props => {
                 return (
                   <div key={obj.id.toString()} className="update">
                     <li className="tool">{obj.content}</li>
-                    <button className="delete opacity">
-                      -
-                    </button>
+                    <button className="delete opacity">-</button>
                   </div>
                 );
               })}
