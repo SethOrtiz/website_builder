@@ -6,10 +6,10 @@ export default function Workstation() {
   return (
     <>
       <div className="workstation">
-        <aside className="aside">
+        <aside >
           <ToolboxContainer />
         </aside>
-        <main className="main">
+        <main>
           <DisplayContainer />
         </main>
       </div>
