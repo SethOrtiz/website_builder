@@ -136,8 +136,8 @@ code {
 }
 
 .dashboard .sidebar {
-  -webkit-box-shadow: 0.2em 0.3em 0.5em #040404;
-          box-shadow: 0.2em 0.3em 0.5em #040404;
+  border-radius: 2em;
+  border: 4px solid #fffef9;
 }
 
 .layout {
@@ -165,7 +165,7 @@ code {
 
 .workstation {
   background-color: #fffef9;
-  border: 2px solid #040404;
+  border: 2px solid #000;
   border-top: none;
 }
 
@@ -178,8 +178,8 @@ code {
 }
 
 .workstation main {
-  border-top: 2px solid #040404;
-  border-right: 2px solid #040404;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
   background-color: #111;
   width: 69.7vw;
   position: absolute;
@@ -195,7 +195,7 @@ code {
   font-size: 1.5em;
   color: #fffef9;
   background-color: #111;
-  border: 3px solid #2968b0;
+  border: 3px solid #fffef9;
   padding: 0.5em;
   border-radius: 1em;
   border-left: none;
@@ -299,7 +299,7 @@ code {
 }
 
 .auth-form {
-  background-image: linear-gradient(45deg, #111, #2968b0);
+  background-image: linear-gradient(45deg, #111, mistyrose);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -369,7 +369,7 @@ code {
 }
 
 .footer {
-  background-color: #040404;
+  background-color: #000;
   color: #fffef9;
   font-weight: 200;
   display: -webkit-box;
@@ -435,7 +435,7 @@ code {
 }
 
 .footer .more .social a:hover {
-  color: #2968b0;
+  color: mistyrose;
 }
 
 .footer .links {
@@ -507,7 +507,7 @@ code {
 }
 
 .footer .links .container .col ul li a:hover {
-  color: #2968b0;
+  color: mistyrose;
 }
 
 @media screen and (min-width: 840px) {
@@ -579,7 +579,9 @@ code {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: linear-gradient(45deg, #111, #2968b0);
+  background-image: linear-gradient(45deg, #111, mistyrose);
+  background-position: center;
+  background-size: cover;
 }
 
 .hero .get-started {
@@ -783,9 +785,10 @@ code {
 }
 
 .music-player .cover {
-  background-image: linear-gradient(45deg, #111, #277dde);
   width: 80vw;
   height: 80vw;
+  background-position: center;
+  background-size: cover;
 }
 
 @media screen and (min-width: 840px) {
@@ -1024,7 +1027,8 @@ code {
 
 .showcase .item {
   width: 100%;
-  background-image: linear-gradient(-45deg, #111, #2968b0);
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1210,10 +1214,11 @@ code {
   -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1em;
+  background-color: #111;
 }
 
 .gallery img {
-  background-image: linear-gradient(45deg, #111, #2968b0);
+  background-image: linear-gradient(45deg, #111, mistyrose);
 }
 
 .about {
@@ -1236,7 +1241,7 @@ code {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: linear-gradient(45deg, #111, #2968b0);
+  background-image: linear-gradient(45deg, #111, mistyrose);
 }
 
 .about .right-column {
@@ -1249,7 +1254,7 @@ code {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: linear-gradient(45deg, #111, #2968b0);
+  background-image: linear-gradient(45deg, #111, mistyrose);
 }
 
 .notepad {
@@ -1262,11 +1267,16 @@ code {
   display: grid;
   -ms-grid-rows: 1fr 10fr 1fr;
       grid-template-rows: 1fr 10fr 1fr;
+  border-top: 1px solid #fffef9;
+  border-bottom-right-radius: 2em;
+  border-bottom-left-radius: 2em;
+  background-color: #000;
+  display: grid;
   color: #fffef9;
 }
 
 .notepad form {
-  border-top: 2px solid #040404;
+  border-top: 1px solid #fffef9;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1298,12 +1308,11 @@ code {
 }
 
 .notepad .titleContainer {
-  border-bottom: 2px solid #040404;
+  border-bottom: 1px solid #fffef9;
 }
 
 .notepad .titleContainer .title {
   font-size: 2em;
-  color: #040404;
   text-align: center;
   padding: 0.2em;
 }
@@ -1340,7 +1349,6 @@ code {
   border: none;
   outline: none;
   font-weight: 700;
-  color: #040404;
 }
 
 .notepad .feedback {
@@ -1351,15 +1359,16 @@ code {
 
 .profile {
   height: 25vh;
-  background-color: #fffef9;
+  background-color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #040404;
-  border-bottom: 2px solid #040404;
+  color: #fffef9;
+  border-top-right-radius: 1.5em;
+  border-top-left-radius: 1.5em;
 }
 
 .profile img {
@@ -1370,16 +1379,20 @@ code {
   background-color: #fffef9;
   -o-object-fit: cover;
      object-fit: cover;
-  border: 2px solid #040404;
+  border: 4px solid #fffef9;
 }
 
-.profile .info {
-  margin-left: 0.3em;
-  font-size: 0.6em;
+.profile .info h1 {
+  font-size: 1.5em;
+}
+
+.profile .info h2 {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
 }
 
 .profile .placeholder {
-  background-color: #040404;
+  background-color: #000;
 }
 
 .myWebsites {
@@ -1392,13 +1405,18 @@ code {
 
 .myWebsites .edit {
   position: fixed;
+  z-index: 5;
+  top: 9vh;
   font-size: 1.5em;
-  background-color: #fffef9;
-  border: 2px solid #040404;
+  color: #fffef9;
+  background-color: #000;
+  border: 4px solid #fffef9;
+  padding: 0.5em;
+  border-radius: 1em;
   border-left: none;
-  outline: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   font-weight: 500;
-  margin-top: -2px;
 }
 
 .myWebsites .form {
@@ -1417,29 +1435,31 @@ code {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 2em;
-  -webkit-box-shadow: 0.2em 0.3em 0.5em #040404;
-          box-shadow: 0.2em 0.3em 0.5em #040404;
 }
 
 .myWebsites .form .create {
-  height: 100%;
   font-size: 2.76em;
-  background-color: #fffef9;
-  border-left: 2px solid #040404;
-  border-top: none;
-  color: #040404;
-  font-weight: 600;
+  background-color: #000;
+  font-weight: 400;
   -ms-flex-item-align: start;
       align-self: flex-start;
   line-height: 1.5;
+  color: #fffef9;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+  border: 4px solid #fffef9;
+  border-left: none;
+  padding: 0.1em 0.6em;
 }
 
 .myWebsites .form .input {
   font-size: 2.76em;
-  padding-left: 0.5em;
-  color: #040404;
-  background-color: #fffef9;
+  padding-left: 1em;
+  background-color: #000;
   width: 100%;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+  border: 4px solid #fffef9;
 }
 
 .website {
@@ -1452,7 +1472,7 @@ code {
       -ms-flex-pack: center;
           justify-content: center;
   color: #fffef9;
-  background-image: linear-gradient(-45deg, #111, #2968b0);
+  background-image: linear-gradient(-45deg, #111, mistyrose);
 }
 
 .website .action {
@@ -1532,8 +1552,8 @@ code {
           box-sizing: border-box;
   border-top-right-radius: 2em;
   border-bottom-right-radius: 2em;
-  border: 4px solid #2968b0;
-  background-color: #040404;
+  border: 4px solid #fffef9;
+  background-color: #000;
   border-left: none;
   display: -ms-grid;
   display: grid;

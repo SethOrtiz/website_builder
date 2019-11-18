@@ -6,12 +6,16 @@ const Hero = props => {
   return (
     <section id="Hero" className="hero">
       <Info
-        background="rgba(0,0,0,0.3)"
         fontColor="#fffef9"
         title="New Album Out Now"
         content="Lorem ipsum, Incidunt vel, obcaecati ipsum, corrupti nemo, saepe odio molestias qui. Commodi sit doloribus est eaque!"
       />
-      <div className="right-column">
+      <div
+        className="right-column"
+        style={{
+          backgroundImage: `url(${props.bgImage})`
+        }}
+      >
         <a href="#MusicPlayer">
           <button className="get-started">Listen</button>
         </a>

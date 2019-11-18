@@ -1,24 +1,30 @@
 .profile {
-    height: 25vh;
+  height: 25vh;
+  background-color: color(darker);
+  display: flex;
+  align-items: center;
+  color: color(light);
+  border-top-right-radius: 1.5em;
+  border-top-left-radius: 1.5em;
+  img {
+    border-radius: 50%;
+    height: 9em;
+    width: 9em;
+    margin-left: 3em;
     background-color: color(light);
-    display: flex;
-    align-items: center;
-    color: color(darker);
-    border-bottom: 2px solid color(darker);
-    img {
-      border-radius: 50%;
-      height: 9em;
-      width: 9em;
-      margin-left: 3em;
-      background-color: color(light);
-      object-fit: cover;
-      border: 2px solid color(darker);
+    object-fit: cover;
+    border: 4px solid color(light);
+  }
+  .info {
+    h1 {
+      font-size: 1.5em;
     }
-    .info {
-      margin-left: 0.3em;
-      font-size: 0.6em;
-    }
-    .placeholder {
-      background-color: color(darker);
+    h2 {
+      font-size: 0.9em;
+      margin-bottom: 0.5em;
     }
   }
+  .placeholder {
+    background-color: color(darker);
+  }
+}

@@ -18,7 +18,7 @@ const Profile = props => {
         <>
           <img src={props.imageUrl} alt="" />
           <div className="info">
-            <p>Welcome</p>
+            <h2>Welcome</h2>
             <h1>{props.handle}</h1>
           </div>
         </>

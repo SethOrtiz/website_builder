@@ -69,7 +69,12 @@ const MusicPlayer = props => {
         </div>
       </div>
       <div className="cover-container">
-        <div className="cover"></div>
+        <div
+          className="cover"
+          style={{
+            backgroundImage: `url(${props.coverImage})`
+          }}
+        ></div>
       </div>
     </section>
   );

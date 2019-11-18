@@ -1,6 +1,6 @@
 $desktop: 840px;
 $colors: (
-  accent: #2968b0,
+  accent: mistyrose,
   accent-light: lighten(#154c8a, 20%),
   accent-dark: darken(#154c8a, 20%),
   complement: complement(#154c8a),
@@ -8,7 +8,7 @@ $colors: (
   error: darkred,
   light: #fffef9,
   dark: #111,
-  darker: darken(#111, 5%),
+  darker: #000,
   babyblue: #e3f0ff,
   blue: #d2e7ff,
   peach: #ffefd7,

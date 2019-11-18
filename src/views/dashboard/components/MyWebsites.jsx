@@ -61,7 +61,7 @@ const MyWebsites = props => {
   return (
     <section id="Dashboard" className="myWebsites">
       <button onClick={toggleEdit} className="edit">
-        {edit.enabled ? "BACK" : "EDIT"}
+        {edit.enabled ? "Cancel" : "Edit"}
       </button>
       <div className="myWebsites">
         {userLoading ? (

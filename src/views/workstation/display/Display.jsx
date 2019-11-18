@@ -96,11 +96,20 @@ const Display = props => {
   // };
 
   return (
-    <section id="display" >
+    <section id="display">
       <Nav />
-      <Hero />
-      <Showcase />
-      <MusicPlayer />
+      <Hero bgImage="https://bit.ly/2rRX3sV" />
+      <Showcase
+        imageOne="https://bit.ly/2KzwCim"
+        imageTwo="https://bit.ly/2KzwCim"
+        imageThree="https://bit.ly/2KzwCim"
+        imageFour="https://bit.ly/2KzwCim"
+        captionOne="Caption"
+        captionTwo="Caption"
+        captionThree="Caption"
+        captionFour="Caption"
+      />
+      <MusicPlayer coverImage="https://bit.ly/32Vh0fe" />
       <About />
       <Gallery />
       <Footer />

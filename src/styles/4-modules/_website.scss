@@ -6,13 +6,18 @@
 
   .edit {
     position: fixed;
+    z-index: 5;
+    top: 9vh;
     font-size: 1.5em;
-    background-color: color(light);
-    border: 2px solid color(darker);
-    border-left: none;
-    outline: none;
+    color: color(light);
+    background-color: color(darker);
+    border: 4px solid color(light);
+    padding: 0.5em;
+    border-radius: 1em;
+    border-left: none;  
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     font-weight: 500;
-    margin-top: -2px;
   }
   .form {
     position: relative;
@@ -21,24 +26,27 @@
     align-items: flex-center;
     justify-content: space-between;
     margin-top: 2em;
-    box-shadow: 0.2em 0.3em 0.5em color(darker);
     .create {
-      height: 100%;
       font-size: 2.76em;
-      background-color: color(light);
-      border-left: 2px solid color(darker);
-      border-top: none;
-      color: color(darker);
-      font-weight: 600;
+      background-color: color(darker);
+      font-weight: 400;
       align-self: flex-start;
       line-height: 1.5;
+      color: color(light);
+      border-top-right-radius: 2em;
+      border-bottom-right-radius: 2em;
+      border: 4px solid color(light);
+      border-left: none;
+      padding: 0.1em 0.6em;
     }
     .input {
       font-size: 2.76em;
-      padding-left: 0.5em;
-      color: color(darker);
-      background-color: color(light);
+      padding-left: 1em;
+      background-color: color(darker);
       width: 100%;
+      border-top-left-radius: 2em;
+      border-bottom-left-radius: 2em;
+      border: 4px solid color(light);
     }
   }
 }
