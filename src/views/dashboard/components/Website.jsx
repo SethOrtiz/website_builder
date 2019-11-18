@@ -32,7 +32,7 @@ const handleDelete = (Id) => {
                 </div>
               </div>
             ) : (
-              <div className="handle" to={WORKSTATION}>
+              <div className="action" to={WORKSTATION}>
                 {props.name}
                 <div className="button-container">
                   <button
@@ -48,7 +48,7 @@ const handleDelete = (Id) => {
           </>
         ) : (
           <div className="exp-center-black">
-            <Link className="handle" to={WORKSTATION}>
+            <Link className="action-btn" to={WORKSTATION}>
               {props.name}
             </Link>
           </div>

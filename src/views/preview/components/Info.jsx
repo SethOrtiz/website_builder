@@ -3,6 +3,7 @@ import React from "react";
 const Info = props => {
   return (
     <section
+    id="Info"
     className="info"
       style={{
         backgroundColor: props.background,

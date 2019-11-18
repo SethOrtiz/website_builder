@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 
 const Gallery = props => {
   return (
-    <section>
+    <section id="Gallery">
       <div className="gallery">
         <img src="" alt="" />
         <img src="" alt="" />

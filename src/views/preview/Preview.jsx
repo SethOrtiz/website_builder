@@ -7,11 +7,15 @@ import Footer from "./components/Footer";
 import MusicPlayer from "./components/MusicPlayer";
 import Showcase from "./components/Showcase";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { WORKSTATION } from "../../constants/routes";
 
 const Preview = props => {
-
   return (
     <section id="preview" className="preview">
+      <Link to={WORKSTATION} className="exit-preview">
+        Exit Preview
+      </Link>
       <Nav />
       <Hero />
       <Showcase />

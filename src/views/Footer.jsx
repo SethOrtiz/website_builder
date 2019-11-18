@@ -1,71 +1,85 @@
 import React from "react";
+import { FaFacebook, FaInstagram, FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-      <footer className="footer">
-        <div className="social">
-          <h1>H</h1>
-          <h1>U</h1>
-          <h1>B</h1>
-          <h1>S</h1>
-          <h1>T</h1>
-          <h1>E</h1>
-          <h1>R</h1>
-          <h1>E</h1>
-          <h1>O</h1>
-        </div>
-        <div className="links">
-          <div>
-            <h3 className="header">Community</h3>
+    <footer className="footer">
+      <div className="links">
+        <div className="container">
+          <div className="col">
+            <h3 className="header">How it works</h3>
             <ul>
               <li>
-                <a href="#H">
-                  Get Started
-                </a>
+                <a href="#Hero">Getting Started</a>
               </li>
               <li>
-                <a href="#A">
-                  Solo Artists
-                </a>
+                <a href="https://www.apple.com/ios/app-store/">App Store</a>
               </li>
               <li>
-                <a href="#B">
-                  Bands
-                </a>
+                <a href="#FAQ">FAQ</a>
               </li>
             </ul>
           </div>
-          <div>
+        </div>
+        <div className="container">
+          <div className="col">
             <h3 className="header">Company</h3>
             <ul>
               <li>
-                <a href="#1">
-                  About Us
-                </a>
+                <a href="#AboutUs">Our Mission</a>
               </li>
               <li>
-                <a href="#1">
-                  Get in Touch
-                </a>
+                <a href="#Preview">How It Works</a>
               </li>
               <li>
-                <a href="#1">
-                  Developers
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="header">Support</h3>
-            <ul>
-              <li>
-                <a href="#1">
-                  Help Desk
-                </a>
+                <a href="#Team">Developers</a>
               </li>
             </ul>
           </div>
         </div>
-      </footer>
+        <div className="container">
+          <div className="col">
+            <h3 className="header">Contact</h3>
+            <ul>
+              <li>
+                <a href="#Hero">Email</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="container">
+          <div className="col">
+            <h3 className="header">Connect</h3>
+            <ul>
+              <li>
+                <a href="#Team">LinkedIn</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="more">
+        <div className="social">
+          <a href="#0">
+            <FaLinkedin />
+          </a>
+          <a href="#1">
+            <FaFacebook />
+          </a>
+          <a href="#2">
+            <FaInstagram />
+          </a>
+          <a href="#3">
+            <FaGithub />
+          </a>
+          <a href="#4">
+            <FaTwitter />
+          </a>
+        </div>
+        <div className="copyright">
+          Copyright © 2019 Hubstereo. / All rights reserved.
+        </div>
+      </div>
+    </footer>
   );
 }

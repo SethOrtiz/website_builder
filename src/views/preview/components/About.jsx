@@ -4,7 +4,7 @@ import Info from "./Info";
 
 const About = props => {
   return (
-      <section id="about-grid" className="about">
+      <section id="AboutUs" className="about">
         <div className="left-column"></div>
         <Info
           background="rgba(0,0,0,0.3)"

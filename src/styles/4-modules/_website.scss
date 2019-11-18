@@ -25,7 +25,6 @@
     .create {
       height: 100%;
       font-size: 2.76em;
-      font-style: italic;
       background-color: color(light);
       border-left: 2px solid color(darker);
       border-top: none;
@@ -41,11 +40,6 @@
       background-color: color(light);
       width: 100%;
     }
-    .feedback {
-      width: 100%;
-      height: 0.1em;
-      background-color: darkred;
-    }
   }
 }
 
@@ -53,15 +47,45 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  color: #000;
+  color: color(light);
   background-image: linear-gradient(-45deg, color(dark), color(accent));
 
-  .handle {
-    color: #000;
+  .action {
+    font-size: 4rem;
+    background-color: inherit;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    text-align: center;
     font-weight: 600;
-    font-size: 3em;
-    font-style: italic;
+    position: relative;
   }
+  .action-btn {
+    font-size: 4rem;
+    background-color: inherit;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+  }
+  .action-btn::before {
+    content: "";
+    display: block;
+    height: 3px;
+    background: color(light);
+    position: absolute;
+    bottom: -0.2em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 400ms;
+  }
+  .action-btn:hover::before {
+    transform: scale(1, 1);
+  }
+
   .button-container {
     font-size: 0.3em;
     display: flex;
@@ -72,5 +96,15 @@
     color: 000;
     font-weight: 600;
     font-size: 2.5em;
+  }
+  .btn {
+    font-size: 1em;
+    background-color: inherit;
+    border: 1px solid color(light);
+    font-weight: 500;
+    margin-top: 1em;
+    border-radius: 2em;
+    padding: 0.25em 1em;
+    color: color(light);
   }
 }

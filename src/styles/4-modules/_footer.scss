@@ -1,43 +1,125 @@
 .footer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  color: color(light);
-  margin: auto;
   background-color: color(darker);
+  color: color(light);
+  font-weight: 200;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+  position: relative;
+  z-index: 5;
 
-  .sphere {
-    border-radius: 50%;
-    height: 1em;
-    width: 1em;
-    background-color: color(light);
-  }
-  .social {
+  .more {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: color(light);
-    font-size: 1.5em;
+    flex-direction: column;
+    margin-left: 0;
+
+    div {
+      height: 5em;
+      text-align: center;
+    }
+
+    .copyright {
+      border-top: 1px solid #555;
+      font-size: 0.8em;
+      display: flex;
+      align-items: center;
+      color: color(light);
+      justify-content: center;
+    }
+    .social {
+      font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 3em;
+      a {
+        color: color(light);
+        transition: color 0.35s ease;
+      }
+      a:hover {
+        color: color(accent);
+      }
+    }
   }
-  .header {
-    margin-bottom: 0.3em;
-  }
-  .links{
+
+  .links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    justify-content: space-around;
-    font-size: 1.2em;
-    padding: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    font-size: 1em;
+    overflow: hidden;
+    .container {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      border-left: none;
+      width: 100%;
+      .col {
+        width: 100%;
+        text-align: left;
+        padding-left: 1em;
+        overflow-wrap: break-word;
+        .header {
+          margin-bottom: 1em;
+          color: color(light);
+          font-weight: 600;
+          font-size: 0.9em;
+        }
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          width: 100%;
+          li {
+            padding: 0 1em 1em 0;
+
+            a {
+              color: color(light);
+              text-decoration: none;
+              font-size: 0.9em;
+              font-weight: 200;
+              transition: color 0.25s ease;
+            }
+            a:hover {
+              color: color(accent);
+            }
+          }
+        }
+      }
+    }
   }
-  .container {
-    background-color: color(dark);
-  }
-  a {
-    color: color(light);
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: opacity 150ms ease-in-out;
-  }
-  a:hover {
-    color: #888
+
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+
+    .more {
+      .social {
+        font-size: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 35%;
+        height: 3em;
+      }
+    }
+    .links {
+      padding: 0 15%;
+      display: flex;
+      justify-content: center;
+      .container {
+        .col {
+          width: 10em;
+          height: 100%;
+          ul {
+            flex-direction: column;
+            padding: none;
+            justify-content: center;
+          }
+        }
+      }
+    }
   }
 }
+

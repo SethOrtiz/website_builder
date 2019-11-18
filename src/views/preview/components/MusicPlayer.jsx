@@ -2,7 +2,7 @@ import React from "react";
 
 const MusicPlayer = props => {
   return (
-    <section className="music-player">
+    <section id="MusicPlayer" className="music-player">
       <div className="main-container">
         <div className="title">Album Title</div>
         <div className="track-container">

@@ -56,12 +56,11 @@ const Toolbox = props => {
           <h1 >Hubstereo</h1>
         </Link>
         <div className="button-container">
-          <button className="main-button btn">Publish</button>
-          <button className="main-button btn">
+          <button className="main-button">Publish</button>
+          <button className="main-button">
             <Link to={PREVIEW}>Preview</Link>
           </button>
         </div>
-        <h2 className="subtitle">Tools</h2>
         <div className="container">
           <ul>
             {props.tools &&
@@ -75,7 +74,6 @@ const Toolbox = props => {
               })}
           </ul>
         </div>
-        <h2 className="subtitle">Sections</h2>
         <div className="container"></div>
       </div>
     </section>
