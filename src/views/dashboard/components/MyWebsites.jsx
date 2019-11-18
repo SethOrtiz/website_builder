@@ -65,7 +65,7 @@ const MyWebsites = props => {
       </button>
       <div className="myWebsites">
         {userLoading ? (
-          <div className="loaderContainer">
+          <div className="loader-container">
             <div className="loader">
               <div></div>
               <div></div>
