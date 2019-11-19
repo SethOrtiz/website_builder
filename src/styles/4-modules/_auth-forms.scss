@@ -20,15 +20,15 @@
 }
 
 .control::placeholder {
-  color: #777;
+  color: color(light);
 }
 .control:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #777;
+  color: color(light);
 }
 .control::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #777;
+  color: color(light);
 }
 .control-two {
   display: block;
@@ -45,20 +45,20 @@
 }
 
 .control-two:focus {
-  color: #555;
+  color: color(light);
   background-color: inherit;
   outline: 0;
 }
 .control-two::placeholder {
-  color: #555;
+  color: color(light);
 }
 .control-two:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #555;
+  color: color(light);
 }
 .control-two::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #555;
+  color: color(light);
 }
 
 .auth-form {

@@ -46,7 +46,7 @@ select:-webkit-autofill:focus {
   -webkit-backdrop-filter: brightness(98%);
           backdrop-filter: brightness(98%);
   outline: 0;
-  -webkit-text-fill-color: #555;
+  -webkit-text-fill-color: #fffef9;
   -webkit-transition: background-color 5000s;
   transition: background-color 5000s;
 }
@@ -227,29 +227,29 @@ code {
 }
 
 .control::-webkit-input-placeholder {
-  color: #777;
+  color: #fffef9;
 }
 
 .control:-ms-input-placeholder {
-  color: #777;
+  color: #fffef9;
 }
 
 .control::-ms-input-placeholder {
-  color: #777;
+  color: #fffef9;
 }
 
 .control::placeholder {
-  color: #777;
+  color: #fffef9;
 }
 
 .control:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #777;
+  color: #fffef9;
 }
 
 .control::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #777;
+  color: #fffef9;
 }
 
 .control-two {
@@ -267,35 +267,35 @@ code {
 }
 
 .control-two:focus {
-  color: #555;
+  color: #fffef9;
   background-color: inherit;
   outline: 0;
 }
 
 .control-two::-webkit-input-placeholder {
-  color: #555;
+  color: #fffef9;
 }
 
 .control-two:-ms-input-placeholder {
-  color: #555;
+  color: #fffef9;
 }
 
 .control-two::-ms-input-placeholder {
-  color: #555;
+  color: #fffef9;
 }
 
 .control-two::placeholder {
-  color: #555;
+  color: #fffef9;
 }
 
 .control-two:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #555;
+  color: #fffef9;
 }
 
 .control-two::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #555;
+  color: #fffef9;
 }
 
 .auth-form {
@@ -401,7 +401,7 @@ code {
 }
 
 .footer .more .copyright {
-  border-top: 1px solid #555;
+  border-top: 1px solid #fffef9;
   font-size: 0.8em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -619,6 +619,26 @@ code {
           transform: scale(1, 1);
 }
 
+.hero .get-started::-webkit-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.hero .get-started:-ms-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.hero .get-started::-ms-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.hero .get-started::placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
 .info {
   display: -ms-grid;
   display: grid;
@@ -697,6 +717,71 @@ code {
 .info a:hover::before {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
+}
+
+.title-input {
+  margin-bottom: 1em;
+  font-size: 3em;
+  background-color: inherit;
+  color: #fffef9;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.title-input::-webkit-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.title-input:-ms-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.title-input::-ms-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.title-input::placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.paragraph-input {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.5em;
+  background-color: inherit;
+  color: #fffef9;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.paragraph-input::-webkit-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.paragraph-input:-ms-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.paragraph-input::-ms-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.paragraph-input::placeholder {
+  color: #fffef9;
+  opacity: 1;
 }
 
 .music-player {

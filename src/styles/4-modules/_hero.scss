@@ -41,4 +41,8 @@
   .get-started:hover::before {
     transform: scale(1, 1);
   }
+  .get-started::placeholder{
+    color: color(light);
+    opacity: 1;
+  }
 }

@@ -10,6 +10,7 @@
     margin-bottom: 1em;
     font-size: 3em;
   }
+
   p {
     display: flex;
     align-items: center;
@@ -44,4 +45,39 @@
   a:hover::before {
     transform: scale(1, 1);
   }
+}
+
+/////// Workstation Display Inputs
+
+.title-input{
+  margin-bottom: 1em;
+  font-size: 3em;
+  background-color: inherit;
+  color: color(light);
+  border: none;
+  outline: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.title-input::placeholder{
+  color: color(light);
+  opacity: 1;
+}
+
+.paragraph-input {
+  position: relative;
+  display: flex;
+  font-size: 1.5em;
+  background-color: inherit;
+  color: color(light);
+  border: none;
+  outline: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.paragraph-input::placeholder{
+  color: color(light);
+  opacity: 1;
 }
