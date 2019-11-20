@@ -1,11 +1,12 @@
 .profile {
   height: 25vh;
-  background-color: color(darker);
+  background-color: inherit;
   display: flex;
   align-items: center;
   color: color(light);
   border-top-right-radius: 1.5em;
   border-top-left-radius: 1.5em;
+  
   img {
     border-radius: 50%;
     height: 9em;
@@ -13,18 +14,20 @@
     margin-left: 3em;
     background-color: color(light);
     object-fit: cover;
-    border: 4px solid color(light);
+    border: 3px solid color(light);
   }
   .info {
     h1 {
       font-size: 1.5em;
+      font-weight: 300;
     }
     h2 {
+      font-weight: 300;
       font-size: 0.9em;
       margin-bottom: 0.5em;
     }
   }
   .placeholder {
-    background-color: color(darker);
+    background-color: inherit;
   }
 }

@@ -5,14 +5,15 @@
   aside {
     display: grid;
     position: fixed;
-    margin: 2em 0;
-    width: 30vw;
+    margin: 1em 0;
+    width: 19vw;
+    height: 96vh;
   }
   main {
     border-top: 2px solid color(darker);
     border-right: 2px solid color(darker);
     background-color: color(dark);
-    width: 69.7vw;
+    width: 80vw;
     position: absolute;
     right: 2px;
     box-sizing: border-box;

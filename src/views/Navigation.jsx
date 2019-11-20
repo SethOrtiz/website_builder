@@ -16,16 +16,6 @@ const Navigation = props => {
           <nav>
             <ul>
               <li>
-                <Link className="link" to={ROUTES.DASHBOARD}>
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link className="link" to={ROUTES.WORKSTATION}>
-                  Workstation
-                </Link>
-              </li>
-              <li>
                 <Link
                   onClick={props.signOut}
                   className="link"
@@ -48,16 +38,6 @@ const Navigation = props => {
           <input type="checkbox" id="nav-toggle" className="nav-toggle" />
           <nav>
             <ul>
-              <li>
-                <Link className="link" to={ROUTES.LANDING}>
-                  Share
-                </Link>
-              </li>
-              <li>
-                <Link className="link" to={ROUTES.LANDING}>
-                  Explore
-                </Link>
-              </li>
               <li>
                 <Link
                   className="link"

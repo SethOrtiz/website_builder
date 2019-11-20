@@ -10,14 +10,13 @@
     top: 9vh;
     font-size: 1.5em;
     color: color(light);
-    background-color: color(darker);
-    border: 4px solid color(light);
+    background-color: inherit;
+    border: 1px solid color(light);
     padding: 0.5em;
     border-radius: 1em;
-    border-left: none;  
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    font-weight: 500;
+    font-weight: 300;
   }
   .form {
     position: relative;
@@ -27,26 +26,27 @@
     justify-content: space-between;
     margin-top: 2em;
     .create {
-      font-size: 2.76em;
-      background-color: color(darker);
-      font-weight: 400;
+      font-size: 2.7em;
+      background-color: inherit;
+      font-weight: 300;
       align-self: flex-start;
       line-height: 1.5;
       color: color(light);
       border-top-right-radius: 2em;
       border-bottom-right-radius: 2em;
-      border: 4px solid color(light);
+      border: 1px solid color(light);
       border-left: none;
       padding: 0.1em 0.6em;
     }
     .input {
-      font-size: 2.76em;
+      font-size: 2.7em;
+      font-weight: 300;
       padding-left: 1em;
-      background-color: color(darker);
+      background-color: inherit;
       width: 100%;
       border-top-left-radius: 2em;
       border-bottom-left-radius: 2em;
-      border: 4px solid color(light);
+      border: 1px solid color(light);
     }
   }
 }

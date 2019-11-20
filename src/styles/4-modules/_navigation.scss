@@ -1,14 +1,13 @@
 /*  NAVIGATION */
 
 .navigation {
-  background: rgba(color(dark), 0.6);
+  background: rgba(color(dark), 0.3);
   color: color(light);
   text-align: center;
   position: fixed;
   z-index: 999;
   width: 100vw;
   height: 8vh;
-  z-index: 1;
 
   .logo {
     font-size: 1.5em;
@@ -99,7 +98,7 @@
   }
   @media screen and (min-width: $desktop) {
     display: grid;
-    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    grid-template-columns: 1fr auto minmax(600px, 5fr) 1fr;
 
     .nav-toggle-label {
       display: none;
@@ -133,7 +132,6 @@
       }
 
       li {
-        margin-left: 3em;
         margin-bottom: 0;
       }
 
