@@ -26,31 +26,23 @@ const Hero = props => {
             placeHolder="Lorem ipsum, Incidunt vel, obcaecati ipsum, corrupti nemo, saepe odio molestias qui. Commodi sit doloribus est eaque!"
           />
         </form>
-        {/* linkOne ,linkTwo, and linkThree are arrays in the props objects [href, content, color] */}
-        <div className="link-container">
-          {props.linkOne && (
-            <a style={{ color: props.linkOne[2] }} href={props.linkOne[1]}>
-              {props.linkOne[0]}
-            </a>
-          )}
-          {props.linkTwo && (
-            <a style={{ color: props.linkTwo[2] }} href={props.linkTwo[1]}>
-              {props.linkTwo[0]}
-            </a>
-          )}
-          {props.linkThree && (
-            <a href={props.linkThree[1]}>{props.linkThree[0]}</a>
-          )}
-        </div>
       </section>
       <div
         className="right-column"
         style={{
-          backgroundImage: `url(${props.bgImage})`
+          backgroundImage: `url(https://bit.ly/2rRX3sV)`
         }}
       >
         <form action="">
-          <input className="get-started" placeHolder="Listen"></input>
+          <textArea
+            name="text"
+            rows="1"
+            cols="10"
+            wrap="soft"
+            className="get-started-input"
+            type="text"
+            placeHolder="Listen"
+          />
         </form>
       </div>
     </section>

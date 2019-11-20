@@ -23,4 +23,31 @@
       padding: 0 0 1em 1em;
     }
   }
+  ////////// Workstation Display Inputs ///////////////
+  .item-input {
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+
+    .caption-input {
+      color: color(light);
+      font-size: 2em;
+      padding: 0 0 1em 1em;
+      background-color: inherit;
+      color: color(light);
+      border-radius: 2rem;
+      border: none;
+      outline: none;
+      position: relative;
+    }
+    .caption-input::placeholder {
+      color: color(light);
+      opacity: 1;
+    }
+  }
 }

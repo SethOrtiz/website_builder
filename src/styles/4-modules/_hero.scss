@@ -12,7 +12,6 @@
     background-image: linear-gradient(45deg, color(dark), color(accent));
     background-position: center;
     background-size: cover;
-  
   }
   .get-started {
     font-size: 4rem;
@@ -41,7 +40,24 @@
   .get-started:hover::before {
     transform: scale(1, 1);
   }
-  .get-started::placeholder{
+  .get-started::placeholder {
+    color: color(light);
+    opacity: 1;
+  }
+  .get-started-input {
+    font-size: 4rem;
+    background-color: inherit;
+    color: color(light);
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-weight: 600;
+    font-style: italic;
+    position: relative;
+  }
+
+  .get-started-input::placeholder {
     color: color(light);
     opacity: 1;
   }

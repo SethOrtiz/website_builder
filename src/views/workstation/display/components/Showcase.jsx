@@ -6,36 +6,68 @@ const Showcase = props => {
     <section className="showcase">
       <div className="wrapper">
         <div
-          className="item"
+          className="item-input"
           style={{
-            backgroundImage: `url(${props.imageOne})`
+            backgroundImage: `url(https://bit.ly/2KzwCim)`
           }}
         >
-          <p>{props.captionOne}</p>
+          <textArea
+            name="text"
+            rows="1"
+            cols="14"
+            wrap="soft"
+            className="caption-input"
+            type="text"
+            placeHolder="Caption"
+          />
         </div>
         <div
-          className="item"
+          className="item-input"
           style={{
-            backgroundImage: `url(${props.imageTwo})`
+            backgroundImage: `url(https://bit.ly/2KzwCim)`
           }}
         >
-          <p>{props.captionTwo}</p>
+          <textArea
+            name="text"
+            rows="1"
+            cols="14"
+            wrap="soft"
+            className="caption-input"
+            type="text"
+            placeHolder="Caption"
+          />
         </div>
         <div
-          className="item"
+          className="item-input"
           style={{
-            backgroundImage: `url(${props.imageThree})`
+            backgroundImage: `url(https://bit.ly/2KzwCim)`
           }}
         >
-          <p>{props.captionThree}</p>
+          <textArea
+            name="text"
+            rows="1"
+            cols="14"
+            wrap="soft"
+            className="caption-input"
+            type="text"
+            placeHolder="Caption"
+          />
         </div>
-        <div
-          className="item"
+                <div
+          className="item-input"
           style={{
-            backgroundImage: `url(${props.imageFour})`
+            backgroundImage: `url(https://bit.ly/2KzwCim)`
           }}
         >
-          <p>{props.captionFour}</p>
+          <textArea
+            name="text"
+            rows="1"
+            cols="14"
+            wrap="soft"
+            className="caption-input"
+            type="text"
+            placeHolder="Caption"
+          />
         </div>
       </div>
     </section>
