@@ -5,7 +5,7 @@
     display: grid;
     grid-auto-rows: 100vh;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1em;
+    grid-gap: 1.5em;
   }
   .item {
     width: 100%;

@@ -10,13 +10,16 @@
     top: 9vh;
     font-size: 1.5em;
     color: color(light);
-    background-color: inherit;
+    background-color: color(dark);
     border: 1px solid color(light);
     padding: 0.5em;
     border-radius: 1em;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     font-weight: 300;
+  }
+  .edit:hover {
+    background-color: color(darker);
   }
   .form {
     position: relative;

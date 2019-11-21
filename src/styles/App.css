@@ -939,6 +939,39 @@ code {
   }
 }
 
+.music-player .title-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5em;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fffef9;
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+
+.music-player .title-input::-webkit-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.music-player .title-input:-ms-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.music-player .title-input::-ms-input-placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
+.music-player .title-input::placeholder {
+  color: #fffef9;
+  opacity: 1;
+}
+
 /*  NAVIGATION */
 .navigation {
   background: rgba(17, 17, 17, 0.3);
@@ -1142,7 +1175,7 @@ code {
   grid-auto-rows: 100vh;
   -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 1em;
+  grid-gap: 1.5em;
 }
 
 .showcase .item {
@@ -1582,13 +1615,17 @@ code {
   top: 9vh;
   font-size: 1.5em;
   color: #fffef9;
-  background-color: inherit;
+  background-color: #111;
   border: 1px solid #fffef9;
   padding: 0.5em;
   border-radius: 1em;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   font-weight: 300;
+}
+
+.myWebsites .edit:hover {
+  background-color: #000;
 }
 
 .myWebsites .form {

@@ -99,8 +99,8 @@ const Display = props => {
     <section id="display">
       <Nav />
       <Hero />
+      <MusicPlayer />
       <Showcase />
-      <MusicPlayer coverImage="https://bit.ly/32Vh0fe" />
       <About />
       <Gallery />
       <Footer />

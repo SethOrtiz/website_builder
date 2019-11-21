@@ -55,7 +55,7 @@
     background-position: center;
     background-size: cover;
   }
-  
+
   @media screen and (min-width: $desktop) {
     height: 100vh;
     grid-auto-rows: 100vh;
@@ -73,5 +73,20 @@
       width: 60vh;
       height: 60vh;
     }
+  }
+  //////////////////////// INPUTS FOR WORKSTATION ////////////////////////
+  .title-input {
+    display: flex;
+    margin-bottom: 0.5em;
+    font-size: 3rem;
+    font-weight: 600;
+    color: color(light);
+    background-color: inherit;
+    border: none;
+    outline: none;
+  }
+  .title-input::placeholder {
+    color: color(light);
+    opacity: 1;
   }
 }

@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 const Hero = props => {
   return (
     <section id="hero-grid" className="hero">
-      <section id="Info" className="info">
+      {/* <section id="Info" className="info">
         <form action="">
           <textArea
             name="text"
@@ -26,7 +26,7 @@ const Hero = props => {
             placeHolder="Lorem ipsum, Incidunt vel, obcaecati ipsum, corrupti nemo, saepe odio molestias qui. Commodi sit doloribus est eaque!"
           />
         </form>
-      </section>
+      </section> */}
       <div
         className="right-column"
         style={{

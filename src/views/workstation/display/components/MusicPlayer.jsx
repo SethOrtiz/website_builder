@@ -4,7 +4,17 @@ const MusicPlayer = props => {
   return (
     <section className="music-player">
       <div className="main-container">
-        <div className="title">Album Title</div>
+                <form action="">
+          <textArea
+            name="text"
+            rows="1"
+            cols="18"
+            wrap="soft"
+            className="title-input"
+            type="text"
+            placeHolder="Album Title"
+          />
+        </form>
         <div className="track-container">
           {props.tracksLoading ? (
             <div className="loader-container">
@@ -72,7 +82,7 @@ const MusicPlayer = props => {
         <div
           className="cover"
           style={{
-            backgroundImage: `url(${props.coverImage})`
+            backgroundImage: `url(https://bit.ly/2rRX3sV)`
           }}
         ></div>
       </div>

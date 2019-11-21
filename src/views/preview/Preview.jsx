@@ -18,6 +18,7 @@ const Preview = props => {
       </Link>
       <Nav />
       <Hero bgImage="https://bit.ly/2rRX3sV" />
+      <MusicPlayer coverImage="https://bit.ly/32Vh0fe" />
       <Showcase
         imageOne="https://bit.ly/2KzwCim"
         imageTwo="https://bit.ly/2KzwCim"
@@ -28,7 +29,6 @@ const Preview = props => {
         captionThree="Caption"
         captionFour="Caption"
       />
-      <MusicPlayer coverImage="https://bit.ly/32Vh0fe" />
       <About />
       <Gallery />
       <Footer />
