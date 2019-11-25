@@ -31,7 +31,7 @@
 #### Technologies Utilized
 | Languages     | Frameworks    | Libraries     | Databases     | Other              |        |
 | ------------- | ------------- | ------------- | ------------- | ---------------    | ------ |
-| Javascript    | Springboot    | React.js      | Firebase      | Axions             | Busboy |
+| Javascript    | Springboot    | React.js      | Firebase      | Axios              | Busboy |
 | Java          | Express       | Redux         | PostgreSQL    | React-Router       |        |
 | CSS           |               |               |               | Firebase Admin     |        |
 | HTML          |               |               |               | Firebase Functions |        |
