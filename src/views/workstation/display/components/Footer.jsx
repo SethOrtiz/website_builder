@@ -1,5 +1,11 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import {
+  FaFacebook,
+  FaInstagram,
+  FaGithub,
+  FaTwitter,
+  FaLinkedin
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -7,7 +13,15 @@ export default function Footer() {
       <div className="links">
         <div className="container">
           <div className="col">
-            <h3 className="header">How it works</h3>
+            <textArea
+              name="text"
+              rows="1"
+              cols="10"
+              wrap="soft"
+              className="paragraph-input"
+              type="text"
+              placeHolder="Title"
+            />
             <ul>
               <li>
                 <a href="#Hero">Getting Started</a>
@@ -17,42 +31,6 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#FAQ">FAQ</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="container">
-          <div className="col">
-            <h3 className="header">Company</h3>
-            <ul>
-              <li>
-                <a href="#AboutUs">Our Mission</a>
-              </li>
-              <li>
-                <a href="#Preview">How It Works</a>
-              </li>
-              <li>
-                <a href="#Team">Developers</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="container">
-          <div className="col">
-            <h3 className="header">Contact</h3>
-            <ul>
-              <li>
-                <a href="#Hero">Email</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="container">
-          <div className="col">
-            <h3 className="header">Connect</h3>
-            <ul>
-              <li>
-                <a href="#Team">LinkedIn</a>
               </li>
             </ul>
           </div>
@@ -83,4 +61,3 @@ export default function Footer() {
     </footer>
   );
 }
-
